@@ -18,7 +18,6 @@ namespace ESPAdmin
     {
     public:
         Logger(String scope);
-        static void begin();
         void info(String message);
         void error(String message);
         void warn(String message);

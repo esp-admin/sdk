@@ -7,12 +7,6 @@ namespace ESPAdmin
         _scope = scope;
     }
 
-    void Logger::begin()
-    {
-        Serial.begin(Store::debug.baudrate);
-        Serial.printf("\n");
-    }
-
     void Logger::info(String message)
     {
         _log(ANSI_COLOR_BLUE, "info", message);

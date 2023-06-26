@@ -7,4 +7,14 @@ namespace ESPAdmin
         serial : true,
         remote : false,
     };
+
+    Mqtt Store::mqtt = {
+        connected : false,
+        uriTCP : "",
+        uriWS : "",
+        clientId : "",
+        username : "",
+        password : "",
+        certificate : ""
+    };
 }

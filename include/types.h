@@ -13,11 +13,7 @@ namespace ESPAdmin
 
     struct Mqtt
     {
-        enum
-        {
-            CONNECTED,
-            DISCONNECTED,
-        } status;
+        bool connected;
         String uriTCP;
         String uriWS;
         String clientId;

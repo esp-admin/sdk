@@ -2,19 +2,28 @@
 #define H_ESP_ADMIN_MQTT
 
 #include <Arduino.h>
+#include "Logger.h"
+#include "Store.h"
+#include <mqtt_client.h>
 
 namespace ESPAdmin
 {
     class MQTT
     {
     public:
-        void connect();
-        void disconnect();
-        void publish(String topic, String message);
-        void subscribe(String topic);
+        static void connect();
+        static void disconnect();
+        static void publish(String topic, String message);
+        static void subscribe(String topic);
 
     private:
-        void _onReceive(String topic, String message);
+        static Logger _logger;
+        static esp_mqtt_client_handle_t _client;
+        static void _onEvent(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data);
+        static void _onConnected();
+        static void _onDisconnected();
+        static void _onSubscribed();
+        static void _onDataArrived(String topic, String message);
     };
 }
 
