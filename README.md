@@ -8,7 +8,7 @@ This project is under developement. Any contribution you make is greatly appreci
 
 ## 🧱 Architecture
 
-![architecture](https://pub-52f7e6f21f164b9e9f3f9c2df16ece76.r2.dev/sdk-architecture.png)
+![architecture](https://pub-52f7e6f21f164b9e9f3f9c2df16ece76.r2.dev/sdk-architecture.png?rev=0)
 
 This is based on an initial conceptual design
 
@@ -18,9 +18,9 @@ MQTT client that should establish connection with the broker, publish and subscr
 
 ### HTTP
 
-HTTP client that should call REST API endpoints with authentication. Accepts `baseURL`, `path`, `method` and returns `response`
+HTTP client that should call REST API endpoints with authentication.
 
-### Storage
+### NVS
 
 - Based on Non-volatile storage.
 - Should handle Flash encryption.
@@ -34,11 +34,12 @@ Performs OTA and report deployment status
 
 Provides state management with namespaces:
 
-- `status`: contains `mqtt`, `deployment` and `debug` status
-- `auth`: contains `deviceId`, `mac`, `apiKey`
-- `mqtt`: constains `uriTCP`, `uriWS`, `username`, `password`, `certificate`
-- `soft`: contains `projectId`, `releaseId`
+- `meta`: contains `deviceId`, `mac`
+- `http`: contains `baseURL`, `apiKey`, `certificate`
+- `mqtt`: constains `status`, `uriTCP`, `uriWS`, `username`, `password`, `certificate`
+- `update`: contains `status`, `certificate`, `projectId`, `releaseId`
 - `config`: contains project specific variables
+- `debug`: contains `serial`, `remote`
 
 ### Logger
 
@@ -69,6 +70,7 @@ Handles outgoing report messages
 - `sendStatus`: send device connection status
 - `sendUpdate`: send deployment status
 
-### Settings
+### Update
 
-- `setAuth`: update `auth` in Store
+- `check`: compare current and new software
+- `start`: Start deployment process
