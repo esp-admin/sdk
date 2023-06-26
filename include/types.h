@@ -65,14 +65,6 @@ namespace ESPAdmin
         ON,
         OFF
     };
-
-    enum LoggerType
-    {
-        INFO,
-        ERROR,
-        WARN,
-        SUCCESS
-    };
 }
 
 #endif

@@ -2,23 +2,48 @@
 
 namespace ESPAdmin
 {
-    void Logger::info(String message, String scope = "app")
+    Logger::Logger(String scope)
     {
+        _scope = scope;
     }
 
-    void Logger::error(String message, String scope = "app")
+    void Logger::begin()
     {
+        Serial.begin(Store::debug.baudrate);
+        Serial.printf("\n");
     }
 
-    void Logger::warn(String message, String scope = "app")
+    void Logger::info(String message)
     {
+        _log(ANSI_COLOR_BLUE, "info", message);
     }
 
-    void Logger::success(String message, String scope = "app")
+    void Logger::error(String message)
     {
+        _log(ANSI_COLOR_RED, "error", message);
     }
 
-    void Logger::_log(LoggerType type, String message, String scope)
+    void Logger::warn(String message)
     {
+        _log(ANSI_COLOR_YELLOW, "warn", message);
+    }
+
+    void Logger::success(String message)
+    {
+        _log(ANSI_COLOR_GREEN, "success", message);
+    }
+
+    void Logger::_log(String color, String type, String message)
+    {
+        if (Store::debug.serial)
+        {
+            Serial.printf(color.c_str());
+            Serial.printf(" %s ", type.c_str());
+            Serial.printf(ANSI_COLOR_RESET);
+            Serial.printf(" [%s] %s \n", _scope.c_str(), message.c_str());
+        }
+        if (Store::debug.remote)
+        {
+        }
     }
 }
