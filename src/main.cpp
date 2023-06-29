@@ -5,11 +5,12 @@
 const char *ssid = "ASUR_AP";
 const char *password = "pass1234";
 
-ESPAdmin::Logger logger("setup");
+ESPAdmin::Logger logger("app");
 
 void setup()
 {
   Serial.begin(ESPAdmin::Store::debug.baudrate);
+  Serial.printf("\n");
 
   WiFi.begin(ssid, password);
 

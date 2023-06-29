@@ -74,11 +74,11 @@ namespace ESPAdmin
     {
     }
 
-    void MQTT::subscribe(String topic)
+    void MQTT::_subscribe(String topic, unsigned qos)
     {
         if (Store::mqtt.connected)
         {
-            esp_mqtt_client_subscribe(_client, topic.c_str(), 1);
+            esp_mqtt_client_subscribe(_client, topic.c_str(), qos);
         }
         else
         {
@@ -92,7 +92,7 @@ namespace ESPAdmin
 
         _logger.info("connected");
 
-        subscribe("/device/#");
+        _subscribe("/device/#", 1);
     }
 
     void MQTT::_onDisconnected()
