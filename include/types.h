@@ -38,7 +38,8 @@ namespace ESPAdmin
     struct Http
     {
         String baseURL;
-        String apiKey;
+        String username;
+        String password;
         String certificate;
     };
 

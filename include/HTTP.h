@@ -1,16 +1,22 @@
 #ifndef H_ESP_ADMIN_HTTP
 #define H_ESP_ADMIN_HTTP
 
-#include <ArduinoJson.h>
+#include "Logger.h"
+#include <esp_http_client.h>
 
 namespace ESPAdmin
 {
     class HTTP
     {
     public:
-        DynamicJsonDocument get(String path);
-        void patch(String path, DynamicJsonDocument body);
-        void post(String path, DynamicJsonDocument body);
+        static String get(String path);
+        static String patch(String path, String content, String contentType);
+        static String post(String path, String content, String contentType);
+
+    private:
+        static Logger _logger;
+        static unsigned int _maxResponseSize;
+        static int _timeoutMs;
     };
 }
 

@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include "ESPAdmin.h"
+#include <ArduinoJson.h>
 
 const char *ssid = "ASUR_AP";
 const char *password = "pass1234";
@@ -27,4 +28,20 @@ void setup()
 
 void loop()
 {
+  String content;
+  StaticJsonDocument<96> doc;
+
+  doc["title"] = "foo";
+  doc["body"] = "bar";
+  doc["userId"] = 1;
+
+  serializeJson(doc, content);
+
+  logger.info("sending " + content);
+
+  String res = ESPAdmin::HTTP::post("/posts", content, "application/json");
+
+  logger.info(res);
+
+  delay(5000);
 }

@@ -6,6 +6,7 @@
 #include "Store.h"
 #include "Command.h"
 #include "MQTT.h"
+#include "HTTP.h"
 
 namespace ESPAdmin
 {
