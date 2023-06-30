@@ -4,6 +4,7 @@
 #include <ArduinoJson.h>
 #include "types.h"
 #include "Logger.h"
+#include "Update.h"
 
 namespace ESPAdmin
 {
@@ -17,7 +18,7 @@ namespace ESPAdmin
     private:
         static Logger _logger;
         static void _onCustom(DynamicJsonDocument message);
-        static void _onUpdate(UpdateMessage message);
+        static void _onUpdate(String message);
         static void _onConfig(DynamicJsonDocument message);
         static void _onRestart();
     };

@@ -10,6 +10,8 @@
 
 namespace ESPAdmin
 {
+    class Logger;
+
     class OTA
     {
     public:

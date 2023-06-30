@@ -9,6 +9,8 @@
 
 namespace ESPAdmin
 {
+    class Logger;
+
     class Update
     {
     public:

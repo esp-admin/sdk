@@ -9,6 +9,7 @@ namespace ESPAdmin
     {
         String downloadURL;
         String releaseId;
+        String version;
     };
 
     enum StoreKey
@@ -25,6 +26,7 @@ namespace ESPAdmin
         STORE_MQTT_CERT,
         STORE_UPDATE_RELEASE_ID,
         STORE_UPDATE_CERT,
+        STORE_UPDATE_VERSION
     };
 
     enum UpdateStatus

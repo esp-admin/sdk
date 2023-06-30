@@ -14,7 +14,6 @@ namespace ESPAdmin
     void Store::begin()
     {
         _NVS.begin(_namespace);
-        return;
 
         set(STORE_HTTP_BASE_URL, "jsonplaceholder.typicode.com");
         set(STORE_HTTP_USERNAME, "648f18db246acba17f68f609");
@@ -39,6 +38,8 @@ namespace ESPAdmin
             "tL4ndQavEi51mI38AjEAi/V3bNTIZargCyzuFJ0nN6T5U6VR5CmD1/iQMVtCnwr1\n"
             "/q4AaOeMSQ+2b1tbFfLn\n"
             "-----END CERTIFICATE-----\n");
+
+        delay(1000);
 
         set(STORE_MQTT_CERT,
             "-----BEGIN CERTIFICATE-----\n"
@@ -72,6 +73,8 @@ namespace ESPAdmin
             "mRGunUHBcnWEvgJBQl9nJEiU0Zsnvgc/ubhPgXRR4Xq37Z0j4r7g1SgEEzwxA57d\n"
             "emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=\n"
             "-----END CERTIFICATE-----\n");
+
+        delay(1000);
 
         set(STORE_UPDATE_CERT,
             "-----BEGIN CERTIFICATE-----\n"
