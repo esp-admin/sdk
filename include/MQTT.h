@@ -6,6 +6,7 @@
 #include "Store.h"
 #include <mqtt_client.h>
 #include "Command.h"
+#include "Report.h"
 
 namespace ESPAdmin
 {

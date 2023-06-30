@@ -2,15 +2,21 @@
 #define H_ESP_ADMIN_REPORT
 
 #include <ArduinoJson.h>
+#include "Store.h"
+#include "Logger.h"
+#include "MQTT.h"
 
 namespace ESPAdmin
 {
     class Report
     {
     public:
-        void send(DynamicJsonDocument message);
-        void sendStatus();
-        void sendUpdate();
+        static void send(DynamicJsonDocument message);
+        static void sendStatus();
+        static void sendUpdate();
+
+    private:
+        static Logger _logger;
     };
 }
 

@@ -48,7 +48,7 @@ namespace ESPAdmin
     {
         _NVS.begin(_namespace);
 
-        _NVS.clear();
+        // _NVS.clear();
 
         set(STORE_HTTP_BASE_URL, "jsonplaceholder.typicode.com");
         set(STORE_HTTP_USERNAME, "648f18db246acba17f68f609");
