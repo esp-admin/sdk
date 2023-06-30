@@ -24,22 +24,24 @@ void setup()
   logger.success("WiFi connected");
 
   ESPAdmin::begin();
+
+  ESPAdmin::OTA::start("https://esp-ota-cicd.s3.us-east-005.backblazeb2.com/becem-gharbi/esp-ota-cicd/v0.1.2.bin");
 }
 
 void loop()
 {
-  String content;
-  StaticJsonDocument<96> doc;
+  // String content;
+  // StaticJsonDocument<96> doc;
 
-  doc["title"] = "foo";
-  doc["body"] = "bar";
-  doc["userId"] = 1;
+  // doc["title"] = "foo";
+  // doc["body"] = "bar";
+  // doc["userId"] = 1;
 
-  serializeJson(doc, content);
+  // serializeJson(doc, content);
 
-  String res = ESPAdmin::HTTP::post("/posts", content, "application/json");
+  // String res = ESPAdmin::HTTP::post("/posts", content, "application/json");
 
-  logger.info(res);
+  // logger.info(res);
 
-  delay(10000);
+  // delay(10000);
 }

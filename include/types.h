@@ -34,13 +34,6 @@ namespace ESPAdmin
         STORE_UPDATE_RELEASE_ID,
         STORE_UPDATE_CERT,
     };
-
-    enum UpdateStatus
-    {
-        UPDATE_ACTIVE,
-        UPDATE_FAILED,
-        UPDATE_DONE
-    };
 }
 
 #endif

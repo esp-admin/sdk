@@ -20,7 +20,7 @@ namespace ESPAdmin
 
         // States
         static bool mqttConnected;
-        static UpdateStatus updateStatus;
+        static bool updateRunning;
         static bool debugSerialEnabled;
         static bool debugRemoteEnabled;
         static String deviceId;
