@@ -13,7 +13,7 @@ namespace ESPAdmin
         String username = Store::get(STORE_MQTT_USERNAME);
         String password = Store::get(STORE_MQTT_PASSWORD);
 
-        String lwtMessage = "{'status':'disconnected'}";
+        String lwtMessage = "{\"status\":\"disconnected\"}";
         String lwtTopic = "device/" + Store::deviceId + "/report/status";
 
         esp_mqtt_client_config_t config = {
