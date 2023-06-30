@@ -25,6 +25,7 @@ namespace ESPAdmin
             .lwt_msg = lwtMessage.c_str(),
             .lwt_qos = 1,
             .lwt_retain = true,
+            .keepalive = 10,
             .cert_pem = Store::ISRG_ROOT_X1,
         };
 
