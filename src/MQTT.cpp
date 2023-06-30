@@ -52,7 +52,13 @@ namespace ESPAdmin
     void MQTT::_onEvent(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
     {
         esp_mqtt_event_handle_t event = *((esp_mqtt_event_handle_t *)(&event_data));
-        esp_mqtt_client_handle_t client = event->client;
+
+        char topic[event->topic_len + 1];
+        char data[event->data_len + 1];
+        strncpy(topic, event->topic, event->topic_len);
+        strncpy(data, event->data, event->data_len);
+        topic[event->topic_len] = '\0';
+        data[event->data_len] = '\0';
 
         switch (event_id)
         {
@@ -65,7 +71,7 @@ namespace ESPAdmin
             break;
 
         case MQTT_EVENT_DATA:
-            _onDataArrived(event->topic, event->data);
+            _onDataArrived(topic, data);
             break;
 
         case MQTT_EVENT_SUBSCRIBED:
@@ -106,7 +112,7 @@ namespace ESPAdmin
 
         _logger.info("connected");
 
-        _subscribe("device/" + Store::deviceId + "/#", 1);
+        _subscribe("device/" + Store::deviceId + "/command/+", 1);
     }
 
     void MQTT::_onDisconnected()
@@ -117,6 +123,7 @@ namespace ESPAdmin
 
     void MQTT::_onDataArrived(String topic, String message)
     {
+        Command::onMessage(message, topic);
     }
 
     void MQTT::_onSubscribed()

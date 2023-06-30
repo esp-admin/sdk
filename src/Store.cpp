@@ -14,11 +14,12 @@ namespace ESPAdmin
     void Store::begin()
     {
         _NVS.begin(_namespace);
+        return;
 
         set(STORE_HTTP_BASE_URL, "jsonplaceholder.typicode.com");
         set(STORE_HTTP_USERNAME, "648f18db246acba17f68f609");
         set(STORE_HTTP_PASSWORD, "xcvxvDF5");
-        
+
         set(STORE_MQTT_USERNAME, "admin");
         set(STORE_MQTT_PASSWORD, "2sj5ZAe@SS6YuYE");
         set(STORE_MQTT_URI_TCP, "mqtts://830a40b6cfa942d5898328bf2d01c07a.s1.eu.hivemq.cloud:8883");

@@ -28,18 +28,18 @@ void setup()
 
 void loop()
 {
-  String content;
-  StaticJsonDocument<96> doc;
+  // String content;
+  // StaticJsonDocument<96> doc;
 
-  doc["title"] = "foo";
-  doc["body"] = "bar";
-  doc["userId"] = 1;
+  // doc["title"] = "foo";
+  // doc["body"] = "bar";
+  // doc["userId"] = 1;
 
-  serializeJson(doc, content);
+  // serializeJson(doc, content);
 
-  String res = ESPAdmin::HTTP::post("/posts", content, "application/json");
+  // String res = ESPAdmin::HTTP::post("/posts", content, "application/json");
 
-  logger.info(res);
+  // logger.info(res);
 
-  delay(10000);
+  // delay(10000);
 }

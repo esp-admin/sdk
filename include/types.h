@@ -11,12 +11,6 @@ namespace ESPAdmin
         String releaseId;
     };
 
-    enum DebugMessage
-    {
-        ON,
-        OFF
-    };
-
     enum StoreKey
     {
         STORE_CONFIG,

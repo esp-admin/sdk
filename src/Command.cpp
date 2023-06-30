@@ -2,27 +2,33 @@
 
 namespace ESPAdmin
 {
-    void Command::onMessage(String message)
+    Logger Command::_logger("Command");
+
+    void Command::onMessage(String message, String topic)
+    {
+        int beginIndex = topic.lastIndexOf("/") + 1;
+
+        String type = topic.substring(beginIndex);
+
+        if (type == "debug")
+        {
+            Store::debugRemoteEnabled = message == "on" ? true : false;
+        }
+    }
+
+    void Command::_onCustom(DynamicJsonDocument message)
     {
     }
 
-    void Command::onCustom(DynamicJsonDocument message)
+    void Command::_onUpdate(UpdateMessage message)
     {
     }
 
-    void Command::onUpdate(UpdateMessage message)
+    void Command::_onConfig(DynamicJsonDocument message)
     {
     }
 
-    void Command::onConfig(DynamicJsonDocument message)
-    {
-    }
-
-    void Command::onDebug(DebugMessage message)
-    {
-    }
-
-    void Command::onRestart()
+    void Command::_onRestart()
     {
     }
 
