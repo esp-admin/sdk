@@ -14,6 +14,11 @@ namespace ESPAdmin
         {
             Store::debugRemoteEnabled = message == "on" ? true : false;
         }
+
+        else if (type == "restart")
+        {
+            esp_restart();
+        }
     }
 
     void Command::_onCustom(DynamicJsonDocument message)
