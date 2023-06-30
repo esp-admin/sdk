@@ -14,6 +14,9 @@ namespace ESPAdmin
     public:
         static void begin();
 
+        // CA Certificates
+        static const char *ISRG_ROOT_X1;
+
         // Configurations
         static String get(StoreKey key);
         static void set(StoreKey key, String value);

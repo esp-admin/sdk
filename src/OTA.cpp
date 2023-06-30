@@ -6,13 +6,8 @@ namespace ESPAdmin
 
     void OTA::start(String downloadURL)
     {
-        String cert = Store::get(STORE_UPDATE_CERT);
-
-        char *_cert = new char[cert.length() + 1];
-        strcpy(_cert, cert.c_str());
-
         HttpsOTA.onHttpEvent([](HttpEvent_t *event) {});
-        HttpsOTA.begin(downloadURL.c_str(), _cert);
+        HttpsOTA.begin(downloadURL.c_str(), Store::ISRG_ROOT_X1);
 
         Store::updateRunning = true;
 

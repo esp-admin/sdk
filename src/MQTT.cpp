@@ -12,17 +12,13 @@ namespace ESPAdmin
         String clientID = Store::deviceId;
         String username = Store::get(STORE_MQTT_USERNAME);
         String password = Store::get(STORE_MQTT_PASSWORD);
-        String cert = Store::get(STORE_MQTT_CERT);
-
-        char *_cert = new char[cert.length() + 1];
-        strcpy(_cert, cert.c_str());
 
         esp_mqtt_client_config_t config = {
             .uri = uriTCP.c_str(),
             .client_id = clientID.c_str(),
             .username = username.c_str(),
             .password = password.c_str(),
-            .cert_pem = _cert};
+            .cert_pem = Store::ISRG_ROOT_X1};
 
         _client = esp_mqtt_client_init(&config);
 
