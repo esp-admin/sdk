@@ -9,7 +9,7 @@ namespace ESPAdmin
     void MQTT::connect()
     {
         String uriTCP = Store::get(STORE_MQTT_URI_TCP);
-        String clientID = Store::get(STORE_MQTT_CLIENT_ID);
+        String clientID = Store::deviceId;
         String username = Store::get(STORE_MQTT_USERNAME);
         String password = Store::get(STORE_MQTT_PASSWORD);
         String cert = Store::get(STORE_MQTT_CERT);
@@ -79,8 +79,13 @@ namespace ESPAdmin
         esp_mqtt_client_disconnect(_client);
     }
 
-    void MQTT::publish(String topic, String message)
+    void MQTT::publish(String topic, String message, unsigned qos, bool retain)
     {
+        if (Store::mqttConnected)
+        {
+            String fullTopic = "device/" + Store::deviceId + topic;
+            esp_mqtt_client_publish(_client, fullTopic.c_str(), message.c_str(), message.length(), qos, retain);
+        }
     }
 
     void MQTT::_subscribe(String topic, unsigned qos)
@@ -101,7 +106,7 @@ namespace ESPAdmin
 
         _logger.info("connected");
 
-        _subscribe("/device/#", 1);
+        _subscribe("device/" + Store::deviceId + "/#", 1);
     }
 
     void MQTT::_onDisconnected()
@@ -112,7 +117,6 @@ namespace ESPAdmin
 
     void MQTT::_onDataArrived(String topic, String message)
     {
-        _logger.info("received new message");
     }
 
     void MQTT::_onSubscribed()

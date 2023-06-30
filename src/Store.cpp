@@ -5,9 +5,9 @@ namespace ESPAdmin
     String Store::_namespace = "esp_admin";
     NVS Store::_NVS;
     bool Store::mqttConnected = false;
-    bool Store::debugRemoteEnabled = false;
+    bool Store::debugRemoteEnabled = true;
     bool Store::debugSerialEnabled = true;
-    String Store::deviceId = "from backend";
+    String Store::deviceId = "648f18db246acba17f68f609";
     String Store::mac = "from wifi";
     bool Store::updateRunning = false;
 
@@ -16,9 +16,9 @@ namespace ESPAdmin
         _NVS.begin(_namespace);
 
         set(STORE_HTTP_BASE_URL, "jsonplaceholder.typicode.com");
-        set(STORE_HTTP_USERNAME, "admin");
-        set(STORE_HTTP_PASSWORD, "pass");
-        set(STORE_MQTT_CLIENT_ID, "client_id");
+        set(STORE_HTTP_USERNAME, "648f18db246acba17f68f609");
+        set(STORE_HTTP_PASSWORD, "xcvxvDF5");
+        
         set(STORE_MQTT_USERNAME, "admin");
         set(STORE_MQTT_PASSWORD, "2sj5ZAe@SS6YuYE");
         set(STORE_MQTT_URI_TCP, "mqtts://830a40b6cfa942d5898328bf2d01c07a.s1.eu.hivemq.cloud:8883");

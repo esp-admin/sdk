@@ -38,6 +38,7 @@ namespace ESPAdmin
         }
         if (Store::debugRemoteEnabled)
         {
+            MQTT::publish("/logs/" + type, message, 0, false);
         }
     }
 }

@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include "types.h"
 #include "Store.h"
+#include "MQTT.h"
 
 // ANSI escape codes for text color
 #define ANSI_COLOR_RED "\x1b[41m"

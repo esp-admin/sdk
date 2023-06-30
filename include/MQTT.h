@@ -8,12 +8,14 @@
 
 namespace ESPAdmin
 {
+    class Logger;
+
     class MQTT
     {
     public:
         static void connect();
         static void disconnect();
-        static void publish(String topic, String message);
+        static void publish(String topic, String message, unsigned qos, bool retain);
 
     private:
         static Logger _logger;

@@ -24,10 +24,6 @@ void setup()
   logger.success("WiFi connected");
 
   ESPAdmin::begin();
-
-  ESPAdmin::Update::checkAndUpdate(
-      {.downloadURL = "https://esp-ota-cicd.s3.us-east-005.backblazeb2.com/becem-gharbi/esp-ota-cicd/v0.1.2.bin",
-       .releaseId = "id"});
 }
 
 void loop()

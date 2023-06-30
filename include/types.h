@@ -26,7 +26,6 @@ namespace ESPAdmin
         STORE_HTTP_CERT,
         STORE_MQTT_URI_TCP,
         STORE_MQTT_URI_WS,
-        STORE_MQTT_CLIENT_ID,
         STORE_MQTT_USERNAME,
         STORE_MQTT_PASSWORD,
         STORE_MQTT_CERT,
