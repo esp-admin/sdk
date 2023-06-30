@@ -14,11 +14,11 @@ namespace ESPAdmin
         HttpsOTA.onHttpEvent([](HttpEvent_t *event) {});
         HttpsOTA.begin(downloadURL.c_str(), _cert);
 
-        bool running = true;
+        Store::updateRunning = true;
 
         _onStart();
 
-        while (running)
+        while (Store::updateRunning)
         {
             switch (HttpsOTA.status())
             {
@@ -27,12 +27,12 @@ namespace ESPAdmin
                 break;
 
             case HTTPS_OTA_SUCCESS:
-                running = false;
+                Store::updateRunning = false;
                 _onSuccess();
                 break;
 
             case HTTPS_OTA_FAIL:
-                running = false;
+                Store::updateRunning = false;
                 _onFailed();
                 break;
             }
@@ -43,19 +43,19 @@ namespace ESPAdmin
 
     void OTA::_onStart()
     {
-        Store::updateRunning = true;
         _logger.info("update started");
+        Update::onChange(UPDATE_RUNNING);
     }
 
     void OTA::_onSuccess()
     {
-        Store::updateRunning = false;
         _logger.success("update succeeded");
+        Update::onChange(UPDATE_SUCCESS);
     }
 
     void OTA::_onFailed()
     {
-        Store::updateRunning = false;
         _logger.error("update failed");
+        Update::onChange(UPDATE_FAILED);
     }
 }

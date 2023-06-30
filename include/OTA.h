@@ -6,6 +6,7 @@
 #include <esp_https_ota.h>
 #include "Store.h"
 #include "Logger.h"
+#include "Update.h"
 
 namespace ESPAdmin
 {

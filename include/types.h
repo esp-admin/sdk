@@ -8,8 +8,7 @@ namespace ESPAdmin
     struct UpdateMessage
     {
         String downloadURL;
-        String version;
-        String projectId;
+        String releaseId;
     };
 
     enum DebugMessage
@@ -33,6 +32,13 @@ namespace ESPAdmin
         STORE_MQTT_CERT,
         STORE_UPDATE_RELEASE_ID,
         STORE_UPDATE_CERT,
+    };
+
+    enum UpdateStatus
+    {
+        UPDATE_RUNNING,
+        UPDATE_FAILED,
+        UPDATE_SUCCESS
     };
 }
 

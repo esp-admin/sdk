@@ -7,7 +7,7 @@
 #include "Command.h"
 #include "MQTT.h"
 #include "HTTP.h"
-#include "OTA.h"
+#include "Update.h"
 
 namespace ESPAdmin
 {
