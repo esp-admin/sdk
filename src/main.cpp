@@ -10,7 +10,7 @@ ESPAdmin::Logger logger("app");
 
 void setup()
 {
-  Serial.begin(ESPAdmin::Store::debug.baudrate);
+  Serial.begin(115200);
   Serial.printf("\n");
 
   WiFi.begin(ssid, password);
@@ -37,11 +37,9 @@ void loop()
 
   serializeJson(doc, content);
 
-  logger.info("sending " + content);
-
   String res = ESPAdmin::HTTP::post("/posts", content, "application/json");
 
   logger.info(res);
 
-  delay(5000);
+  delay(10000);
 }

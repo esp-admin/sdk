@@ -8,12 +8,21 @@ namespace ESPAdmin
 
     void MQTT::connect()
     {
+        String uriTCP = Store::get(STORE_MQTT_URI_TCP);
+        String clientID = Store::get(STORE_MQTT_CLIENT_ID);
+        String username = Store::get(STORE_MQTT_USERNAME);
+        String password = Store::get(STORE_MQTT_PASSWORD);
+        String cert = Store::get(STORE_MQTT_CERT);
+
+        char *_cert = new char[cert.length() + 1];
+        strcpy(_cert, cert.c_str());
+
         esp_mqtt_client_config_t config = {
-            .uri = Store::mqtt.uriTCP.c_str(),
-            .client_id = Store::mqtt.clientId.c_str(),
-            .username = Store::mqtt.username.c_str(),
-            .password = Store::mqtt.password.c_str(),
-            .cert_pem = Store::mqtt.certificate.c_str()};
+            .uri = uriTCP.c_str(),
+            .client_id = clientID.c_str(),
+            .username = username.c_str(),
+            .password = password.c_str(),
+            .cert_pem = _cert};
 
         _client = esp_mqtt_client_init(&config);
 
@@ -76,7 +85,7 @@ namespace ESPAdmin
 
     void MQTT::_subscribe(String topic, unsigned qos)
     {
-        if (Store::mqtt.connected)
+        if (Store::mqttConnected)
         {
             esp_mqtt_client_subscribe(_client, topic.c_str(), qos);
         }
@@ -88,7 +97,7 @@ namespace ESPAdmin
 
     void MQTT::_onConnected()
     {
-        Store::mqtt.connected = true;
+        Store::mqttConnected = true;
 
         _logger.info("connected");
 
@@ -97,7 +106,7 @@ namespace ESPAdmin
 
     void MQTT::_onDisconnected()
     {
-        Store::mqtt.connected = false;
+        Store::mqttConnected = false;
         _logger.info("disconnected");
     }
 

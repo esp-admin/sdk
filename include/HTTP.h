@@ -2,6 +2,7 @@
 #define H_ESP_ADMIN_HTTP
 
 #include "Logger.h"
+#include "Store.h"
 #include <esp_http_client.h>
 
 namespace ESPAdmin

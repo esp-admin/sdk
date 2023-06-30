@@ -11,13 +11,21 @@ namespace ESPAdmin
     {
         char response[_maxResponseSize] = {0};
 
+        String host = Store::get(STORE_HTTP_BASE_URL);
+        String cert = Store::get(STORE_HTTP_CERT);
+        String username = Store::get(STORE_HTTP_USERNAME);
+        String password = Store::get(STORE_HTTP_PASSWORD);
+
+        char *_cert = new char[cert.length() + 1];
+        strcpy(_cert, cert.c_str());
+
         esp_http_client_config_t config = {
-            .host = Store::http.baseURL.c_str(),
-            .username = Store::http.username.c_str(),
-            .password = Store::http.password.c_str(),
+            .host = host.c_str(),
+            .username = username.c_str(),
+            .password = password.c_str(),
             .auth_type = HTTP_AUTH_TYPE_BASIC,
             .path = path.c_str(),
-            .cert_pem = Store::http.certificate.c_str(),
+            .cert_pem = _cert,
             .method = HTTP_METHOD_GET,
             .timeout_ms = _timeoutMs,
         };
@@ -55,13 +63,21 @@ namespace ESPAdmin
     {
         char response[_maxResponseSize] = {0};
 
+        String host = Store::get(STORE_HTTP_BASE_URL);
+        String cert = Store::get(STORE_HTTP_CERT);
+        String username = Store::get(STORE_HTTP_USERNAME);
+        String password = Store::get(STORE_HTTP_PASSWORD);
+
+        char *_cert = new char[cert.length() + 1];
+        strcpy(_cert, cert.c_str());
+
         esp_http_client_config_t config = {
-            .host = Store::http.baseURL.c_str(),
-            .username = Store::http.username.c_str(),
-            .password = Store::http.password.c_str(),
+            .host = host.c_str(),
+            .username = username.c_str(),
+            .password = password.c_str(),
             .auth_type = HTTP_AUTH_TYPE_BASIC,
             .path = path.c_str(),
-            .cert_pem = Store::http.certificate.c_str(),
+            .cert_pem = _cert,
             .method = HTTP_METHOD_POST,
             .timeout_ms = _timeoutMs,
         };
@@ -101,13 +117,21 @@ namespace ESPAdmin
     {
         char response[_maxResponseSize] = {0};
 
+        String host = Store::get(STORE_HTTP_BASE_URL);
+        String cert = Store::get(STORE_HTTP_CERT);
+        String username = Store::get(STORE_HTTP_USERNAME);
+        String password = Store::get(STORE_HTTP_PASSWORD);
+
+        char *_cert = new char[cert.length() + 1];
+        strcpy(_cert, cert.c_str());
+
         esp_http_client_config_t config = {
-            .host = Store::http.baseURL.c_str(),
-            .username = Store::http.username.c_str(),
-            .password = Store::http.password.c_str(),
+            .host = host.c_str(),
+            .username = username.c_str(),
+            .password = password.c_str(),
             .auth_type = HTTP_AUTH_TYPE_BASIC,
             .path = path.c_str(),
-            .cert_pem = Store::http.certificate.c_str(),
+            .cert_pem = _cert,
             .method = HTTP_METHOD_PATCH,
             .timeout_ms = _timeoutMs,
         };

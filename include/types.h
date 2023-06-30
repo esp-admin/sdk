@@ -5,51 +5,6 @@
 
 namespace ESPAdmin
 {
-    struct Meta
-    {
-        String deviceId;
-        String mac;
-    };
-
-    struct Mqtt
-    {
-        bool connected;
-        String uriTCP;
-        String uriWS;
-        String clientId;
-        String username;
-        String password;
-        String certificate;
-    };
-
-    struct Update
-    {
-        enum
-        {
-            ACTIVE,
-            FAILED,
-            DONE
-        } status;
-        String certificate;
-        String projectId;
-        String releaseId;
-    };
-
-    struct Http
-    {
-        String baseURL;
-        String username;
-        String password;
-        String certificate;
-    };
-
-    struct Debug
-    {
-        unsigned long baudrate;
-        bool serial;
-        bool remote;
-    };
-
     struct UpdateMessage
     {
         String downloadURL;
@@ -61,6 +16,30 @@ namespace ESPAdmin
     {
         ON,
         OFF
+    };
+
+    enum StoreKey
+    {
+        STORE_CONFIG,
+        STORE_HTTP_BASE_URL,
+        STORE_HTTP_USERNAME,
+        STORE_HTTP_PASSWORD,
+        STORE_HTTP_CERT,
+        STORE_MQTT_URI_TCP,
+        STORE_MQTT_URI_WS,
+        STORE_MQTT_CLIENT_ID,
+        STORE_MQTT_USERNAME,
+        STORE_MQTT_PASSWORD,
+        STORE_MQTT_CERT,
+        STORE_UPDATE_RELEASE_ID,
+        STORE_UPDATE_CERT,
+    };
+
+    enum UpdateStatus
+    {
+        UPDATE_ACTIVE,
+        UPDATE_FAILED,
+        UPDATE_DONE
     };
 }
 

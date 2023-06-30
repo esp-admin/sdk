@@ -2,19 +2,33 @@
 #define H_ESP_ADMIN_STORE
 
 #include "types.h"
-#include <ArduinoJson.h>
+#include "NVS.h"
+#include <Arduino.h>
 
 namespace ESPAdmin
 {
+    class NVS;
+
     class Store
     {
     public:
-        static Meta meta;
-        static Mqtt mqtt;
-        static Update update;
-        static Http http;
-        static Debug debug;
-        static DynamicJsonDocument config;
+        static void begin();
+
+        // Configurations
+        static String get(StoreKey key);
+        static void set(StoreKey key, String value);
+
+        // States
+        static bool mqttConnected;
+        static UpdateStatus updateStatus;
+        static bool debugSerialEnabled;
+        static bool debugRemoteEnabled;
+        static String deviceId;
+        static String mac;
+
+    private:
+        static NVS _NVS;
+        static String _namespace;
     };
 }
 

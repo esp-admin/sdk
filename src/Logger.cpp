@@ -29,14 +29,14 @@ namespace ESPAdmin
 
     void Logger::_log(String color, String type, String message)
     {
-        if (Store::debug.serial)
+        if (Store::debugSerialEnabled)
         {
             Serial.printf(color.c_str());
             Serial.printf(" %s ", type.c_str());
             Serial.printf(ANSI_COLOR_RESET);
             Serial.printf(" [%s] %s \n", _scope.c_str(), message.c_str());
         }
-        if (Store::debug.remote)
+        if (Store::debugRemoteEnabled)
         {
         }
     }

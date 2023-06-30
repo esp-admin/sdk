@@ -2,8 +2,10 @@
 
 namespace ESPAdmin
 {
-    void begin()
-    {
-      //  MQTT::connect();
-    }
+  void begin()
+  {
+    Store::begin();
+
+    MQTT::connect();
+  }
 }
