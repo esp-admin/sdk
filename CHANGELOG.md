@@ -1,6 +1,35 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.0.1...v0.0.2)
+
+
+### 🚀 Enhancements
+
+  - Implement remote logger ([f31c692](https://github.com/becem-gharbi/esp-admin-sdk/commit/f31c692))
+  - Implement remote logger enable/disable ([1d00e63](https://github.com/becem-gharbi/esp-admin-sdk/commit/1d00e63))
+  - Implement command <restart> ([55a0dc3](https://github.com/becem-gharbi/esp-admin-sdk/commit/55a0dc3))
+  - Implement command <update> ([2660c4f](https://github.com/becem-gharbi/esp-admin-sdk/commit/2660c4f))
+  - Implement report <status> ([5bb0915](https://github.com/becem-gharbi/esp-admin-sdk/commit/5bb0915))
+  - Implement status LWT ([d0d24f1](https://github.com/becem-gharbi/esp-admin-sdk/commit/d0d24f1))
+  - Implement command <config> ([82214a7](https://github.com/becem-gharbi/esp-admin-sdk/commit/82214a7))
+  - Implement command <custom> ([2b36e52](https://github.com/becem-gharbi/esp-admin-sdk/commit/2b36e52))
+  - Implement report <update> ([927c65f](https://github.com/becem-gharbi/esp-admin-sdk/commit/927c65f))
+
+### 🩹 Fixes
+
+  - Use escape sequence in LwT message ([7447086](https://github.com/becem-gharbi/esp-admin-sdk/commit/7447086))
+
+### 💅 Refactors
+
+  - Use only ISRG_ROOT_X1 for CA certificate ([b659d93](https://github.com/becem-gharbi/esp-admin-sdk/commit/b659d93))
+
+### ❤️  Contributors
+
+- Becem Gharbi ([@becem-gharbi](http://github.com/becem-gharbi))
+
 ## v0.0.1
 
 
