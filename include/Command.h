@@ -14,10 +14,10 @@ namespace ESPAdmin
     {
     public:
         static void onMessage(String message, String topic);
+        static OnCustomCommand onCustom;
 
     private:
         static Logger _logger;
-        static void _onCustom(DynamicJsonDocument message);
         static void _onUpdate(String message);
         static void _onConfig(String message);
         static void _onRestart();

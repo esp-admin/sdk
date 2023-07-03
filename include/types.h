@@ -32,6 +32,8 @@ namespace ESPAdmin
         UPDATE_FAILED,
         UPDATE_SUCCESS
     };
+
+    typedef void (*OnCustomCommand)(String);
 }
 
 #endif

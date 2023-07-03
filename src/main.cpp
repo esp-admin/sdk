@@ -11,6 +11,11 @@ const char *password = "pass1234";
 
 ESPAdmin::Logger logger("app");
 
+void onCustomCommand(String message)
+{
+  logger.info(message);
+}
+
 void setup()
 {
   Serial.begin(115200);
@@ -27,13 +32,12 @@ void setup()
   logger.success("WiFi connected");
 
   ESPAdmin::begin();
+
+  ESPAdmin::Command::onCustom = &onCustomCommand;
 }
 
 void loop()
 {
-  String config = ESPAdmin::Store::get(ESPAdmin::STORE_CONFIG);
-  logger.info(config);
-  delay(5000);
   // String content;
   // StaticJsonDocument<96> doc;
 

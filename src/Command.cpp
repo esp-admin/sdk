@@ -3,6 +3,7 @@
 namespace ESPAdmin
 {
     Logger Command::_logger("Command");
+    OnCustomCommand Command::onCustom;
 
     void Command::onMessage(String message, String topic)
     {
@@ -29,10 +30,12 @@ namespace ESPAdmin
         {
             _onConfig(message);
         }
-    }
 
-    void Command::_onCustom(DynamicJsonDocument message)
-    {
+        else if (type == "custom")
+        {
+            _logger.info(message);
+            onCustom(message);
+        }
     }
 
     void Command::_onUpdate(String message)
