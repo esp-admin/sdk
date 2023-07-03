@@ -6,6 +6,9 @@
 const char *ssid = "ASUR_AP";
 const char *password = "pass1234";
 
+// const char *ssid = "TTBOX-Q6HPV6";
+// const char *password = "VYA9SKVLZE";
+
 ESPAdmin::Logger logger("app");
 
 void setup()
@@ -28,6 +31,9 @@ void setup()
 
 void loop()
 {
+  String config = ESPAdmin::Store::get(ESPAdmin::STORE_CONFIG);
+  logger.info(config);
+  delay(5000);
   // String content;
   // StaticJsonDocument<96> doc;
 

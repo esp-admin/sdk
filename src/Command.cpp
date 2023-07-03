@@ -12,17 +12,22 @@ namespace ESPAdmin
 
         if (type == "debug")
         {
-            Store::debugRemoteEnabled = message == "on" ? true : false;
+            _onDebug(message);
         }
 
         else if (type == "restart")
         {
-            esp_restart();
+            _onRestart();
         }
 
         else if (type == "update")
         {
             _onUpdate(message);
+        }
+
+        else if (type == "config")
+        {
+            _onConfig(message);
         }
     }
 
@@ -51,12 +56,18 @@ namespace ESPAdmin
         Update::checkAndUpdate(updateMessage);
     }
 
-    void Command::_onConfig(DynamicJsonDocument message)
+    void Command::_onConfig(String message)
     {
+        Store::set(STORE_CONFIG, message);
     }
 
     void Command::_onRestart()
     {
+        esp_restart();
     }
 
+    void Command::_onDebug(String message)
+    {
+        Store::debugRemoteEnabled = message == "on" ? true : false;
+    }
 }

@@ -19,8 +19,9 @@ namespace ESPAdmin
         static Logger _logger;
         static void _onCustom(DynamicJsonDocument message);
         static void _onUpdate(String message);
-        static void _onConfig(DynamicJsonDocument message);
+        static void _onConfig(String message);
         static void _onRestart();
+        static void _onDebug(String message);
     };
 }
 
