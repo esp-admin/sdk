@@ -8,7 +8,6 @@ namespace ESPAdmin
     bool Store::debugRemoteEnabled = true;
     bool Store::debugSerialEnabled = true;
     String Store::deviceId = "648f18db246acba17f68f609";
-    String Store::mac = "from wifi";
     bool Store::updateRunning = false;
 
     const char *Store::ISRG_ROOT_X1 =
@@ -50,9 +49,8 @@ namespace ESPAdmin
 
         // _NVS.clear();
 
-        set(STORE_HTTP_BASE_URL, "jsonplaceholder.typicode.com");
-        set(STORE_HTTP_USERNAME, "648f18db246acba17f68f609");
-        set(STORE_HTTP_PASSWORD, "xcvxvDF5");
+        set(STORE_HTTP_BASE_URL, "esp-admin.bg-tech.tn");
+        set(STORE_HTTP_API_KEY, "xcvxvDF5");
 
         set(STORE_MQTT_USERNAME, "admin");
         set(STORE_MQTT_PASSWORD, "2sj5ZAe@SS6YuYE");

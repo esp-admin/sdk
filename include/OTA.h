@@ -19,9 +19,6 @@ namespace ESPAdmin
 
     private:
         static Logger _logger;
-        static void _onStart();
-        static void _onSuccess();
-        static void _onFailed();
     };
 }
 

@@ -6,6 +6,7 @@
 #include "Store.h"
 #include "OTA.h"
 #include "Logger.h"
+#include "Report.h"
 
 namespace ESPAdmin
 {
@@ -20,6 +21,9 @@ namespace ESPAdmin
     private:
         static UpdateMessage _message;
         static Logger _logger;
+        static void _onSuccess();
+        static void _onFail();
+        static void _onStart();
     };
 }
 

@@ -7,6 +7,8 @@
 
 namespace ESPAdmin
 {
+    class Logger;
+
     class HTTP
     {
     public:

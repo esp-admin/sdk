@@ -27,10 +27,40 @@ namespace ESPAdmin
     {
         switch (status)
         {
-        case UPDATE_SUCCESS:
-            Store::set(STORE_UPDATE_RELEASE_ID, _message.releaseId);
-            Store::set(STORE_UPDATE_VERSION, _message.version);
+        case UPDATE_STARTED:
+            _onStart();
+            break;
+        case UPDATE_SUCCEDED:
+            _onSuccess();
+            break;
+        case UPDATE_FAILED:
+            _onFail();
             break;
         }
+    }
+
+    void Update::_onSuccess()
+    {
+        _logger.success("succeded");
+        Report::sendUpdate(_message, "succeded");
+
+        Store::set(STORE_UPDATE_RELEASE_ID, _message.releaseId);
+        Store::set(STORE_UPDATE_VERSION, _message.version);
+
+        esp_restart();
+    }
+
+    void Update::_onFail()
+    {
+        _logger.error("failed");
+
+        Report::sendUpdate(_message, "failed");
+    }
+
+    void Update::_onStart()
+    {
+        _logger.info("started");
+
+        Report::sendUpdate(_message, "started");
     }
 }

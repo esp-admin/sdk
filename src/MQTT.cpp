@@ -25,7 +25,8 @@ namespace ESPAdmin
             .lwt_msg = lwtMessage.c_str(),
             .lwt_qos = 1,
             .lwt_retain = true,
-            .keepalive = 10,
+            .keepalive = 120,
+            .task_stack = 8 * 1024,
             .cert_pem = Store::ISRG_ROOT_X1,
         };
 
@@ -119,7 +120,7 @@ namespace ESPAdmin
 
         _subscribe("device/" + Store::deviceId + "/command/+", 1);
 
-        Report::sendStatus();
+        Report::sendStatus("connected");
     }
 
     void MQTT::_onDisconnected()
@@ -128,7 +129,7 @@ namespace ESPAdmin
 
         _logger.info("disconnected");
 
-        Report::sendStatus();
+        Report::sendStatus("disconnected");
     }
 
     void MQTT::_onDataArrived(String topic, String message)

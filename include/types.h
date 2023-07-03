@@ -16,21 +16,20 @@ namespace ESPAdmin
     {
         STORE_CONFIG,
         STORE_HTTP_BASE_URL,
-        STORE_HTTP_USERNAME,
-        STORE_HTTP_PASSWORD,
+        STORE_HTTP_API_KEY,
         STORE_MQTT_URI_TCP,
         STORE_MQTT_URI_WS,
         STORE_MQTT_USERNAME,
         STORE_MQTT_PASSWORD,
         STORE_UPDATE_RELEASE_ID,
-        STORE_UPDATE_VERSION
+        STORE_UPDATE_VERSION,
     };
 
     enum UpdateStatus
     {
-        UPDATE_RUNNING,
+        UPDATE_STARTED,
         UPDATE_FAILED,
-        UPDATE_SUCCESS
+        UPDATE_SUCCEDED
     };
 
     typedef void (*OnCustomCommand)(String);

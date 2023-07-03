@@ -3,18 +3,13 @@
 #include "ESPAdmin.h"
 #include <ArduinoJson.h>
 
-const char *ssid = "ASUR_AP";
-const char *password = "pass1234";
+// const char *ssid = "ASUR_AP";
+// const char *password = "pass1234";
 
-// const char *ssid = "TTBOX-Q6HPV6";
-// const char *password = "VYA9SKVLZE";
+const char *ssid = "TTBOX-Q6HPV6";
+const char *password = "VYA9SKVLZE";
 
 ESPAdmin::Logger logger("app");
-
-void onCustomCommand(String message)
-{
-  logger.info(message);
-}
 
 void setup()
 {
@@ -32,8 +27,6 @@ void setup()
   logger.success("WiFi connected");
 
   ESPAdmin::begin();
-
-  ESPAdmin::Command::onCustom = &onCustomCommand;
 }
 
 void loop()
