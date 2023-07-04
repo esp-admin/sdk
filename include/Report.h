@@ -14,7 +14,7 @@ namespace ESPAdmin
     class Report
     {
     public:
-        static void send(String message);
+        static void send(ReportMessage reportMessage);
         static void sendStatus(String status);
         static void sendUpdate(UpdateMessage updateMessage, String status);
 

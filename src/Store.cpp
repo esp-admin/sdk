@@ -5,6 +5,7 @@ namespace ESPAdmin
     Logger Store::_logger("Store");
     String Store::_namespace = "esp_admin";
     NVS Store::_NVS;
+    
     bool Store::mqttConnected = false;
     bool Store::debugRemoteEnabled = true;
     bool Store::debugSerialEnabled = true;
@@ -53,8 +54,6 @@ namespace ESPAdmin
         Store::httpHost = httpHost;
         Store::deviceId = deviceId;
         Store::apiKey = apiKey;
-
-        // _NVS.clear();
 
         _getSettings();
     }

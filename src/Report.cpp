@@ -6,9 +6,34 @@ namespace ESPAdmin
 
     String Report::_deploymentId;
 
-    void Report::send(String message)
+    void Report::send(ReportMessage reportMessage)
     {
-        HTTP::post("/device/report", message, "application/json");
+        String message;
+
+        StaticJsonDocument<300> doc;
+
+        doc["subject"] = reportMessage.subject;
+        doc["body"] = reportMessage.body;
+
+        switch (reportMessage.type)
+        {
+        case REPORT_ERROR:
+            doc["type"] = "error";
+            break;
+        case REPORT_WARN:
+            doc["type"] = "warn";
+            break;
+        case REPORT_SUCCESS:
+            doc["type"] = "success";
+            break;
+        case REPORT_INFO:
+            doc["type"] = "info";
+            break;
+        }
+
+        serializeJson(doc, message);
+
+        HTTP::post("/device/report/custom", message, "application/json");
 
         MQTT::publish("/report/custom", message, 1, false);
     }

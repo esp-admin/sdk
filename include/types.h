@@ -12,6 +12,21 @@ namespace ESPAdmin
         String version;
     };
 
+    struct ReportMessage
+    {
+        ReportType type;
+        String subject;
+        String body;
+    };
+
+    enum ReportType
+    {
+        REPORT_INFO,
+        REPORT_ERROR,
+        REPORT_WARN,
+        REPORT_SUCCESS
+    };
+
     enum StoreKey
     {
         STORE_CONFIG,
