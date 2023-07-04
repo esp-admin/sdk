@@ -23,7 +23,6 @@ HTTP client that should call REST API endpoints with authentication.
 ### NVS
 
 - Based on Non-volatile storage.
-- Should handle Flash encryption.
 - Should provide `get`, `set` and `clear` methods.
 
 ### OTA
@@ -34,10 +33,10 @@ Performs OTA and report deployment status
 
 Provides state management with namespaces:
 
-- `meta`: contains `deviceId`, `mac`
-- `http`: contains `baseURL`, `apiKey`, `certificate`
-- `mqtt`: constains `status`, `uriTCP`, `uriWS`, `username`, `password`, `certificate`
-- `update`: contains `status`, `certificate`, `projectId`, `releaseId`
+- `meta`: contains `deviceId`
+- `http`: contains `baseURL`, `apiKey`
+- `mqtt`: constains `status`, `uriTCP`, `uriWS`, `username`, `password`
+- `update`: contains `status`, `projectId`, `releaseId`
 - `config`: contains project specific variables
 - `debug`: contains `serial`, `remote`
 
