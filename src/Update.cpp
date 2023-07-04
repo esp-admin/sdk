@@ -44,8 +44,8 @@ namespace ESPAdmin
         _logger.success("succeded");
         Report::sendUpdate(_message, "succeded");
 
-        Store::set(STORE_UPDATE_RELEASE_ID, _message.releaseId);
-        Store::set(STORE_UPDATE_VERSION, _message.version);
+        Store::set(STORE_UPDATE_RELEASE_ID, _message.releaseId.c_str());
+        Store::set(STORE_UPDATE_VERSION, _message.version.c_str());
 
         esp_restart();
     }

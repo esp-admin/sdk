@@ -4,8 +4,6 @@ namespace ESPAdmin
 {
     Logger Report::_logger("Report");
 
-    String Report::_deploymentId;
-
     void Report::send(ReportMessage reportMessage)
     {
         String message;
@@ -51,7 +49,7 @@ namespace ESPAdmin
         MQTT::publish("/report/status", message, 1, true);
     }
 
-    void Report::sendUpdate(UpdateMessage updateMessage, String status)
+    void Report::sendUpdate(UpdateMessage &updateMessage, String status)
     {
         if (status == "started")
         {
@@ -64,14 +62,14 @@ namespace ESPAdmin
 
             serializeJson(doc, message);
 
-            _deploymentId = HTTP::post("/report/update", message, "application/json");
+            updateMessage.deploymentId = HTTP::post("/report/update", message, "application/json");
 
             String mqttMessage;
 
             StaticJsonDocument<100> mqttDoc;
 
             mqttDoc["status"] = status;
-            mqttDoc["deploymentId"] = _deploymentId;
+            mqttDoc["deploymentId"] = updateMessage.deploymentId;
 
             serializeJson(mqttDoc, mqttMessage);
 
@@ -84,7 +82,7 @@ namespace ESPAdmin
             StaticJsonDocument<100> doc;
 
             doc["status"] = status;
-            doc["deploymentId"] = _deploymentId;
+            doc["deploymentId"] = updateMessage.deploymentId;
 
             serializeJson(doc, message);
 

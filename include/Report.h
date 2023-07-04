@@ -16,11 +16,10 @@ namespace ESPAdmin
     public:
         static void send(ReportMessage reportMessage);
         static void sendStatus(String status);
-        static void sendUpdate(UpdateMessage updateMessage, String status);
+        static void sendUpdate(UpdateMessage& updateMessage, String status);
 
     private:
         static Logger _logger;
-        static String _deploymentId;
     };
 }
 

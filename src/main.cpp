@@ -5,6 +5,9 @@
 
 const char *ssid = "ASUR_AP";
 const char *password = "pass1234";
+const char *httpHost = "esp-admin.bg-tech.tn";
+const char *deviceId = "648f18db246acba17f68f609";
+const char *apiKey = "xcvxvDF5";
 
 // const char *ssid = "TTBOX-Q6HPV6";
 // const char *password = "VYA9SKVLZE";
@@ -29,7 +32,7 @@ void setup()
 
   logger.success("WiFi connected");
 
-  ESPAdmin::begin("esp-admin.bg-tech.tn", "648f18db246acba17f68f609", "xcvxvDF5");
+  ESPAdmin::begin(httpHost, deviceId, apiKey);
 
   ESPAdmin::Command::onCustom = &onCustomCommand;
 }

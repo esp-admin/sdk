@@ -36,6 +36,7 @@ namespace ESPAdmin
         String downloadURL;
         String releaseId;
         String version;
+        String deploymentId;
     };
 
     struct ReportMessage

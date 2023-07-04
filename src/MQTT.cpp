@@ -9,16 +9,15 @@ namespace ESPAdmin
     void MQTT::connect()
     {
         String uriTCP = Store::get(STORE_MQTT_URI_TCP);
-        String clientID = Store::deviceId;
         String username = Store::get(STORE_MQTT_USERNAME);
         String password = Store::get(STORE_MQTT_PASSWORD);
 
         String lwtMessage = "{\"status\":\"disconnected\"}";
-        String lwtTopic = "device/" + Store::deviceId + "/report/status";
+        String lwtTopic = "device/" + String(Store::deviceId) + "/report/status";
 
         esp_mqtt_client_config_t config = {
             .uri = uriTCP.c_str(),
-            .client_id = clientID.c_str(),
+            .client_id = Store::deviceId,
             .username = username.c_str(),
             .password = password.c_str(),
             .lwt_topic = lwtTopic.c_str(),
@@ -95,7 +94,7 @@ namespace ESPAdmin
     {
         if (Store::mqttConnected)
         {
-            String fullTopic = "device/" + Store::deviceId + topic;
+            String fullTopic = "device/" + String(Store::deviceId) + topic;
             esp_mqtt_client_publish(_client, fullTopic.c_str(), message.c_str(), message.length(), qos, retain);
         }
     }
@@ -118,7 +117,7 @@ namespace ESPAdmin
 
         _logger.info("connected");
 
-        _subscribe("device/" + Store::deviceId + "/command/+", 1);
+        _subscribe("device/" + String(Store::deviceId) + "/command/+", 1);
 
         Report::sendStatus("connected");
     }

@@ -60,7 +60,7 @@ namespace ESPAdmin
 
     void Command::_onConfig(String message)
     {
-        Store::set(STORE_CONFIG, message);
+        Store::set(STORE_CONFIG, message.c_str());
     }
 
     void Command::_onRestart()

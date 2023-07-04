@@ -14,25 +14,25 @@ namespace ESPAdmin
     class Store
     {
     public:
-        static void begin(String httpHost, String deviceId, String apiKey);
-        static void set(StoreKey key, String value);
-        static String get(StoreKey key);
-
-        // CA Certificates
-        static const char *ISRG_ROOT_X1;
+        static void begin(const char *httpHost, const char *deviceId, const char *apiKey);
+        static void set(StoreKey key, const char *value);
+        static const char *get(StoreKey key);
 
         // States
         static bool mqttConnected;
         static bool updateRunning;
         static bool debugSerialEnabled;
         static bool debugRemoteEnabled;
-        static String deviceId;
-        static String httpHost;
-        static String apiKey;
+
+        // constants
+        static const char *deviceId;
+        static const char *httpHost;
+        static const char *apiKey;
+        static const char *ISRG_ROOT_X1;
 
     private:
         static NVS _NVS;
-        static String _namespace;
+        static const char *_namespace;
         static void _getSettings();
         static Logger _logger;
     };

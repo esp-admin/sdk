@@ -4,7 +4,7 @@ namespace ESPAdmin
 {
     Logger NVS::_logger("NVS");
 
-    void NVS::begin(String _namespace)
+    void NVS::begin(const char *_namespace)
     {
         esp_err_t err = nvs_flash_init();
 
@@ -16,7 +16,7 @@ namespace ESPAdmin
         }
         ESP_ERROR_CHECK(err);
 
-        err = nvs_open(_namespace.c_str(), NVS_READWRITE, &_handler);
+        err = nvs_open(_namespace, NVS_READWRITE, &_handler);
 
         if (err != ESP_OK)
         {
@@ -28,25 +28,25 @@ namespace ESPAdmin
         }
     }
 
-    String NVS::getString(String key)
+    const char *NVS::getString(const char *key)
     {
         size_t required_size;
-        nvs_get_str(_handler, key.c_str(), NULL, &required_size);
+        nvs_get_str(_handler, key, NULL, &required_size);
         char *value = (char *)malloc(required_size);
-        nvs_get_str(_handler, key.c_str(), value, &required_size);
+        nvs_get_str(_handler, key, value, &required_size);
 
-        return String(value);
+        return value;
     }
 
-    void NVS::setString(String key, String value)
+    void NVS::setString(const char *key, const char *value)
     {
-        esp_err_t err = nvs_set_str(_handler, key.c_str(), value.c_str());
+        esp_err_t err = nvs_set_str(_handler, key, value);
 
         nvs_commit(_handler);
 
         if (err != ESP_OK)
         {
-            _logger.warn("failed to write string " + key);
+            _logger.warn("failed to write string " + String(key));
         }
     }
 

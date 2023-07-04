@@ -13,9 +13,9 @@ namespace ESPAdmin
     class NVS
     {
     public:
-        void begin(String _namespace);
-        String getString(String key);
-        void setString(String key, String value);
+        void begin(const char *_namespace);
+        const char *getString(const char *key);
+        void setString(const char *key, const char *value);
         void clear();
 
     private:

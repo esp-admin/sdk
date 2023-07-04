@@ -3,16 +3,18 @@
 namespace ESPAdmin
 {
     Logger Store::_logger("Store");
-    String Store::_namespace = "esp_admin";
     NVS Store::_NVS;
-    
+
+    const char *Store::_namespace = "esp_admin";
+
     bool Store::mqttConnected = false;
     bool Store::debugRemoteEnabled = true;
     bool Store::debugSerialEnabled = true;
-    String Store::deviceId;
     bool Store::updateRunning = false;
-    String Store::httpHost;
-    String Store::apiKey;
+
+    const char *Store::deviceId;
+    const char *Store::httpHost;
+    const char *Store::apiKey;
 
     const char *Store::ISRG_ROOT_X1 =
         "-----BEGIN CERTIFICATE-----\n"
@@ -47,9 +49,11 @@ namespace ESPAdmin
         "emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=\n"
         "-----END CERTIFICATE-----\n";
 
-    void Store::begin(String httpHost, String deviceId, String apiKey)
+    void Store::begin(const char *httpHost, const char *deviceId, const char *apiKey)
     {
         _NVS.begin(_namespace);
+
+        // _NVS.clear();
 
         Store::httpHost = httpHost;
         Store::deviceId = deviceId;
@@ -58,21 +62,21 @@ namespace ESPAdmin
         _getSettings();
     }
 
-    String Store::get(StoreKey key)
+    const char *Store::get(StoreKey key)
     {
-        return _NVS.getString(String(key));
+        return _NVS.getString(String(key).c_str());
     }
 
-    void Store::set(StoreKey key, String value)
+    void Store::set(StoreKey key, const char *value)
     {
-        _NVS.setString(String(key), value);
+        _NVS.setString(String(key).c_str(), value);
     }
 
     void Store::_getSettings()
     {
         String settings = HTTP::get("/settings");
 
-        StaticJsonDocument<512> doc;
+        StaticJsonDocument<384> doc;
 
         DeserializationError error = deserializeJson(doc, settings);
 

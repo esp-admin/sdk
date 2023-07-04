@@ -11,7 +11,7 @@
 
 namespace ESPAdmin
 {
-    void begin(String httpHost, String deviceId, String apiKey);
+    void begin(const char * httpHost, const char* deviceId, const char*apiKey);
 }
 
 #endif
