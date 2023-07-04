@@ -33,7 +33,6 @@ namespace ESPAdmin
 
         else if (type == "custom")
         {
-            _logger.info(message);
             onCustom(message);
         }
     }

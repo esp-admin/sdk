@@ -33,7 +33,7 @@ namespace ESPAdmin
 
         serializeJson(doc, message);
 
-        HTTP::post("/device/report/custom", message, "application/json");
+        HTTP::post("/report/custom", message, "application/json");
 
         MQTT::publish("/report/custom", message, 1, false);
     }
