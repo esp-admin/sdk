@@ -12,7 +12,7 @@ namespace ESPAdmin
         String currentReleaseId = Store::get(STORE_UPDATE_RELEASE_ID);
         String currentVersion = Store::get(STORE_UPDATE_VERSION);
 
-        if (currentReleaseId == _message.releaseId && currentVersion == _message.version)
+        if (currentReleaseId == _message.releaseId)
         {
             _logger.info("already updated");
         }

@@ -3,12 +3,10 @@
 namespace ESPAdmin
 {
     Logger HTTP::_logger("HTTP");
-    unsigned int HTTP::_maxResponseSize = 2048;
-    int HTTP::_timeoutMs = 8000;
 
     String HTTP::get(String path)
     {
-        char response[_maxResponseSize] = {0};
+        char response[HTTP_MAX_RESPONSE_SIZE] = {0};
 
         String fullPath = "/api/device/" + String(Store::deviceId) + path;
 
@@ -17,7 +15,7 @@ namespace ESPAdmin
             .path = fullPath.c_str(),
             .cert_pem = Store::ISRG_ROOT_X1,
             .method = HTTP_METHOD_GET,
-            .timeout_ms = _timeoutMs,
+            .timeout_ms = HTTP_TIMEOUT_MS,
             .transport_type = HTTP_TRANSPORT_OVER_SSL,
         };
 
@@ -38,7 +36,7 @@ namespace ESPAdmin
             }
             else
             {
-                esp_http_client_read_response(client, response, _maxResponseSize);
+                esp_http_client_read_response(client, response, HTTP_MAX_RESPONSE_SIZE);
             }
         }
         else
@@ -51,12 +49,12 @@ namespace ESPAdmin
 
         esp_http_client_cleanup(client);
 
-        return String(response);
+        return response;
     }
 
     String HTTP::post(String path, String content, String contentType)
     {
-        char response[_maxResponseSize] = {0};
+        char response[HTTP_MAX_RESPONSE_SIZE] = {0};
 
         String fullPath = "/api/device/" + String(Store::deviceId) + path;
 
@@ -65,7 +63,7 @@ namespace ESPAdmin
             .path = fullPath.c_str(),
             .cert_pem = Store::ISRG_ROOT_X1,
             .method = HTTP_METHOD_POST,
-            .timeout_ms = _timeoutMs,
+            .timeout_ms = HTTP_TIMEOUT_MS,
             .transport_type = HTTP_TRANSPORT_OVER_SSL,
         };
 
@@ -88,7 +86,7 @@ namespace ESPAdmin
             else
             {
                 esp_http_client_fetch_headers(client);
-                esp_http_client_read_response(client, response, _maxResponseSize);
+                esp_http_client_read_response(client, response, HTTP_MAX_RESPONSE_SIZE);
             }
         }
         else
@@ -101,6 +99,6 @@ namespace ESPAdmin
 
         esp_http_client_cleanup(client);
 
-        return String(response);
+        return response;
     }
 }

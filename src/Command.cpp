@@ -7,9 +7,7 @@ namespace ESPAdmin
 
     void Command::onMessage(String message, String topic)
     {
-        int beginIndex = topic.lastIndexOf("/") + 1;
-
-        String type = topic.substring(beginIndex);
+        String type = topic.substring(topic.lastIndexOf("/") + 1);
 
         if (type == "debug")
         {
@@ -39,15 +37,9 @@ namespace ESPAdmin
 
     void Command::_onUpdate(String message)
     {
-        StaticJsonDocument<300> doc;
+        StaticJsonDocument<256> doc;
 
         DeserializationError error = deserializeJson(doc, message);
-
-        if (error)
-        {
-            _logger.error("failed to parse update message");
-            return;
-        }
 
         UpdateMessage updateMessage = {
             .downloadURL = doc["downloadUrl"],

@@ -5,6 +5,9 @@
 #include "Store.h"
 #include <esp_http_client.h>
 
+#define HTTP_MAX_RESPONSE_SIZE 2 * 1024
+#define HTTP_TIMEOUT_MS 8000
+
 namespace ESPAdmin
 {
     class Logger;
@@ -17,8 +20,6 @@ namespace ESPAdmin
 
     private:
         static Logger _logger;
-        static unsigned int _maxResponseSize;
-        static int _timeoutMs;
     };
 }
 

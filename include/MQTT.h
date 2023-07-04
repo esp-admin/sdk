@@ -8,6 +8,9 @@
 #include "Command.h"
 #include "Report.h"
 
+#define MQTT_TASK_STACK_SIZE 8*1024
+#define MQTT_KEEP_ALIVE_SEC 120
+
 namespace ESPAdmin
 {
     class Logger;

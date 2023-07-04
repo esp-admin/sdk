@@ -6,12 +6,10 @@
 #include "Store.h"
 #include "Command.h"
 #include "MQTT.h"
-#include "HTTP.h"
-#include "Update.h"
 
 namespace ESPAdmin
 {
-    void begin(const char * httpHost, const char* deviceId, const char*apiKey);
+    void begin(const char *httpHost, const char *deviceId, const char *apiKey);
 }
 
 #endif

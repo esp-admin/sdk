@@ -8,7 +8,7 @@ namespace ESPAdmin
     {
         String message;
 
-        StaticJsonDocument<300> doc;
+        StaticJsonDocument<256> doc;
 
         doc["subject"] = reportMessage.subject;
         doc["body"] = reportMessage.body;
@@ -55,7 +55,7 @@ namespace ESPAdmin
         {
             String message;
 
-            StaticJsonDocument<100> doc;
+            StaticJsonDocument<96> doc;
 
             doc["releaseId"] = updateMessage.releaseId;
             doc["status"] = status;
@@ -66,7 +66,7 @@ namespace ESPAdmin
 
             String mqttMessage;
 
-            StaticJsonDocument<100> mqttDoc;
+            StaticJsonDocument<96> mqttDoc;
 
             mqttDoc["status"] = status;
             mqttDoc["deploymentId"] = updateMessage.deploymentId;
@@ -79,7 +79,7 @@ namespace ESPAdmin
         {
             String message;
 
-            StaticJsonDocument<100> doc;
+            StaticJsonDocument<96> doc;
 
             doc["status"] = status;
             doc["deploymentId"] = updateMessage.deploymentId;

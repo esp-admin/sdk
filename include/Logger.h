@@ -2,7 +2,6 @@
 #define H_ESP_ADMIN_LOGGER
 
 #include <Arduino.h>
-#include "types.h"
 #include "Store.h"
 #include "MQTT.h"
 

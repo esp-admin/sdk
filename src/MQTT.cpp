@@ -8,24 +8,24 @@ namespace ESPAdmin
 
     void MQTT::connect()
     {
-        String uriTCP = Store::get(STORE_MQTT_URI_TCP);
-        String username = Store::get(STORE_MQTT_USERNAME);
-        String password = Store::get(STORE_MQTT_PASSWORD);
+        const char *uriTCP = Store::get(STORE_MQTT_URI_TCP);
+        const char *username = Store::get(STORE_MQTT_USERNAME);
+        const char *password = Store::get(STORE_MQTT_PASSWORD);
 
-        String lwtMessage = "{\"status\":\"disconnected\"}";
+        const char *lwtMessage = "{\"status\":\"disconnected\"}";
         String lwtTopic = "device/" + String(Store::deviceId) + "/report/status";
 
         esp_mqtt_client_config_t config = {
-            .uri = uriTCP.c_str(),
+            .uri = uriTCP,
             .client_id = Store::deviceId,
-            .username = username.c_str(),
-            .password = password.c_str(),
+            .username = username,
+            .password = password,
             .lwt_topic = lwtTopic.c_str(),
-            .lwt_msg = lwtMessage.c_str(),
+            .lwt_msg = lwtMessage,
             .lwt_qos = 1,
             .lwt_retain = true,
-            .keepalive = 120,
-            .task_stack = 8 * 1024,
+            .keepalive = MQTT_KEEP_ALIVE_SEC,
+            .task_stack = MQTT_TASK_STACK_SIZE,
             .cert_pem = Store::ISRG_ROOT_X1,
         };
 

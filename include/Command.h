@@ -2,8 +2,8 @@
 #define H_ESP_ADMIN_COMMAND
 
 #include <ArduinoJson.h>
-#include "types.h"
 #include "Logger.h"
+#include "types.h"
 #include "Update.h"
 
 namespace ESPAdmin
