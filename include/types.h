@@ -5,20 +5,6 @@
 
 namespace ESPAdmin
 {
-    struct UpdateMessage
-    {
-        String downloadURL;
-        String releaseId;
-        String version;
-    };
-
-    struct ReportMessage
-    {
-        ReportType type;
-        String subject;
-        String body;
-    };
-
     enum ReportType
     {
         REPORT_INFO,
@@ -43,6 +29,20 @@ namespace ESPAdmin
         UPDATE_STARTED,
         UPDATE_FAILED,
         UPDATE_SUCCEDED
+    };
+
+    struct UpdateMessage
+    {
+        String downloadURL;
+        String releaseId;
+        String version;
+    };
+
+    struct ReportMessage
+    {
+        ReportType type;
+        String subject;
+        String body;
     };
 
     typedef void (*OnCustomCommand)(String);

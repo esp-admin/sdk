@@ -13,7 +13,6 @@ namespace ESPAdmin
     {
     public:
         static String get(String path);
-        static String patch(String path, String content, String contentType);
         static String post(String path, String content, String contentType);
 
     private:

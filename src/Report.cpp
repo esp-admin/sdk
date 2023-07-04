@@ -60,6 +60,7 @@ namespace ESPAdmin
             StaticJsonDocument<100> doc;
 
             doc["releaseId"] = updateMessage.releaseId;
+            doc["status"] = status;
 
             serializeJson(doc, message);
 
@@ -87,7 +88,7 @@ namespace ESPAdmin
 
             serializeJson(doc, message);
 
-            HTTP::patch("/report/update", message, "application/json");
+            HTTP::post("/report/update", message, "application/json");
 
             MQTT::publish("/report/update", message, 1, false);
         }
