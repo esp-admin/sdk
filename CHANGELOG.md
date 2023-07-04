@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.0.2...v0.0.3)
+
+
+### 🚀 Enhancements
+
+  - Implement getSettings on boot ([8d94dea](https://github.com/becem-gharbi/esp-admin-sdk/commit/8d94dea))
+  - Implement custom resport ([329cb5e](https://github.com/becem-gharbi/esp-admin-sdk/commit/329cb5e))
+  - Select mqtt by default and ws as fallback ([905ca68](https://github.com/becem-gharbi/esp-admin-sdk/commit/905ca68))
+
+### 🔥 Performance
+
+  - Implement minor memory optimizations ([d921b94](https://github.com/becem-gharbi/esp-admin-sdk/commit/d921b94))
+
+### 🩹 Fixes
+
+  - Add status to report update ([38e904c](https://github.com/becem-gharbi/esp-admin-sdk/commit/38e904c))
+  - Fix custom report http path ([9ca3681](https://github.com/becem-gharbi/esp-admin-sdk/commit/9ca3681))
+
+### 💅 Refactors
+
+  - Implement minor refactoring ([e0cf930](https://github.com/becem-gharbi/esp-admin-sdk/commit/e0cf930))
+
+### ❤️  Contributors
+
+- Becem Gharbi ([@becem-gharbi](http://github.com/becem-gharbi))
+
 ## v0.0.2
 
 [compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.0.1...v0.0.2)
