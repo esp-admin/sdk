@@ -10,8 +10,8 @@ namespace ESPAdmin
     {
         char response[_maxResponseSize] = {0};
 
-        String host = Store::get(STORE_HTTP_BASE_URL);
-        String apiKey = Store::get(STORE_HTTP_API_KEY);
+        String host = Store::httpHost;
+        String apiKey = Store::apiKey;
 
         String deviceId = Store::deviceId;
         String fullPath = "/api/device/" + deviceId + path;
@@ -62,8 +62,8 @@ namespace ESPAdmin
     {
         char response[_maxResponseSize] = {0};
 
-        String host = Store::get(STORE_HTTP_BASE_URL);
-        String apiKey = Store::get(STORE_HTTP_API_KEY);
+        String host = Store::httpHost;
+        String apiKey = Store::apiKey;
 
         String deviceId = Store::deviceId;
         String fullPath = "/api/device/" + deviceId + path;
@@ -116,8 +116,8 @@ namespace ESPAdmin
     {
         char response[_maxResponseSize] = {0};
 
-        String host = Store::get(STORE_HTTP_BASE_URL);
-        String apiKey = Store::get(STORE_HTTP_API_KEY);
+        String host = Store::httpHost;
+        String apiKey = Store::apiKey;
 
         String deviceId = Store::deviceId;
         String fullPath = "/api/device/" + deviceId + path;

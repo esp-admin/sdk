@@ -2,9 +2,9 @@
 
 namespace ESPAdmin
 {
-  void begin()
+  void begin(String httpHost, String deviceId, String apiKey)
   {
-    Store::begin();
+    Store::begin(httpHost, deviceId, apiKey);
 
     MQTT::connect();
   }

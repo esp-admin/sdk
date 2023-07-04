@@ -4,6 +4,8 @@
 #include "types.h"
 #include "NVS.h"
 #include <Arduino.h>
+#include "HTTP.h"
+#include "Logger.h"
 
 namespace ESPAdmin
 {
@@ -12,7 +14,7 @@ namespace ESPAdmin
     class Store
     {
     public:
-        static void begin();
+        static void begin(String httpHost, String deviceId, String apiKey);
         static void set(StoreKey key, String value);
         static String get(StoreKey key);
 
@@ -25,11 +27,14 @@ namespace ESPAdmin
         static bool debugSerialEnabled;
         static bool debugRemoteEnabled;
         static String deviceId;
-        static String mac;
+        static String httpHost;
+        static String apiKey;
 
     private:
         static NVS _NVS;
         static String _namespace;
+        static void _getSettings();
+        static Logger _logger;
     };
 }
 

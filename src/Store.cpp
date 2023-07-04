@@ -2,13 +2,16 @@
 
 namespace ESPAdmin
 {
+    Logger Store::_logger("Store");
     String Store::_namespace = "esp_admin";
     NVS Store::_NVS;
     bool Store::mqttConnected = false;
     bool Store::debugRemoteEnabled = true;
     bool Store::debugSerialEnabled = true;
-    String Store::deviceId = "648f18db246acba17f68f609";
+    String Store::deviceId;
     bool Store::updateRunning = false;
+    String Store::httpHost;
+    String Store::apiKey;
 
     const char *Store::ISRG_ROOT_X1 =
         "-----BEGIN CERTIFICATE-----\n"
@@ -43,18 +46,17 @@ namespace ESPAdmin
         "emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=\n"
         "-----END CERTIFICATE-----\n";
 
-    void Store::begin()
+    void Store::begin(String httpHost, String deviceId, String apiKey)
     {
         _NVS.begin(_namespace);
 
+        Store::httpHost = httpHost;
+        Store::deviceId = deviceId;
+        Store::apiKey = apiKey;
+
         // _NVS.clear();
 
-        set(STORE_HTTP_BASE_URL, "esp-admin.bg-tech.tn");
-        set(STORE_HTTP_API_KEY, "xcvxvDF5");
-
-        set(STORE_MQTT_USERNAME, "admin");
-        set(STORE_MQTT_PASSWORD, "2sj5ZAe@SS6YuYE");
-        set(STORE_MQTT_URI_TCP, "mqtts://830a40b6cfa942d5898328bf2d01c07a.s1.eu.hivemq.cloud:8883");
+        _getSettings();
     }
 
     String Store::get(StoreKey key)
@@ -65,5 +67,24 @@ namespace ESPAdmin
     void Store::set(StoreKey key, String value)
     {
         _NVS.setString(String(key), value);
+    }
+
+    void Store::_getSettings()
+    {
+        String settings = HTTP::get("/settings");
+
+        StaticJsonDocument<512> doc;
+
+        DeserializationError error = deserializeJson(doc, settings);
+
+        const char *uriTCP = doc["uriTCP"];
+        const char *uriWS = doc["uriWS"];
+        const char *username = doc["username"];
+        const char *password = doc["password"];
+
+        set(STORE_MQTT_USERNAME, username);
+        set(STORE_MQTT_PASSWORD, password);
+        set(STORE_MQTT_URI_TCP, uriTCP);
+        set(STORE_MQTT_URI_WS, uriWS);
     }
 }

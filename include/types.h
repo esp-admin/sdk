@@ -15,8 +15,6 @@ namespace ESPAdmin
     enum StoreKey
     {
         STORE_CONFIG,
-        STORE_HTTP_BASE_URL,
-        STORE_HTTP_API_KEY,
         STORE_MQTT_URI_TCP,
         STORE_MQTT_URI_WS,
         STORE_MQTT_USERNAME,
