@@ -13,8 +13,6 @@ const char *password = "";
 
 ESPAdmin::Logger logger("app");
 
-void onCustomCommand(String message);
-
 void setup()
 {
     Serial.begin(115200);
