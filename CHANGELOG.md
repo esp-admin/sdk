@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.0.3...v0.0.4)
+
+
+### 📖 Documentation
+
+  - Update readme ([62a74a4](https://github.com/becem-gharbi/esp-admin-sdk/commit/62a74a4))
+  - Add platformio badge ([69eb580](https://github.com/becem-gharbi/esp-admin-sdk/commit/69eb580))
+
+### 🏡 Chore
+
+  - Add library.json and basic example ([b8858f4](https://github.com/becem-gharbi/esp-admin-sdk/commit/b8858f4))
+  - Update basic example ([52884f8](https://github.com/becem-gharbi/esp-admin-sdk/commit/52884f8))
+  - Update basic example ([79f1984](https://github.com/becem-gharbi/esp-admin-sdk/commit/79f1984))
+  - Update default httpHost ([87dc2c8](https://github.com/becem-gharbi/esp-admin-sdk/commit/87dc2c8))
+
+### ❤️  Contributors
+
+- Becem Gharbi ([@becem-gharbi](http://github.com/becem-gharbi))
+- Becem ([@becem-gharbi](http://github.com/becem-gharbi))
+
 ## v0.0.3
 
 [compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.0.2...v0.0.3)
