@@ -5,7 +5,7 @@
 #include <WiFi.h>
 #include "ESPAdmin.h"
 
-const char *httpHost = "esp-admin.bg-tech.tn";
+const char *httpHost = "esp-admin-app.bg-tech.tn";
 const char *deviceId = "";
 const char *apiKey = "";
 const char *ssid = "";
