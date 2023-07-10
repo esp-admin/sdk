@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.0.4...v0.0.5)
+
+
+### 💅 Refactors
+
+  - Create download URL locally from relative path and httpHost ([6b98382](https://github.com/becem-gharbi/esp-admin-sdk/commit/6b98382))
+
+### 📖 Documentation
+
+  - Add documentation section ([567e66a](https://github.com/becem-gharbi/esp-admin-sdk/commit/567e66a))
+
+### ❤️  Contributors
+
+- Becem Gharbi ([@becem-gharbi](http://github.com/becem-gharbi))
+
 ## v0.0.4
 
 [compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.0.3...v0.0.4)
