@@ -5,11 +5,11 @@
 #include <WiFi.h>
 #include "ESPAdmin.h"
 
-const char *httpHost = "esp-admin-app.bg-tech.tn";
-const char *deviceId = "";
-const char *apiKey = "";
-const char *ssid = "";
-const char *password = "";
+const char *httpHost = "esp-admin-app.bg-tech.tn"; // Should be secured (over HTTPS)
+const char *deviceId = "";                         // Device identifier
+const char *apiKey = "";                           // Device API key
+const char *ssid = "";                             // WiFi station SSID
+const char *password = "";                         // WiFi station password
 
 ESPAdmin::Logger logger("app");
 
