@@ -9,9 +9,9 @@ namespace ESPAdmin
     {
         String type = topic.substring(topic.lastIndexOf("/") + 1);
 
-        if (type == "debug")
+        if (type == "log")
         {
-            _onDebug(message);
+            _onLog(message);
         }
 
         else if (type == "restart")
@@ -60,8 +60,8 @@ namespace ESPAdmin
         esp_restart();
     }
 
-    void Command::_onDebug(String message)
+    void Command::_onLog(String message)
     {
-        Store::debugRemoteEnabled = message == "on" ? true : false;
+        Store::logRemoteEnabled = message == "on" ? true : false;
     }
 }

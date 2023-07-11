@@ -29,14 +29,14 @@ namespace ESPAdmin
 
     void Logger::_log(String color, String type, String message)
     {
-        if (Store::debugSerialEnabled)
+        if (Store::logSerialEnabled)
         {
             Serial.printf(color.c_str());
             Serial.printf(" %s ", type.c_str());
             Serial.printf(ANSI_COLOR_RESET);
             Serial.printf(" [%s] %s \n", _scope.c_str(), message.c_str());
         }
-        if (Store::debugRemoteEnabled)
+        if (Store::logRemoteEnabled)
         {
             MQTT::publish("/logs/" + type, message, 0, false);
         }

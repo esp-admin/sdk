@@ -21,7 +21,7 @@ namespace ESPAdmin
         static void _onUpdate(String message);
         static void _onConfig(String message);
         static void _onRestart();
-        static void _onDebug(String message);
+        static void _onLog(String message);
     };
 }
 

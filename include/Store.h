@@ -21,8 +21,8 @@ namespace ESPAdmin
         // States
         static bool mqttConnected;
         static bool updateRunning;
-        static bool debugSerialEnabled;
-        static bool debugRemoteEnabled;
+        static bool logSerialEnabled;
+        static bool logRemoteEnabled;
 
         // constants
         static const char *deviceId;
