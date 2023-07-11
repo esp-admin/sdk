@@ -42,7 +42,7 @@ namespace ESPAdmin
         DeserializationError error = deserializeJson(doc, message);
 
         UpdateMessage updateMessage = {
-            .downloadURL = doc["downloadUrl"],
+            .downloadPath = doc["downloadPath"],
             .releaseId = doc["releaseId"],
             .version = doc["version"],
         };

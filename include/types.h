@@ -33,7 +33,7 @@ namespace ESPAdmin
 
     struct UpdateMessage
     {
-        String downloadURL;
+        String downloadPath;
         String releaseId;
         String version;
         String deploymentId;

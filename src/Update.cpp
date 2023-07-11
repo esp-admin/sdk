@@ -19,8 +19,8 @@ namespace ESPAdmin
         else
         {
             _logger.info("Update to release " + _message.releaseId + " version " + _message.version);
-            String fullDownloadURL = "https://" + String(Store::httpHost) + message.downloadURL;
-            OTA::start(fullDownloadURL);
+            String downloadURL = "https://" + String(Store::httpHost) + message.downloadPath;
+            OTA::start(downloadURL);
         }
     }
 
