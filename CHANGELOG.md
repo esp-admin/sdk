@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.1.1
+
+[compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.0.5...v0.1.1)
+
+
+### 💅 Refactors
+
+  - Rename debug to log ([1088e7d](https://github.com/becem-gharbi/esp-admin-sdk/commit/1088e7d))
+  - Rename downloadUrl to download Path in update command ([6507c5d](https://github.com/becem-gharbi/esp-admin-sdk/commit/6507c5d))
+
+### 📖 Documentation
+
+  - **readme:** Remove under development warning ([2dda708](https://github.com/becem-gharbi/esp-admin-sdk/commit/2dda708))
+
+### 🏡 Chore
+
+  - Bump version to 0.1 ([209cab2](https://github.com/becem-gharbi/esp-admin-sdk/commit/209cab2))
+
+### ❤️  Contributors
+
+- Becem Gharbi ([@becem-gharbi](http://github.com/becem-gharbi))
+
 ## v0.0.5
 
 [compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.0.4...v0.0.5)
