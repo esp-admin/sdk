@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.1.1...v0.1.2)
+
+
+### 💅 Refactors
+
+  - Set mqtt subscribe method to public ([88f7d51](https://github.com/becem-gharbi/esp-admin-sdk/commit/88f7d51))
+
+### 🏡 Chore
+
+  - Set mqtt keep alive to 30 sec ([ff297ef](https://github.com/becem-gharbi/esp-admin-sdk/commit/ff297ef))
+
+### ❤️  Contributors
+
+- Becem Gharbi <becem.gharbi@live.com>
+
 ## v0.1.1
 
 [compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.0.5...v0.1.1)
