@@ -106,7 +106,7 @@ namespace ESPAdmin
         }
     }
 
-    void MQTT::_subscribe(String topic, unsigned qos)
+    void MQTT::subscribe(String topic, unsigned qos)
     {
         if (Store::mqttConnected)
         {
@@ -124,7 +124,7 @@ namespace ESPAdmin
 
         _logger.info("connected");
 
-        _subscribe("device/" + String(Store::deviceId) + "/command/+", 1);
+        subscribe("device/" + String(Store::deviceId) + "/command/+", 1);
 
         Report::sendStatus("connected");
     }

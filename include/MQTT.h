@@ -22,6 +22,7 @@ namespace ESPAdmin
         static void connect();
         static void disconnect();
         static void publish(String topic, String message, unsigned qos, bool retain);
+        static void subscribe(String topic, unsigned qos);
 
     private:
         static Logger _logger;
@@ -31,7 +32,6 @@ namespace ESPAdmin
         static void _onDisconnected();
         static void _onSubscribed();
         static void _onDataArrived(String topic, String message);
-        static void _subscribe(String topic, unsigned qos);
     };
 }
 
