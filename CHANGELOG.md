@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.1.2...v0.1.3)
+
+
+### 🏡 Chore
+
+  - Update application domain ([ba9ee93](https://github.com/becem-gharbi/esp-admin-sdk/commit/ba9ee93))
+
+### ❤️  Contributors
+
+- Becem Gharbi <becem.gharbi@live.com>
+
 ## v0.1.2
 
 [compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.1.1...v0.1.2)
