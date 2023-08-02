@@ -5,7 +5,7 @@
 
 // const char *ssid = "ASUR_AP";
 // const char *password = "pass1234";
-const char *httpHost = "esp-admin-app.bg-tech.tn";
+const char *httpHost = "esp-admin-app.bg.tn";
 const char *deviceId = "648f18db246acba17f68f609";
 const char *apiKey = "xcvxvDF5";
 

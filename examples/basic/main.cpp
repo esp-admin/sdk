@@ -5,7 +5,7 @@
 #include <WiFi.h>
 #include "ESPAdmin.h"
 
-const char *httpHost = "esp-admin-app.bg-tech.tn"; // Should be secured (over HTTPS)
+const char *httpHost = "esp-admin-app.bg.tn"; // Should be secured (over HTTPS)
 const char *deviceId = "";                         // Device identifier
 const char *apiKey = "";                           // Device API key
 const char *ssid = "";                             // WiFi station SSID
