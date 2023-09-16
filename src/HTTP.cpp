@@ -29,7 +29,7 @@ namespace ESPAdmin
         {
             int contentLength = esp_http_client_fetch_headers(client);
 
-            if (contentLength <= 0)
+            if (contentLength == -1)
             {
                 _logger.warn("failed to read");
                 return "-1";
@@ -78,7 +78,7 @@ namespace ESPAdmin
         if (err == ESP_OK)
         {
             int wlen = esp_http_client_write(client, content.c_str(), content.length());
-            if (wlen < 0)
+            if (wlen == -1)
             {
                 _logger.warn("failed to write");
                 return "-1";

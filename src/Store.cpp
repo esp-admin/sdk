@@ -53,13 +53,15 @@ namespace ESPAdmin
     {
         _NVS.begin(_namespace);
 
-        // _NVS.clear();
+       // _NVS.clear();
 
         Store::httpHost = httpHost;
         Store::deviceId = deviceId;
         Store::apiKey = apiKey;
 
         _getSettings();
+
+        _logger.success("ready");
     }
 
     const char *Store::get(StoreKey key)
