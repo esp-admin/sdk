@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.1.4
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v0.1.3...v0.1.4)
+
+
+### 🩹 Fixes
+
+  - **HTTP:** Only fail when -1 returned ([afe32f6](https://github.com/esp-admin/sdk/commit/afe32f6))
+
+### ❤️  Contributors
+
+- Becem Gharbi <becem.gharbi@live.com>
+
 ## v0.1.3
 
 [compare changes](https://github.com/becem-gharbi/esp-admin-sdk/compare/v0.1.2...v0.1.3)
