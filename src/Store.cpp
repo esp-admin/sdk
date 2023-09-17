@@ -53,7 +53,7 @@ namespace ESPAdmin
     {
         _NVS.begin(_namespace);
 
-       // _NVS.clear();
+        // _NVS.clear();
 
         Store::httpHost = httpHost;
         Store::deviceId = deviceId;
