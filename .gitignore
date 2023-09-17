@@ -5,4 +5,4 @@
 .vscode/ipch
 node_modules/
 package-lock.json
-test/
+tests
