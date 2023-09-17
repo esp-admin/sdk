@@ -3,7 +3,7 @@
 #include "ESPAdmin.h"
 #include <ArduinoJson.h>
 
-const char *ssid = "ASUR_AP";
+const char *ssid = "ASUS_AP";
 const char *password = "pass1234";
 const char *httpHost = "esp-admin-app.bg.tn";
 const char *deviceId = "65043be911b195e46ae16a12";
