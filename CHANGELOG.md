@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.1.5
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v0.1.4...v0.1.5)
+
+
+### 🔥 Performance
+
+  - **OTA:** Use espressif APIs instead of arduino-esp32 ([486f3b3](https://github.com/esp-admin/sdk/commit/486f3b3))
+
+### 🩹 Fixes
+
+  - **MQTT:** Increase stack size to 10k ([e17716b](https://github.com/esp-admin/sdk/commit/e17716b))
+
+### 🏡 Chore
+
+  - Add test to gitignore ([5cc6bb3](https://github.com/esp-admin/sdk/commit/5cc6bb3))
+  - Update ca root cert ([1a461d8](https://github.com/esp-admin/sdk/commit/1a461d8))
+  - Update ssid ([ef53230](https://github.com/esp-admin/sdk/commit/ef53230))
+  - Update ca root cert ([ab3c58a](https://github.com/esp-admin/sdk/commit/ab3c58a))
+
+### ❤️  Contributors
+
+- Becem Gharbi <becem.gharbi@live.com>
+
 ## v0.1.4
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v0.1.3...v0.1.4)
