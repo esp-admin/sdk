@@ -6,31 +6,26 @@ namespace ESPAdmin
 
     void OTA::start(String downloadURL)
     {
+        esp_http_client_config_t config = {
+            .url = downloadURL.c_str(),
+            .cert_pem = Store::ISRG_ROOT_X1,
+        };
+
         Update::onChange(UPDATE_STARTED);
-
-        _logger.info("@ " + downloadURL);
-
-        HttpsOTA.onHttpEvent([](HttpEvent_t *event) {});
-        HttpsOTA.begin(downloadURL.c_str(), Store::ISRG_ROOT_X1);
 
         Store::updateRunning = true;
 
-        while (Store::updateRunning)
+        esp_err_t ret = esp_https_ota(&config);
+
+        if (ret == ESP_OK)
         {
-            switch (HttpsOTA.status())
-            {
-            case HTTPS_OTA_SUCCESS:
-                Store::updateRunning = false;
-                Update::onChange(UPDATE_SUCCEDED);
-                break;
-
-            case HTTPS_OTA_FAIL:
-                Store::updateRunning = false;
-                Update::onChange(UPDATE_FAILED);
-                break;
-            }
-
-            delay(1000);
+            Store::updateRunning = false;
+            Update::onChange(UPDATE_SUCCEDED);
+        }
+        else
+        {
+            Store::updateRunning = false;
+            Update::onChange(UPDATE_FAILED);
         }
     }
 }

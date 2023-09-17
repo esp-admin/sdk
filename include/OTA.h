@@ -2,7 +2,7 @@
 #define H_ESP_ADMIN_OTA
 
 #include <Arduino.h>
-#include <HttpsOTAUpdate.h>
+#include <esp_http_client.h>
 #include <esp_https_ota.h>
 #include "Store.h"
 #include "Logger.h"
