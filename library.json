@@ -1,11 +1,11 @@
 {
   "name": "ESPAdmin",
-  "version": "0.1.5",
-  "description": "The sdk for esp-admin platform",
+  "version": "0.1.6",
+  "description": "The sdk for ESP Admin platform",
   "keywords": "config, ota, esp32, management",
   "repository": {
     "type": "git",
-    "url": "https://github.com/becem-gharbi/esp-admin-sdk"
+    "url": "https://github.com/esp-admin/sdk"
   },
   "authors": [
     {
