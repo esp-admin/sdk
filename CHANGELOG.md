@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.1.6
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v0.1.5...v0.1.6)
+
+
+### 🩹 Fixes
+
+  - **NVS:** Store NULL values as empty strings ([8fd6cb2](https://github.com/esp-admin/sdk/commit/8fd6cb2))
+
+### 🏡 Chore
+
+  - Delete test directory ([0bedbe9](https://github.com/esp-admin/sdk/commit/0bedbe9))
+  - Rename directory test to tests ([2e623f6](https://github.com/esp-admin/sdk/commit/2e623f6))
+
+### ❤️  Contributors
+
+- Becem Gharbi <becem.gharbi@live.com>
+- Becem <becem.gharbi@live.com>
+
 ## v0.1.5
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v0.1.4...v0.1.5)
