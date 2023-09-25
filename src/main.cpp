@@ -5,9 +5,9 @@
 
 const char *ssid = "ASUS_AP";
 const char *password = "pass1234";
-const char *httpHost = "esp-admin-app.bg.tn";
-const char *deviceId = "65043be911b195e46ae16a12";
-const char *apiKey = "tester123";
+const char *httpHost = "espadmin-app.bg.tn";
+const char *deviceId = "651183946659c6553efa5d31";
+const char *apiKey = "qsd56562";
 
 ESPAdmin::Logger logger("app");
 

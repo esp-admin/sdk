@@ -43,7 +43,7 @@ namespace ESPAdmin
 
     void NVS::setString(const char *key, const char *value)
     {
-        esp_err_t err = nvs_set_str(_handler, key, value);
+        esp_err_t err = nvs_set_str(_handler, key, value == NULL ? "" : value);
 
         nvs_commit(_handler);
 
