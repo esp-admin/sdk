@@ -1,6 +1,31 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v0.1.6...v0.2.0)
+
+
+### 💅 Refactors
+
+  - **Store:** ⚠️  Pass root ca cert as argument instead of hard coded value ([551ebf5](https://github.com/esp-admin/sdk/commit/551ebf5))
+
+### 🏡 Chore
+
+  - Update library.json ([c70987b](https://github.com/esp-admin/sdk/commit/c70987b))
+  - Increase keep alive to 120 sec ([467ed28](https://github.com/esp-admin/sdk/commit/467ed28))
+  - Set OTA timeout config ([7eb3385](https://github.com/esp-admin/sdk/commit/7eb3385))
+  - **Update:** Change already updated log msg ([b6b0541](https://github.com/esp-admin/sdk/commit/b6b0541))
+
+#### ⚠️  Breaking Changes
+
+  - **Store:** ⚠️  Pass root ca cert as argument instead of hard coded value ([551ebf5](https://github.com/esp-admin/sdk/commit/551ebf5))
+
+### ❤️  Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+- Becem Gharbi <becem.gharbi@live.com>
+
 ## v0.1.6
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v0.1.5...v0.1.6)
