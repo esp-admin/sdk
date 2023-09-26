@@ -9,7 +9,7 @@
 #include "Report.h"
 
 #define MQTT_TASK_STACK_SIZE 10 * 1024
-#define MQTT_KEEP_ALIVE_SEC 30
+#define MQTT_KEEP_ALIVE_SEC 120 // Should be higher than the expected OTA duration
 #define MQTT_NETWORK_TIMEOUT_MS 8000
 
 namespace ESPAdmin

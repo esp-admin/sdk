@@ -3,11 +3,11 @@
 #include "ESPAdmin.h"
 #include <ArduinoJson.h>
 
-const char *ssid = "ASUS_AP";
+const char *httpHost = "espadmin-app.bg.tn";       // Should be secured (over HTTPS)
+const char *deviceId = "651183946659c6553efa5d31"; // Device identifier
+const char *apiKey = "qsd56562";                   // Device API key
+const char *ssid = "ASUS_AP";                      // WiFi station SSID
 const char *password = "pass1234";
-const char *httpHost = "espadmin-app.bg.tn";
-const char *deviceId = "651183946659c6553efa5d31";
-const char *apiKey = "qsd56562";
 
 ESPAdmin::Logger logger("app");
 
@@ -15,7 +15,7 @@ void onCustomCommand(String message);
 
 void setup()
 {
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.printf("\n");
 
   WiFi.begin(ssid, password);
