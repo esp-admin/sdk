@@ -77,12 +77,12 @@ namespace ESPAdmin
         }
         else
         {
-            String message;
-
             StaticJsonDocument<96> doc;
 
             doc["status"] = status;
             doc["deploymentId"] = updateMessage.deploymentId;
+
+            String message;
 
             serializeJson(doc, message);
 
