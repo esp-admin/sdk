@@ -14,7 +14,7 @@ namespace ESPAdmin
 
         if (currentReleaseId == _message.releaseId)
         {
-            _logger.info("already updated");
+            _logger.info("Already updated with release " + currentReleaseId + " version " + currentVersion);
         }
         else
         {
