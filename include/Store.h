@@ -14,7 +14,7 @@ namespace ESPAdmin
     class Store
     {
     public:
-        static void begin(const char *httpHost, const char *deviceId, const char *apiKey);
+        static void begin(const char *httpHost, const char *deviceId, const char *apiKey, const char *certPem);
         static void set(StoreKey key, const char *value);
         static const char *get(StoreKey key);
 
@@ -28,7 +28,7 @@ namespace ESPAdmin
         static const char *deviceId;
         static const char *httpHost;
         static const char *apiKey;
-        static const char *ISRG_ROOT_X1;
+        static const char *certPem;
 
     private:
         static NVS _NVS;

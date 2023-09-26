@@ -32,7 +32,7 @@ namespace ESPAdmin
             .lwt_retain = true,
             .keepalive = MQTT_KEEP_ALIVE_SEC,
             .task_stack = MQTT_TASK_STACK_SIZE,
-            .cert_pem = Store::ISRG_ROOT_X1,
+            .cert_pem = Store::certPem,
             .network_timeout_ms = MQTT_NETWORK_TIMEOUT_MS,
         };
 

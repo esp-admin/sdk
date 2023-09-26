@@ -6,10 +6,11 @@
 #include "ESPAdmin.h"
 
 const char *httpHost = "esp-admin-app.bg.tn"; // Should be secured (over HTTPS)
-const char *deviceId = "";                         // Device identifier
-const char *apiKey = "";                           // Device API key
-const char *ssid = "";                             // WiFi station SSID
-const char *password = "";                         // WiFi station password
+const char *deviceId = "";                    // Device identifier
+const char *apiKey = "";                      // Device API key
+const char *ssid = "";                        // WiFi station SSID
+const char *password = "";                    // WiFi station password
+const char *certPem = "";                     // CA certificate in PEM format for HTTPS and MQTTS
 
 ESPAdmin::Logger logger("app");
 
