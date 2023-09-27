@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.2.1
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v0.2.0...v0.2.1)
+
+
+### 🔥 Performance
+
+  - **OTA:** Run process async on a seperate task ([dd40a46](https://github.com/esp-admin/sdk/commit/dd40a46))
+
+### 🩹 Fixes
+
+  - **Command:** Check if custom handler exists before calling it ([5e463ea](https://github.com/esp-admin/sdk/commit/5e463ea))
+  - **HTTP:** On GET check status code before read response ([9b034d4](https://github.com/esp-admin/sdk/commit/9b034d4))
+  - **HTTP:** On POST check status code before read response ([14b0f4d](https://github.com/esp-admin/sdk/commit/14b0f4d))
+  - **Store:** Avoid storing setting on failed fetch ([402ea77](https://github.com/esp-admin/sdk/commit/402ea77))
+
+### 💅 Refactors
+
+  - Allow override of internal config values ([c950ca3](https://github.com/esp-admin/sdk/commit/c950ca3))
+
+### 🏡 Chore
+
+  - **MQTT:** Set keep alive to 30 sec ([041b834](https://github.com/esp-admin/sdk/commit/041b834))
+
+### ❤️  Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v0.2.0
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v0.1.6...v0.2.0)
