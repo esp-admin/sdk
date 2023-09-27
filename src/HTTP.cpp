@@ -32,22 +32,29 @@ namespace ESPAdmin
             if (contentLength == -1)
             {
                 _logger.warn("failed to read");
-                return "-1";
             }
             else
             {
-                esp_http_client_read_response(client, response, HTTP_MAX_RESPONSE_SIZE);
+                int statusCode = esp_http_client_get_status_code(client);
+
+                if (statusCode < 200 || statusCode >= 300)
+                {
+                    _logger.error("[GET] " + fullPath + " failed with " + String(statusCode));
+                }
+                else
+                {
+                    esp_http_client_read_response(client, response, HTTP_MAX_RESPONSE_SIZE);
+                }
             }
+
+            esp_http_client_close(client);
+
+            esp_http_client_cleanup(client);
         }
         else
         {
             _logger.error("failed to open connection");
-            return "-1";
         }
-
-        esp_http_client_close(client);
-
-        esp_http_client_cleanup(client);
 
         return response;
     }
