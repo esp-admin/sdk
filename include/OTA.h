@@ -5,9 +5,13 @@
 #define HTTP_TIMEOUT_MS 8000
 #endif
 
+#ifndef OTA_TASK_STACK_SIZE
 #define OTA_TASK_STACK_SIZE 8 * 1024
-#define OTA_TASK_PRIORITY 6
-#define OTA_TASK_CORE_ID 1
+#endif
+
+#ifndef OTA_TASK_PRIORITY
+#define OTA_TASK_PRIORITY 5
+#endif
 
 #include <Arduino.h>
 #include <esp_http_client.h>

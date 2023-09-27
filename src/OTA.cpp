@@ -8,7 +8,7 @@ namespace ESPAdmin
     void OTA::start(String downloadURL)
     {
         _downloadURL = downloadURL;
-        xTaskCreatePinnedToCore(task, "ota_start", OTA_TASK_STACK_SIZE, NULL, OTA_TASK_PRIORITY, NULL, OTA_TASK_CORE_ID);
+        xTaskCreatePinnedToCore(task, "ota_start", OTA_TASK_STACK_SIZE, NULL, OTA_TASK_PRIORITY, NULL, 1);
     }
 
     void OTA::task(void *pvParameters)

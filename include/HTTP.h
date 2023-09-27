@@ -5,8 +5,13 @@
 #include "Store.h"
 #include <esp_http_client.h>
 
+#ifndef HTTP_MAX_RESPONSE_SIZE
 #define HTTP_MAX_RESPONSE_SIZE 2 * 1024
+#endif
+
+#ifndef HTTP_TIMEOUT_MS
 #define HTTP_TIMEOUT_MS 8000
+#endif
 
 namespace ESPAdmin
 {

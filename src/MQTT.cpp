@@ -31,6 +31,7 @@ namespace ESPAdmin
             .lwt_qos = 1,
             .lwt_retain = true,
             .keepalive = MQTT_KEEP_ALIVE_SEC,
+            .task_prio = MQTT_TASK_PRIORITY,
             .task_stack = MQTT_TASK_STACK_SIZE,
             .cert_pem = Store::certPem,
             .reconnect_timeout_ms = MQTT_RECONNECT_TIMEOUT_MS,
