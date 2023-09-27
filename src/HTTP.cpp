@@ -31,7 +31,7 @@ namespace ESPAdmin
 
             if (contentLength == -1)
             {
-                _logger.warn("failed to read");
+                _logger.error("failed to read");
             }
             else
             {
@@ -39,7 +39,7 @@ namespace ESPAdmin
 
                 if (statusCode < 200 || statusCode >= 300)
                 {
-                    _logger.error("[GET] " + fullPath + " failed with " + String(statusCode));
+                    _logger.error("failed with " + String(statusCode));
                 }
                 else
                 {
@@ -85,26 +85,42 @@ namespace ESPAdmin
         if (err == ESP_OK)
         {
             int wlen = esp_http_client_write(client, content.c_str(), content.length());
+
             if (wlen == -1)
             {
-                _logger.warn("failed to write");
-                return "-1";
+                _logger.error("failed to write");
             }
             else
             {
-                esp_http_client_fetch_headers(client);
-                esp_http_client_read_response(client, response, HTTP_MAX_RESPONSE_SIZE);
+                int contentLength = esp_http_client_fetch_headers(client);
+
+                if (contentLength == -1)
+                {
+                    _logger.error("failed to read");
+                }
+                else
+                {
+                    int statusCode = esp_http_client_get_status_code(client);
+
+                    if (statusCode < 200 || statusCode >= 300)
+                    {
+                        _logger.error("failed with " + String(statusCode));
+                    }
+                    else
+                    {
+                        esp_http_client_read_response(client, response, HTTP_MAX_RESPONSE_SIZE);
+                    }
+                }
             }
+
+            esp_http_client_close(client);
+
+            esp_http_client_cleanup(client);
         }
         else
         {
             _logger.error("failed to open connection");
-            return "-1";
         }
-
-        esp_http_client_close(client);
-
-        esp_http_client_cleanup(client);
 
         return response;
     }
