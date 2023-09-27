@@ -3,7 +3,7 @@
 namespace ESPAdmin
 {
     Logger Command::_logger("Command");
-    OnCustomCommand Command::onCustom;
+    OnCustomCommand Command::onCustom = nullptr;
 
     void Command::onMessage(String message, String topic)
     {
@@ -31,7 +31,14 @@ namespace ESPAdmin
 
         else if (type == "custom")
         {
-            onCustom(message);
+            if (onCustom == nullptr)
+            {
+                _logger.warn("no handler registered for custom commands");
+            }
+            else
+            {
+                onCustom(message);
+            }
         }
     }
 

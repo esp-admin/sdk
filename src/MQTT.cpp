@@ -33,6 +33,7 @@ namespace ESPAdmin
             .keepalive = MQTT_KEEP_ALIVE_SEC,
             .task_stack = MQTT_TASK_STACK_SIZE,
             .cert_pem = Store::certPem,
+            .reconnect_timeout_ms = MQTT_RECONNECT_TIMEOUT_MS,
             .network_timeout_ms = MQTT_NETWORK_TIMEOUT_MS,
         };
 
