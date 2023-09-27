@@ -29,8 +29,6 @@ namespace ESPAdmin
         Store::certPem = certPem;
 
         _getSettings();
-
-        _logger.success("ready");
     }
 
     const char *Store::get(StoreKey key)
@@ -47,6 +45,12 @@ namespace ESPAdmin
     {
         String settings = HTTP::get("/settings");
 
+        if (settings.length() == 0)
+        {
+            _logger.warn("could not fetch settings");
+            return;
+        }
+
         StaticJsonDocument<384> doc;
 
         DeserializationError error = deserializeJson(doc, settings);
@@ -60,5 +64,7 @@ namespace ESPAdmin
         set(STORE_MQTT_PASSWORD, password);
         set(STORE_MQTT_URI_TCP, uriTCP);
         set(STORE_MQTT_URI_WS, uriWS);
+
+        _logger.success("settings saved");
     }
 }
