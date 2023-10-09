@@ -11,7 +11,7 @@ The SDK for [ESP Admin](https://github.com/becem-gharbi/esp-admin) platform.
 
 ## 📝 Documentation
 
-Docs can be found [here](https://esp-admin.bg.tn/getting_started)
+Docs can be found [here](https://esp-admin.tn/getting_started)
 
 ## License
 

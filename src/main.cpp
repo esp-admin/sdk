@@ -3,9 +3,9 @@
 #include "ESPAdmin.h"
 #include <ArduinoJson.h>
 
-const char *httpHost = "espadmin-app.bg.tn";       // Should be secured (over HTTPS)
+const char *httpHost = "app.esp-admin.tn";         // Should be secured (over HTTPS)
 const char *deviceId = "651183946659c6553efa5d31"; // Device identifier
-const char *apiKey = "qsd5656";                   // Device API key
+const char *apiKey = "PU0eKyfgic07JhQFkm5D";       // Device API key
 const char *ssid = "ASUS_AP";                      // WiFi station SSID
 const char *password = "pass1234";
 const char *certPem =
