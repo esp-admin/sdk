@@ -1,6 +1,6 @@
 {
   "name": "esp-admin-sdk",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "The sdk for [ESP Admin](https://github.com/becem-gharbi/esp-admin) platform",
   "main": "index.js",
   "directories": {

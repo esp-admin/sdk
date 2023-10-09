@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.2.2
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v0.2.1...v0.2.2)
+
+
+### 🏡 Chore
+
+  - Change origin ([19a73af](https://github.com/esp-admin/sdk/commit/19a73af))
+
+### ❤️  Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v0.2.1
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v0.2.0...v0.2.1)
