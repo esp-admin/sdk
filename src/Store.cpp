@@ -15,9 +15,10 @@ namespace ESPAdmin
     const char *Store::deviceId;
     const char *Store::httpHost;
     const char *Store::apiKey;
-    const char *Store::certPem;
+    const char *Store::httpCert;
+    const char *Store::mqttCert;
 
-    void Store::begin(const char *httpHost, const char *deviceId, const char *apiKey, const char *certPem)
+    void Store::begin(const char *httpHost, const char *deviceId, const char *apiKey, const char *httpCert, const char *mqttCert)
     {
         _NVS.begin(_namespace);
 
@@ -26,7 +27,8 @@ namespace ESPAdmin
         Store::httpHost = httpHost;
         Store::deviceId = deviceId;
         Store::apiKey = apiKey;
-        Store::certPem = certPem;
+        Store::httpCert = httpCert;
+        Store::mqttCert = mqttCert;
 
         _getSettings();
     }

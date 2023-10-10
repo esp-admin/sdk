@@ -15,7 +15,7 @@ namespace ESPAdmin
     {
         esp_http_client_config_t config = {
             .url = _downloadURL.c_str(),
-            .cert_pem = Store::certPem,
+            .cert_pem = Store::httpCert,
             .timeout_ms = HTTP_TIMEOUT_MS,
         };
 

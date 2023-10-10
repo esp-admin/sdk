@@ -9,7 +9,7 @@
 
 namespace ESPAdmin
 {
-    void begin(const char *httpHost, const char *deviceId, const char *apiKey, const char *certPem);
+    void begin(const char *httpHost, const char *deviceId, const char *apiKey, const char *httpCert, const char *mqttCert);
 }
 
 #endif

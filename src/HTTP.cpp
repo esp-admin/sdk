@@ -13,7 +13,7 @@ namespace ESPAdmin
         esp_http_client_config_t config = {
             .host = Store::httpHost,
             .path = fullPath.c_str(),
-            .cert_pem = Store::certPem,
+            .cert_pem = Store::httpCert,
             .method = HTTP_METHOD_GET,
             .timeout_ms = HTTP_TIMEOUT_MS,
             .transport_type = HTTP_TRANSPORT_OVER_SSL,
@@ -68,7 +68,7 @@ namespace ESPAdmin
         esp_http_client_config_t config = {
             .host = Store::httpHost,
             .path = fullPath.c_str(),
-            .cert_pem = Store::certPem,
+            .cert_pem = Store::httpCert,
             .method = HTTP_METHOD_POST,
             .timeout_ms = HTTP_TIMEOUT_MS,
             .transport_type = HTTP_TRANSPORT_OVER_SSL,
