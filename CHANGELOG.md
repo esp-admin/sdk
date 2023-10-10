@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.2.3
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v0.2.2...v0.2.3)
+
+
+### 🩹 Fixes
+
+  - **Update:** Add 5 sec delay before reset to complete MQTT publish process ([7d7a002](https://github.com/esp-admin/sdk/commit/7d7a002))
+
+### 🏡 Chore
+
+  - Set seperate certificates for HTTP and MQTT clients ([11a7138](https://github.com/esp-admin/sdk/commit/11a7138))
+  - Create credentials.h file ([cde9402](https://github.com/esp-admin/sdk/commit/cde9402))
+  - Update basic example ([e3eb2c5](https://github.com/esp-admin/sdk/commit/e3eb2c5))
+
+### ❤️  Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v0.2.2
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v0.2.1...v0.2.2)
