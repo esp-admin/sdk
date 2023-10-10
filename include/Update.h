@@ -8,6 +8,8 @@
 #include "Logger.h"
 #include "Report.h"
 
+#define RESET_DELAY_MS 5000
+
 namespace ESPAdmin
 {
     class Logger;
