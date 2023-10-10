@@ -1,16 +1,7 @@
-
-// Note: Add <monitor_raw = true> to platformio.ini for colored logs
-
 #include <Arduino.h>
 #include <WiFi.h>
-#include "ESPAdmin.h"
-
-const char *httpHost = "app.esp-admin.tn"; // Should be secured (over HTTPS)
-const char *deviceId = "";                    // Device identifier
-const char *apiKey = "";                      // Device API key
-const char *ssid = "";                        // WiFi station SSID
-const char *password = "";                    // WiFi station password
-const char *certPem = "";                     // CA certificate in PEM format for HTTPS and MQTTS
+#include <ESPAdmin.h>
+#include "credentials.h"
 
 ESPAdmin::Logger logger("app");
 
@@ -30,7 +21,7 @@ void setup()
 
     logger.success("WiFi connected");
 
-    ESPAdmin::begin(httpHost, deviceId, apiKey);
+    ESPAdmin::begin(httpHost, deviceId, httpCert, mqttCert);
 }
 
 void loop()
