@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.2.4
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v0.2.3...v0.2.4)
+
+
+### 🏡 Chore
+
+  - Delete src/main.cpp ([4d94250](https://github.com/esp-admin/sdk/commit/4d94250))
+  - Delete design directory ([55832e9](https://github.com/esp-admin/sdk/commit/55832e9))
+  - Exclude main.cpp from pkg build ([b7858bc](https://github.com/esp-admin/sdk/commit/b7858bc))
+
+### ❤️  Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+- Becem <becem.gharbi@live.com>
+
 ## v0.2.3
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v0.2.2...v0.2.3)
