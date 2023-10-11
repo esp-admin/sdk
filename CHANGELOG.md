@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v1.0.1-rc
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v0.2.4...v1.0.1-rc)
+
+### 🏡 Chore
+
+- **Update:** Set reset delay to 8 sec ([6d10f2a](https://github.com/esp-admin/sdk/commit/6d10f2a))
+- Bump version to 1.0.0 ([1deb7da](https://github.com/esp-admin/sdk/commit/1deb7da))
+- Upgrade changelogen ([7f7466f](https://github.com/esp-admin/sdk/commit/7f7466f))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v0.2.4
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v0.2.3...v0.2.4)
