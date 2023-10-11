@@ -1,13 +1,13 @@
 {
   "name": "esp-admin-sdk",
-  "version": "0.2.4",
+  "version": "1.0.0",
   "description": "The sdk for [ESP Admin](https://github.com/becem-gharbi/esp-admin) platform",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "release": "npx changelogen --release && git push --follow-tags"
+    "release": "npx changelogen --release --versionSuffix rc && git push --follow-tags"
   },
   "keywords": [
     "esp-admin",
