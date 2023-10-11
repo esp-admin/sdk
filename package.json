@@ -16,6 +16,6 @@
   "author": "Becem Gharbi",
   "license": "ISC",
   "dependencies": {
-    "changelogen": "^0.5.3"
+    "changelogen": "^0.5.5"
   }
 }
