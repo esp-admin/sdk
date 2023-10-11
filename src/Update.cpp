@@ -49,7 +49,7 @@ namespace ESPAdmin
         Store::set(STORE_UPDATE_VERSION, _message.version.c_str());
 
         // Wait for MQTT publish to finish
-        delay(RESET_DELAY_MS);
+        delay(UPDATE_RESET_DELAY_MS);
 
         esp_restart();
     }

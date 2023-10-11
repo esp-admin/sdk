@@ -8,7 +8,9 @@
 #include "Logger.h"
 #include "Report.h"
 
-#define RESET_DELAY_MS 5000
+#ifndef UPDATE_RESET_DELAY_MS // The same as MQTT timeout
+#define UPDATE_RESET_DELAY_MS 8000
+#endif
 
 namespace ESPAdmin
 {
