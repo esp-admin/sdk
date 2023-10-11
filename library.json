@@ -24,7 +24,8 @@
   ],
   "export": {
     "exclude": [
-      "./src/main.cpp"
+      "./src/main.cpp",
+      "./include/credentials.h"
     ]
   }
 }

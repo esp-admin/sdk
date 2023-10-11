@@ -7,3 +7,4 @@ node_modules/
 package-lock.json
 tests
 src/main.cpp
+include/credentials.h
