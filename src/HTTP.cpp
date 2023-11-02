@@ -56,7 +56,7 @@ namespace ESPAdmin
             _logger.error("failed to open connection");
         }
 
-        return response;
+        return String(response);
     }
 
     String HTTP::post(const String &path, const String &content, const String &contentType)
@@ -122,6 +122,6 @@ namespace ESPAdmin
             _logger.error("failed to open connection");
         }
 
-        return response;
+        return String(response);
     }
 }

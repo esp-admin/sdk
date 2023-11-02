@@ -116,10 +116,6 @@ namespace ESPAdmin
         {
             esp_mqtt_client_subscribe(_client, topic.c_str(), qos);
         }
-        else
-        {
-            _logger.warn("client should be connected on subscription");
-        }
     }
 
     void MQTT::_onConnected()

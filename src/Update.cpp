@@ -14,11 +14,11 @@ namespace ESPAdmin
 
         if (currentReleaseId == _message.releaseId)
         {
-            _logger.info("Already updated with release %s version %s", currentReleaseId.c_str(), currentVersion.c_str());
+            _logger.info("already updated with version %s", currentVersion.c_str());
         }
         else
         {
-            _logger.info("Update to release %s version %s", _message.releaseId.c_str(), _message.version.c_str());
+            _logger.info("update to version %s", _message.version.c_str());
             String downloadURL = "https://" + String(Store::httpHost) + message.downloadPath;
             OTA::start(downloadURL);
         }
@@ -36,6 +36,8 @@ namespace ESPAdmin
             break;
         case UPDATE_FAILED:
             _onFail();
+            break;
+        default:
             break;
         }
     }
