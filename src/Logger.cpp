@@ -56,15 +56,15 @@ namespace ESPAdmin
 
     void Logger::_log(const char *color, const char *type, const char *message) const
     {
+        String fullMessage = "[" + _scope + "] " + String(message);
+
         if (Store::logSerialEnabled)
         {
-            Serial.printf("%s %s ", color, type);
-            Serial.printf(ANSI_COLOR_RESET);
-            Serial.printf(" [%s] %s \n", _scope.c_str(), message);
+            Serial.printf("%s %s %s %s \n", color, type, ANSI_COLOR_RESET, fullMessage.c_str());
         }
         if (Store::logRemoteEnabled)
         {
-            MQTT::publish("/logs/" + String(type), message, 0, false);
+            MQTT::publish("/logs/" + String(type), fullMessage, 0, false);
         }
     }
 }
