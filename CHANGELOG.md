@@ -1,6 +1,46 @@
 # Changelog
 
 
+## v1.1.0-rc
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.0.1-rc...v1.1.0-rc)
+
+### 🚀 Enhancements
+
+- **Logger:** Add string interpolation ([a5fd337](https://github.com/esp-admin/sdk/commit/a5fd337))
+
+### 🔥 Performance
+
+- Pass Strings by reference ([8d3fc01](https://github.com/esp-admin/sdk/commit/8d3fc01))
+- **MQTT:** Reduce stack size to 6kB (uses 4.7kB) ([535360d](https://github.com/esp-admin/sdk/commit/535360d))
+- **OTA:** Reduce stack size to 6kB (uses 5kB) ([82fce7d](https://github.com/esp-admin/sdk/commit/82fce7d))
+- **HTTP:** Reduce response buffer size to 200B (used 100B) ([5d3075a](https://github.com/esp-admin/sdk/commit/5d3075a))
+- Set stack sizes 1KB larger than max used size ([88703b9](https://github.com/esp-admin/sdk/commit/88703b9))
+
+### 🩹 Fixes
+
+- **MQTT:** Disconnect on destruction ([154719d](https://github.com/esp-admin/sdk/commit/154719d))
+- **NVS:** Fix memory leak on getString ([adf80ad](https://github.com/esp-admin/sdk/commit/adf80ad))
+- **MQTT:** Avoid heap allocation on connect ([aafa10e](https://github.com/esp-admin/sdk/commit/aafa10e))
+- **Logger:** Add scope to MQTT message ([04d0f02](https://github.com/esp-admin/sdk/commit/04d0f02))
+
+### 💅 Refactors
+
+- Follow C++ guidelines ([9539068](https://github.com/esp-admin/sdk/commit/9539068))
+- Minor refactoring ([a3501ca](https://github.com/esp-admin/sdk/commit/a3501ca))
+- Minor refactoring ([e865507](https://github.com/esp-admin/sdk/commit/e865507))
+- Minor refactoring ([d0dc632](https://github.com/esp-admin/sdk/commit/d0dc632))
+
+### 🏡 Chore
+
+- Add credentials.h to ignore ([636900a](https://github.com/esp-admin/sdk/commit/636900a))
+- Sync library version ([73c8a5b](https://github.com/esp-admin/sdk/commit/73c8a5b))
+- Set monitor speed to 115200 ([1436280](https://github.com/esp-admin/sdk/commit/1436280))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.0.1-rc
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v0.2.4...v1.0.1-rc)
