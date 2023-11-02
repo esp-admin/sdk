@@ -27,7 +27,7 @@ namespace ESPAdmin
     class OTA
     {
     public:
-        static void start(String downloadURL);
+        static void start(const String &downloadURL);
 
     private:
         static Logger _logger;

@@ -4,7 +4,7 @@ namespace ESPAdmin
 {
     Logger HTTP::_logger("HTTP");
 
-    String HTTP::get(String path)
+    String HTTP::get(const String &path)
     {
         char response[HTTP_MAX_RESPONSE_SIZE] = "";
 
@@ -59,7 +59,7 @@ namespace ESPAdmin
         return response;
     }
 
-    String HTTP::post(String path, String content, String contentType)
+    String HTTP::post(const String &path, const String &content, const String &contentType)
     {
         char response[HTTP_MAX_RESPONSE_SIZE] = "";
 

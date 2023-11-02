@@ -5,7 +5,7 @@ namespace ESPAdmin
     Logger OTA::_logger("OTA");
     String OTA::_downloadURL;
 
-    void OTA::start(String downloadURL)
+    void OTA::start(const String &downloadURL)
     {
         _downloadURL = downloadURL;
         xTaskCreatePinnedToCore(task, "ota_start", OTA_TASK_STACK_SIZE, NULL, OTA_TASK_PRIORITY, NULL, 1);

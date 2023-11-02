@@ -5,7 +5,7 @@ namespace ESPAdmin
     UpdateMessage Update::_message;
     Logger Update::_logger("Update");
 
-    void Update::checkAndUpdate(UpdateMessage message)
+    void Update::checkAndUpdate(const UpdateMessage &message)
     {
         _message = message;
 
@@ -24,7 +24,7 @@ namespace ESPAdmin
         }
     }
 
-    void Update::onChange(UpdateStatus status)
+    void Update::onChange(const UpdateStatus &status)
     {
         switch (status)
         {

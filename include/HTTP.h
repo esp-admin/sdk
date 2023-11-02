@@ -20,8 +20,8 @@ namespace ESPAdmin
     class HTTP
     {
     public:
-        static String get(String path);
-        static String post(String path, String content, String contentType);
+        static String get(const String &path);
+        static String post(const String &path, const String &content,const String &contentType);
 
     private:
         static Logger _logger;

@@ -99,7 +99,7 @@ namespace ESPAdmin
         esp_mqtt_client_disconnect(_client);
     }
 
-    void MQTT::publish(String topic, String message, unsigned qos, bool retain)
+    void MQTT::publish(const String &topic, const String &message, unsigned qos, bool retain)
     {
         if (Store::mqttConnected)
         {
@@ -108,7 +108,7 @@ namespace ESPAdmin
         }
     }
 
-    void MQTT::subscribe(String topic, unsigned qos)
+    void MQTT::subscribe(const String &topic, unsigned qos)
     {
         if (Store::mqttConnected)
         {
@@ -140,7 +140,7 @@ namespace ESPAdmin
         Report::sendStatus("disconnected");
     }
 
-    void MQTT::_onDataArrived(String topic, String message)
+    void MQTT::_onDataArrived(const String &topic, const String &message)
     {
         Command::onMessage(message, topic);
     }

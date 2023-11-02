@@ -5,7 +5,7 @@ namespace ESPAdmin
     Logger Command::_logger("Command");
     OnCustomCommand Command::onCustom = nullptr;
 
-    void Command::onMessage(String message, String topic)
+    void Command::onMessage(const String &message, const String &topic)
     {
         String type = topic.substring(topic.lastIndexOf("/") + 1);
 
@@ -42,7 +42,7 @@ namespace ESPAdmin
         }
     }
 
-    void Command::_onUpdate(String message)
+    void Command::_onUpdate(const String &message)
     {
         StaticJsonDocument<256> doc;
 
@@ -57,7 +57,7 @@ namespace ESPAdmin
         Update::checkAndUpdate(updateMessage);
     }
 
-    void Command::_onConfig(String message)
+    void Command::_onConfig(const String &message)
     {
         Store::set(STORE_CONFIG, message.c_str());
     }
@@ -67,7 +67,7 @@ namespace ESPAdmin
         esp_restart();
     }
 
-    void Command::_onLog(String message)
+    void Command::_onLog(const String &message)
     {
         Store::logRemoteEnabled = message == "on" ? true : false;
     }

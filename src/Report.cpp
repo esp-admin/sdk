@@ -4,7 +4,7 @@ namespace ESPAdmin
 {
     Logger Report::_logger("Report");
 
-    void Report::send(ReportMessage reportMessage)
+    void Report::send(const ReportMessage &reportMessage)
     {
         String message;
 
@@ -36,7 +36,7 @@ namespace ESPAdmin
         MQTT::publish("/report/custom", message, 1, false);
     }
 
-    void Report::sendStatus(String status)
+    void Report::sendStatus(const String &status)
     {
         String message;
 
@@ -49,7 +49,7 @@ namespace ESPAdmin
         MQTT::publish("/report/status", message, 1, true);
     }
 
-    void Report::sendUpdate(UpdateMessage &updateMessage, String status)
+    void Report::sendUpdate(UpdateMessage &updateMessage, const String &status)
     {
         if (status == "started")
         {

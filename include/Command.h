@@ -13,15 +13,15 @@ namespace ESPAdmin
     class Command
     {
     public:
-        static void onMessage(String message, String topic);
+        static void onMessage(const String &message, const String &topic);
         static OnCustomCommand onCustom;
 
     private:
         static Logger _logger;
-        static void _onUpdate(String message);
-        static void _onConfig(String message);
+        static void _onUpdate(const String &message);
+        static void _onConfig(const String &message);
         static void _onRestart();
-        static void _onLog(String message);
+        static void _onLog(const String &message);
     };
 }
 

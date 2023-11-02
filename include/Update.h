@@ -19,8 +19,8 @@ namespace ESPAdmin
     class Update
     {
     public:
-        static void checkAndUpdate(UpdateMessage message);
-        static void onChange(UpdateStatus status);
+        static void checkAndUpdate(const UpdateMessage &message);
+        static void onChange(const UpdateStatus &status);
 
     private:
         static UpdateMessage _message;

@@ -37,8 +37,8 @@ namespace ESPAdmin
     public:
         static void connect();
         static void disconnect();
-        static void publish(String topic, String message, unsigned qos, bool retain);
-        static void subscribe(String topic, unsigned qos);
+        static void publish(const String &topic, const String &message, unsigned qos, bool retain);
+        static void subscribe(const String &topic, unsigned qos);
         ~MQTT();
 
     private:
@@ -48,7 +48,7 @@ namespace ESPAdmin
         static void _onConnected();
         static void _onDisconnected();
         static void _onSubscribed();
-        static void _onDataArrived(String topic, String message);
+        static void _onDataArrived(const String &topic, const String &message);
     };
 }
 
