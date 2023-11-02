@@ -6,7 +6,7 @@
 #include <esp_http_client.h>
 
 #ifndef HTTP_MAX_RESPONSE_SIZE
-#define HTTP_MAX_RESPONSE_SIZE 2 * 1024
+#define HTTP_MAX_RESPONSE_SIZE 200
 #endif
 
 #ifndef HTTP_TIMEOUT_MS
