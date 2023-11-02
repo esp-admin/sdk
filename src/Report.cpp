@@ -27,6 +27,8 @@ namespace ESPAdmin
         case REPORT_INFO:
             doc["type"] = "info";
             break;
+        default:
+            break;
         }
 
         serializeJson(doc, message);

@@ -4,7 +4,7 @@ namespace ESPAdmin
 {
     Logger MQTT::_logger("MQTT");
 
-    esp_mqtt_client_handle_t MQTT::_client = {};
+    esp_mqtt_client_handle_t MQTT::_client;
 
     void MQTT::connect()
     {
@@ -17,7 +17,7 @@ namespace ESPAdmin
 
         String lwtTopic = "device/" + String(Store::deviceId) + "/report/status";
 
-        String uri = uriTCP.isEmpty() ? uriTCP : uriWS;
+        String uri = uriTCP.length() > 3 ? uriTCP : uriWS;
 
         _logger.info("connect to %s", uri.c_str());
 
