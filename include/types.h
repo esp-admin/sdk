@@ -39,7 +39,7 @@ namespace ESPAdmin
         String deploymentId;
     };
 
-    struct ReportMessage
+     struct ReportMessage
     {
         ReportType type;
         String subject;

@@ -29,7 +29,7 @@ namespace ESPAdmin
 
     private:
         void _log(const char *color, const char *type, const char *message) const;
-        String _scope;
+        const String _scope;
     };
 }
 

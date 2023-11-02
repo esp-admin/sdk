@@ -2,7 +2,7 @@
 
 namespace ESPAdmin
 {
-    Logger::Logger(const char *scope) : _scope{scope}
+    Logger::Logger(const char *scope) : _scope(scope)
     {
     }
 
