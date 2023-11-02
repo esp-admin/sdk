@@ -2,43 +2,70 @@
 
 namespace ESPAdmin
 {
-    Logger::Logger(String scope)
+    Logger::Logger(const char *scope)
     {
         _scope = scope;
     }
 
-    void Logger::info(String message)
+    void Logger::info(const char *format, ...)
     {
-        _log(ANSI_COLOR_BLUE, "info", message);
+        va_list args;
+        va_start(args, format);
+
+        char buffer[MAX_LOG_MESSAGE_SIZE];
+        vsnprintf(buffer, sizeof(buffer), format, args);
+
+        va_end(args);
+        _log(ANSI_COLOR_BLUE, "info", buffer);
     }
 
-    void Logger::error(String message)
+    void Logger::error(const char *format, ...)
     {
-        _log(ANSI_COLOR_RED, "error", message);
+        va_list args;
+        va_start(args, format);
+
+        char buffer[MAX_LOG_MESSAGE_SIZE];
+        vsnprintf(buffer, sizeof(buffer), format, args);
+
+        va_end(args);
+        _log(ANSI_COLOR_RED, "error", buffer);
     }
 
-    void Logger::warn(String message)
+    void Logger::warn(const char *format, ...)
     {
-        _log(ANSI_COLOR_YELLOW, "warn", message);
+        va_list args;
+        va_start(args, format);
+
+        char buffer[MAX_LOG_MESSAGE_SIZE];
+        vsnprintf(buffer, sizeof(buffer), format, args);
+
+        va_end(args);
+        _log(ANSI_COLOR_YELLOW, "warn", buffer);
     }
 
-    void Logger::success(String message)
+    void Logger::success(const char *format, ...)
     {
-        _log(ANSI_COLOR_GREEN, "success", message);
+        va_list args;
+        va_start(args, format);
+
+        char buffer[MAX_LOG_MESSAGE_SIZE];
+        vsnprintf(buffer, sizeof(buffer), format, args);
+
+        va_end(args);
+        _log(ANSI_COLOR_GREEN, "success", buffer);
     }
 
-    void Logger::_log(String color, String type, String message)
+    void Logger::_log(const char *color, const char *type, const char *message)
     {
         if (Store::logSerialEnabled)
         {
-            Serial.printf(color.c_str());
-            Serial.printf(" %s ", type.c_str());
+            Serial.printf("%s %s ", color, type);
             Serial.printf(ANSI_COLOR_RESET);
-            Serial.printf(" [%s] %s \n", _scope.c_str(), message.c_str());
+            Serial.printf(" [%s] %s \n", _scope, message);
         }
         if (Store::logRemoteEnabled)
         {
-            MQTT::publish("/logs/" + type, message, 0, false);
+            MQTT::publish("/logs/" + String(type), message, 0, false);
         }
     }
 }

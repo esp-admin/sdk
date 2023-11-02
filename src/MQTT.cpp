@@ -19,7 +19,7 @@ namespace ESPAdmin
 
         const char *uri = strlen(uriTCP) > 0 ? uriTCP : uriWS;
 
-        _logger.info("connect to " + String(uri));
+        _logger.info("connect to %s", uri);
 
         esp_mqtt_client_config_t config = {
             .uri = uri,

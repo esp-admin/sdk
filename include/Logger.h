@@ -5,6 +5,10 @@
 #include "Store.h"
 #include "MQTT.h"
 
+#ifndef MAX_LOG_MESSAGE_SIZE
+#define MAX_LOG_MESSAGE_SIZE 100
+#endif
+
 // ANSI escape codes for text color
 #define ANSI_COLOR_RED "\x1b[41m"
 #define ANSI_COLOR_GREEN "\x1b[42m"
@@ -17,14 +21,14 @@ namespace ESPAdmin
     class Logger
     {
     public:
-        Logger(String scope);
-        void info(String message);
-        void error(String message);
-        void warn(String message);
-        void success(String message);
+        Logger(const char *scope);
+        void info(const char *format, ...);
+        void error(const char *format, ...);
+        void warn(const char *format, ...);
+        void success(const char *format, ...);
 
     private:
-        void _log(String color, String type, String message);
+        void _log(const char *color, const char *type, const char *message);
         String _scope;
     };
 }

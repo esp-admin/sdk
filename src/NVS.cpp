@@ -49,7 +49,7 @@ namespace ESPAdmin
 
         if (err != ESP_OK)
         {
-            _logger.warn("failed to write string " + String(key));
+            _logger.warn("failed to write string %s", key);
         }
     }
 

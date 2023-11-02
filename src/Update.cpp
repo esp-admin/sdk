@@ -14,11 +14,11 @@ namespace ESPAdmin
 
         if (currentReleaseId == _message.releaseId)
         {
-            _logger.info("Already updated with release " + currentReleaseId + " version " + currentVersion);
+            _logger.info("Already updated with release %s version %s", currentReleaseId.c_str(), currentVersion.c_str());
         }
         else
         {
-            _logger.info("Update to release " + _message.releaseId + " version " + _message.version);
+            _logger.info("Update to release %s version %s", _message.releaseId.c_str(), _message.version.c_str());
             String downloadURL = "https://" + String(Store::httpHost) + message.downloadPath;
             OTA::start(downloadURL);
         }

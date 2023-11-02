@@ -39,7 +39,7 @@ namespace ESPAdmin
 
                 if (statusCode < 200 || statusCode >= 300)
                 {
-                    _logger.error("failed with " + String(statusCode));
+                    _logger.error("failed with %d", statusCode);
                 }
                 else
                 {
@@ -104,7 +104,7 @@ namespace ESPAdmin
 
                     if (statusCode < 200 || statusCode >= 300)
                     {
-                        _logger.error("failed with " + String(statusCode));
+                        _logger.error("failed with %d", statusCode);
                     }
                     else
                     {
