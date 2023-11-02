@@ -9,7 +9,7 @@
 #include "Report.h"
 
 #ifndef MQTT_TASK_STACK_SIZE
-#define MQTT_TASK_STACK_SIZE 8 * 1024
+#define MQTT_TASK_STACK_SIZE 6 * 1024
 #endif
 
 #ifndef MQTT_KEEP_ALIVE_SEC
