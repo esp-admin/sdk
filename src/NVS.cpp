@@ -31,14 +31,14 @@ namespace ESPAdmin
         }
     }
 
-    const char *NVS::getString(const char *key) const
+    String NVS::getString(const char *key) const
     {
         size_t required_size;
         nvs_get_str(_handler, key, nullptr, &required_size);
-        char *value = (char *)malloc(required_size); // TODO convert to C++
+        char value[required_size];
         nvs_get_str(_handler, key, value, &required_size);
 
-        return value;
+        return String(value);
     }
 
     void NVS::setString(const char *key, const char *value) const
