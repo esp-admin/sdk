@@ -39,6 +39,7 @@ namespace ESPAdmin
         static void disconnect();
         static void publish(String topic, String message, unsigned qos, bool retain);
         static void subscribe(String topic, unsigned qos);
+        ~MQTT();
 
     private:
         static Logger _logger;

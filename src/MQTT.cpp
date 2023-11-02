@@ -149,4 +149,9 @@ namespace ESPAdmin
     {
         _logger.info("subscribed");
     }
+
+    MQTT::~MQTT()
+    {
+        disconnect();
+    }
 }
