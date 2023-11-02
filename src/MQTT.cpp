@@ -8,24 +8,24 @@ namespace ESPAdmin
 
     void MQTT::connect()
     {
-        const char *uriWS = Store::get(STORE_MQTT_URI_WS);
-        const char *uriTCP = Store::get(STORE_MQTT_URI_TCP);
-        const char *username = Store::get(STORE_MQTT_USERNAME);
-        const char *password = Store::get(STORE_MQTT_PASSWORD);
+        const String uriWS = Store::get(STORE_MQTT_URI_WS);
+        const String uriTCP = Store::get(STORE_MQTT_URI_TCP);
+        const String username = Store::get(STORE_MQTT_USERNAME);
+        const String password = Store::get(STORE_MQTT_PASSWORD);
 
-        const char *lwtMessage = R"({"status":"disconnected"})";
+        const char lwtMessage[] = R"({"status":"disconnected"})";
 
         String lwtTopic = "device/" + String(Store::deviceId) + "/report/status";
 
-        const char *uri = strlen(uriTCP) > 0 ? uriTCP : uriWS;
+        String uri = uriTCP.isEmpty() ? uriTCP : uriWS;
 
-        _logger.info("connect to %s", uri);
+        _logger.info("connect to %s", uri.c_str());
 
         esp_mqtt_client_config_t config = {
-            .uri = uri,
+            .uri = uri.c_str(),
             .client_id = Store::deviceId,
-            .username = username,
-            .password = password,
+            .username = username.c_str(),
+            .password = password.c_str(),
             .lwt_topic = lwtTopic.c_str(),
             .lwt_msg = lwtMessage,
             .lwt_qos = 1,

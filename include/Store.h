@@ -16,7 +16,7 @@ namespace ESPAdmin
     public:
         static void begin(const char *httpHost, const char *deviceId, const char *apiKey, const char *httpCert, const char *mqttCert);
         static void set(StoreKey key, const char *value);
-        static const char *get(StoreKey key);
+        static String get(StoreKey key);
 
         // States
         static bool mqttConnected;

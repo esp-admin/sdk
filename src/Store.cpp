@@ -31,14 +31,14 @@ namespace ESPAdmin
         _getSettings();
     }
 
-    const char *Store::get(StoreKey key)
+    String Store::get(StoreKey key)
     {
-        return _NVS.getString(String((int)key).c_str()).c_str();
+        return _NVS.getString(String(key).c_str());
     }
 
     void Store::set(StoreKey key, const char *value)
     {
-        _NVS.setString(String((int)key).c_str(), value);
+        _NVS.setString(String(key).c_str(), value);
     }
 
     void Store::_getSettings()
