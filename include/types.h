@@ -46,7 +46,7 @@ namespace ESPAdmin
         String body;
     };
 
-    typedef void (*OnCustomCommand)(String);
+    using OnCustomCommand = void (*)(String);
 }
 
 #endif

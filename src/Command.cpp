@@ -48,13 +48,16 @@ namespace ESPAdmin
 
         DeserializationError error = deserializeJson(doc, message);
 
-        UpdateMessage updateMessage = {
-            .downloadPath = doc["downloadPath"],
-            .releaseId = doc["releaseId"],
-            .version = doc["version"],
-        };
+        if (error == DeserializationError::Ok)
+        {
+            UpdateMessage updateMessage = {
+                .downloadPath = doc["downloadPath"],
+                .releaseId = doc["releaseId"],
+                .version = doc["version"],
+            };
 
-        Update::checkAndUpdate(updateMessage);
+            Update::checkAndUpdate(updateMessage);
+        }
     }
 
     void Command::_onConfig(const String &message)
@@ -62,7 +65,7 @@ namespace ESPAdmin
         Store::set(STORE_CONFIG, message.c_str());
     }
 
-    void Command::_onRestart()
+    [[noreturn]] void Command::_onRestart()
     {
         esp_restart();
     }

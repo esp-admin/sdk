@@ -22,8 +22,6 @@ namespace ESPAdmin
     {
         _NVS.begin(_namespace);
 
-        // _NVS.clear();
-
         Store::httpHost = httpHost;
         Store::deviceId = deviceId;
         Store::apiKey = apiKey;
@@ -35,12 +33,12 @@ namespace ESPAdmin
 
     const char *Store::get(StoreKey key)
     {
-        return _NVS.getString(String(key).c_str());
+        return _NVS.getString(String((int)key).c_str());
     }
 
     void Store::set(StoreKey key, const char *value)
     {
-        _NVS.setString(String(key).c_str(), value);
+        _NVS.setString(String((int)key).c_str(), value);
     }
 
     void Store::_getSettings()
@@ -57,16 +55,19 @@ namespace ESPAdmin
 
         DeserializationError error = deserializeJson(doc, settings);
 
-        const char *uriTCP = doc["uriTCP"];
-        const char *uriWS = doc["uriWS"];
-        const char *username = doc["username"];
-        const char *password = doc["password"];
+        if (error == DeserializationError::Ok)
+        {
+            const char *uriTCP = doc["uriTCP"];
+            const char *uriWS = doc["uriWS"];
+            const char *username = doc["username"];
+            const char *password = doc["password"];
 
-        set(STORE_MQTT_USERNAME, username);
-        set(STORE_MQTT_PASSWORD, password);
-        set(STORE_MQTT_URI_TCP, uriTCP);
-        set(STORE_MQTT_URI_WS, uriWS);
+            set(STORE_MQTT_USERNAME, username);
+            set(STORE_MQTT_PASSWORD, password);
+            set(STORE_MQTT_URI_TCP, uriTCP);
+            set(STORE_MQTT_URI_WS, uriWS);
 
-        _logger.success("settings saved");
+            _logger.success("settings saved");
+        }
     }
 }

@@ -14,9 +14,9 @@ namespace ESPAdmin
     {
     public:
         void begin(const char *_namespace);
-        const char *getString(const char *key);
-        void setString(const char *key, const char *value);
-        void clear();
+        const char *getString(const char *key) const;
+        void setString(const char *key, const char *value) const;
+        void clear() const;
 
     private:
         static Logger _logger;

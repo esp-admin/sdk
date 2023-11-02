@@ -84,11 +84,14 @@ namespace ESPAdmin
 
             String message;
 
-            serializeJson(doc, message);
+            const size_t size = serializeJson(doc, message);
 
-            HTTP::post("/report/update", message, "application/json");
+            if (size > 0)
+            {
+                HTTP::post("/report/update", message, "application/json");
 
-            MQTT::publish("/report/update", message, 1, false);
+                MQTT::publish("/report/update", message, 1, false);
+            }
         }
     }
 }

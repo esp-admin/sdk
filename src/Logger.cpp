@@ -2,12 +2,11 @@
 
 namespace ESPAdmin
 {
-    Logger::Logger(const char *scope)
+    Logger::Logger(const char *scope) : _scope{scope}
     {
-        _scope = scope;
     }
 
-    void Logger::info(const char *format, ...)
+    void Logger::info(const char *format, ...) const
     {
         va_list args;
         va_start(args, format);
@@ -19,7 +18,7 @@ namespace ESPAdmin
         _log(ANSI_COLOR_BLUE, "info", buffer);
     }
 
-    void Logger::error(const char *format, ...)
+    void Logger::error(const char *format, ...) const
     {
         va_list args;
         va_start(args, format);
@@ -31,7 +30,7 @@ namespace ESPAdmin
         _log(ANSI_COLOR_RED, "error", buffer);
     }
 
-    void Logger::warn(const char *format, ...)
+    void Logger::warn(const char *format, ...) const
     {
         va_list args;
         va_start(args, format);
@@ -43,7 +42,7 @@ namespace ESPAdmin
         _log(ANSI_COLOR_YELLOW, "warn", buffer);
     }
 
-    void Logger::success(const char *format, ...)
+    void Logger::success(const char *format, ...) const
     {
         va_list args;
         va_start(args, format);
@@ -55,13 +54,13 @@ namespace ESPAdmin
         _log(ANSI_COLOR_GREEN, "success", buffer);
     }
 
-    void Logger::_log(const char *color, const char *type, const char *message)
+    void Logger::_log(const char *color, const char *type, const char *message) const
     {
         if (Store::logSerialEnabled)
         {
             Serial.printf("%s %s ", color, type);
             Serial.printf(ANSI_COLOR_RESET);
-            Serial.printf(" [%s] %s \n", _scope, message);
+            Serial.printf(" [%s] %s \n", _scope.c_str(), message);
         }
         if (Store::logRemoteEnabled)
         {

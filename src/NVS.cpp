@@ -31,19 +31,19 @@ namespace ESPAdmin
         }
     }
 
-    const char *NVS::getString(const char *key)
+    const char *NVS::getString(const char *key) const
     {
         size_t required_size;
-        nvs_get_str(_handler, key, NULL, &required_size);
-        char *value = (char *)malloc(required_size);
+        nvs_get_str(_handler, key, nullptr, &required_size);
+        char *value = (char *)malloc(required_size); // TODO convert to C++
         nvs_get_str(_handler, key, value, &required_size);
 
         return value;
     }
 
-    void NVS::setString(const char *key, const char *value)
+    void NVS::setString(const char *key, const char *value) const
     {
-        esp_err_t err = nvs_set_str(_handler, key, value == NULL ? "" : value);
+        esp_err_t err = nvs_set_str(_handler, key, value == nullptr ? "" : value);
 
         nvs_commit(_handler);
 
@@ -53,7 +53,7 @@ namespace ESPAdmin
         }
     }
 
-    void NVS::clear()
+    void NVS::clear() const
     {
         nvs_erase_all(_handler);
         nvs_commit(_handler);

@@ -13,7 +13,7 @@ namespace ESPAdmin
         const char *username = Store::get(STORE_MQTT_USERNAME);
         const char *password = Store::get(STORE_MQTT_PASSWORD);
 
-        const char *lwtMessage = "{\"status\":\"disconnected\"}";
+        const char *lwtMessage = R"({"status":"disconnected"})";
 
         String lwtTopic = "device/" + String(Store::deviceId) + "/report/status";
 
@@ -40,7 +40,7 @@ namespace ESPAdmin
 
         _client = esp_mqtt_client_init(&config);
 
-        if (_client == NULL)
+        if (_client == nullptr)
         {
             _logger.error("unable to create client");
             return;
@@ -63,9 +63,9 @@ namespace ESPAdmin
         }
     }
 
-    void MQTT::_onEvent(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
+    void MQTT::_onEvent(void *, esp_event_base_t, int32_t event_id, void *event_data)
     {
-        esp_mqtt_event_handle_t event = *((esp_mqtt_event_handle_t *)(&event_data));
+        const esp_mqtt_event_handle_t &event = *((esp_mqtt_event_handle_t *)(&event_data));
 
         char topic[event->topic_len + 1];
         char data[event->data_len + 1];
@@ -90,6 +90,8 @@ namespace ESPAdmin
 
         case MQTT_EVENT_SUBSCRIBED:
             _onSubscribed();
+            break;
+        default:
             break;
         }
     }

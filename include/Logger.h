@@ -21,14 +21,14 @@ namespace ESPAdmin
     class Logger
     {
     public:
-        Logger(const char *scope);
-        void info(const char *format, ...);
-        void error(const char *format, ...);
-        void warn(const char *format, ...);
-        void success(const char *format, ...);
+        explicit Logger(const char *scope);
+        void info(const char *format, ...) const;
+        void error(const char *format, ...) const;
+        void warn(const char *format, ...) const;
+        void success(const char *format, ...) const;
 
     private:
-        void _log(const char *color, const char *type, const char *message);
+        void _log(const char *color, const char *type, const char *message) const;
         String _scope;
     };
 }

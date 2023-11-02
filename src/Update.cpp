@@ -40,7 +40,7 @@ namespace ESPAdmin
         }
     }
 
-    void Update::_onSuccess()
+    [[noreturn]] void Update::_onSuccess()
     {
         _logger.success("succeded");
         Report::sendUpdate(_message, "succeded");

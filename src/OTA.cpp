@@ -8,10 +8,10 @@ namespace ESPAdmin
     void OTA::start(const String &downloadURL)
     {
         _downloadURL = downloadURL;
-        xTaskCreatePinnedToCore(task, "ota_start", OTA_TASK_STACK_SIZE, NULL, OTA_TASK_PRIORITY, NULL, 1);
+        xTaskCreatePinnedToCore(task, "ota_start", OTA_TASK_STACK_SIZE, nullptr, OTA_TASK_PRIORITY, nullptr, 1);
     }
 
-    void OTA::task(void *pvParameters)
+    void OTA::task(void *)
     {
         esp_http_client_config_t config = {
             .url = _downloadURL.c_str(),
@@ -36,6 +36,6 @@ namespace ESPAdmin
             Update::onChange(UPDATE_FAILED);
         }
 
-        vTaskDelete(NULL);
+        vTaskDelete(nullptr);
     }
 }
