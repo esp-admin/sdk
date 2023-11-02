@@ -6,7 +6,7 @@
 #endif
 
 #ifndef OTA_TASK_STACK_SIZE
-#define OTA_TASK_STACK_SIZE 8 * 1024
+#define OTA_TASK_STACK_SIZE 6 * 1024
 #endif
 
 #ifndef OTA_TASK_PRIORITY
