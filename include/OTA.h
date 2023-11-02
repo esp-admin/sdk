@@ -6,7 +6,7 @@
 #endif
 
 #ifndef OTA_TASK_STACK_SIZE
-#define OTA_TASK_STACK_SIZE 6 * 1024
+#define OTA_TASK_STACK_SIZE 4408 // StackHighWaterMark = 3384 bytes
 #endif
 
 #ifndef OTA_TASK_PRIORITY

@@ -36,6 +36,6 @@ namespace ESPAdmin
             Update::onChange(UPDATE_FAILED);
         }
 
-         vTaskDelete(nullptr);
+        vTaskDelete(nullptr);
     }
 }
