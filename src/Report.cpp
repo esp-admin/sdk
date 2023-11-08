@@ -57,7 +57,7 @@ namespace ESPAdmin
         {
             String message;
 
-            StaticJsonDocument<96> doc;
+            StaticJsonDocument<126> doc; // 96 recommended
 
             doc["releaseId"] = updateMessage.releaseId;
             doc["status"] = status;
@@ -68,7 +68,7 @@ namespace ESPAdmin
 
             String mqttMessage;
 
-            StaticJsonDocument<96> mqttDoc;
+            StaticJsonDocument<126> mqttDoc; // 96 recommended
 
             mqttDoc["status"] = status;
             mqttDoc["deploymentId"] = updateMessage.deploymentId;
@@ -79,7 +79,7 @@ namespace ESPAdmin
         }
         else
         {
-            StaticJsonDocument<96> doc;
+            StaticJsonDocument<126> doc; // 96 recommended
 
             doc["status"] = status;
             doc["deploymentId"] = updateMessage.deploymentId;
