@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.1.1-rc
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.1.0-rc...v1.1.1-rc)
+
+### 🩹 Fixes
+
+- **Report:** Increase Json buffer to avoid potential overflow ([2a3c0ca](https://github.com/esp-admin/sdk/commit/2a3c0ca))
+
+### 🏡 Chore
+
+- Sync library.json ([3cba4fd](https://github.com/esp-admin/sdk/commit/3cba4fd))
+
+### ❤️ Contributors
+
+- Becem-gharbi ([@becem-gharbi](http://github.com/becem-gharbi))
+
 ## v1.1.0-rc
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.0.1-rc...v1.1.0-rc)
