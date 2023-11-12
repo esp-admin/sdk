@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.0.0
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.1.1-rc...main)
+
+### 🩹 Fixes
+
+- **Update:** Avoid concurrent updates ([d2e7b5d](https://github.com/esp-admin/sdk/commit/d2e7b5d))
+
+### 🏡 Chore
+
+- Bump version to 1.0.0 ([2d26997](https://github.com/esp-admin/sdk/commit/2d26997))
+
+### ❤️ Contributors
+
+- Becem-gharbi ([@becem-gharbi](http://github.com/becem-gharbi))
 
 ## v1.1.1-rc
 
