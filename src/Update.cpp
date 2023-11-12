@@ -16,6 +16,10 @@ namespace ESPAdmin
         {
             _logger.info("already updated with version %s", currentVersion.c_str());
         }
+        else if (Store::updateRunning)
+        {
+            _logger.warn("already update is running");
+        }
         else
         {
             _logger.info("update to version %s", _message.version.c_str());
