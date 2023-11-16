@@ -1,5 +1,24 @@
 # Changelog
 
+## v1.1.2
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.0.0...v1.1.2)
+
+### 🩹 Fixes
+
+- Send disconnected report status before reset ([8b2c4a1](https://github.com/esp-admin/sdk/commit/8b2c4a1))
+
+### 🏡 Chore
+
+- Remove rc suffix ([72c2514](https://github.com/esp-admin/sdk/commit/72c2514))
+- **release:** V1.0.1 ([b257b70](https://github.com/esp-admin/sdk/commit/b257b70))
+- Exclude node files from library pkg ([dae2e41](https://github.com/esp-admin/sdk/commit/dae2e41))
+- Bump version to 1.1.1 ([345b066](https://github.com/esp-admin/sdk/commit/345b066))
+
+### ❤️ Contributors
+
+- Becem-gharbi ([@becem-gharbi](http://github.com/becem-gharbi))
+
 ## v1.0.1
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.0.0...v1.0.1)
