@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "release": "npx changelogen --release --versionSuffix rc && git push --follow-tags"
+    "release": "npx changelogen --release && git push --follow-tags"
   },
   "keywords": [
     "esp-admin",
