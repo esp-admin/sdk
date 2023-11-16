@@ -1,6 +1,6 @@
 {
   "name": "ESPAdmin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The sdk for ESP Admin platform",
   "keywords": "config, ota, esp32, management",
   "repository": {
@@ -25,7 +25,10 @@
   "export": {
     "exclude": [
       "./src/main.cpp",
-      "./include/credentials.h"
+      "./include/credentials.h",
+      "node_modules",
+      "package.json",
+      "package-lock.json"
     ]
   }
 }
