@@ -67,6 +67,11 @@ namespace ESPAdmin
 
     [[noreturn]] void Command::_onRestart()
     {
+        Report::sendStatus("disconnected");
+
+        // Wait for MQTT publish to finish
+        delay(RESET_DELAY_MS);
+
         esp_restart();
     }
 

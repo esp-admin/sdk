@@ -54,8 +54,10 @@ namespace ESPAdmin
         Store::set(STORE_UPDATE_RELEASE_ID, _message.releaseId.c_str());
         Store::set(STORE_UPDATE_VERSION, _message.version.c_str());
 
+        Report::sendStatus("disconnected");
+
         // Wait for MQTT publish to finish
-        delay(UPDATE_RESET_DELAY_MS);
+        delay(RESET_DELAY_MS);
 
         esp_restart();
     }
