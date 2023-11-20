@@ -20,6 +20,7 @@ namespace ESPAdmin
     public:
         static void onMessage(const String &message, const String &topic);
         static OnCustomCommand onCustom;
+        static OnConfigCommand onConfig;
 
     private:
         static Logger _logger;

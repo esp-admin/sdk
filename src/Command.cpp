@@ -4,6 +4,7 @@ namespace ESPAdmin
 {
     Logger Command::_logger("Command");
     OnCustomCommand Command::onCustom = nullptr;
+    OnConfigCommand Command::onConfig = nullptr;
 
     void Command::onMessage(const String &message, const String &topic)
     {
@@ -63,6 +64,15 @@ namespace ESPAdmin
     void Command::_onConfig(const String &message)
     {
         Store::set(STORE_CONFIG, message.c_str());
+
+        if (onConfig == nullptr)
+        {
+            _logger.warn("no handler registered for config command");
+        }
+        else
+        {
+            onConfig(Store::get(STORE_CONFIG));
+        }
     }
 
     [[noreturn]] void Command::_onRestart()

@@ -39,7 +39,7 @@ namespace ESPAdmin
         String deploymentId;
     };
 
-     struct ReportMessage
+    struct ReportMessage
     {
         ReportType type;
         String subject;
@@ -47,6 +47,7 @@ namespace ESPAdmin
     };
 
     using OnCustomCommand = void (*)(String);
+    using OnConfigCommand = void (*)(String);
 }
 
 #endif
