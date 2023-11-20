@@ -69,5 +69,9 @@ namespace ESPAdmin
 
             _logger.success("settings saved");
         }
+        else
+        {
+            _logger.warn("Failed to deserializeJson");
+        }
     }
 }

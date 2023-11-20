@@ -52,6 +52,10 @@ namespace ESPAdmin
 
             Update::checkAndUpdate(updateMessage);
         }
+        else
+        {
+            _logger.warn("Failed to deserializeJson");
+        }
     }
 
     void Command::_onConfig(const String &message)
