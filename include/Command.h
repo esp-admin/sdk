@@ -28,6 +28,7 @@ namespace ESPAdmin
         static void _onConfig(const String &message);
         static void _onRestart();
         static void _onLog(const String &message);
+        static void _onCustom(const String &message);
     };
 }
 

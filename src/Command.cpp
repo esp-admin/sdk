@@ -32,14 +32,7 @@ namespace ESPAdmin
 
         else if (type == "custom")
         {
-            if (onCustom == nullptr)
-            {
-                _logger.warn("no handler registered for custom commands");
-            }
-            else
-            {
-                onCustom(message);
-            }
+            _onCustom(message);
         }
     }
 
@@ -65,12 +58,9 @@ namespace ESPAdmin
     {
         Store::set(STORE_CONFIG, message.c_str());
 
-        if (onConfig == nullptr)
+        if (onConfig != nullptr)
         {
-            _logger.warn("no handler registered for config command");
-        }
-        else
-        {
+
             onConfig(Store::get(STORE_CONFIG));
         }
     }
@@ -88,5 +78,17 @@ namespace ESPAdmin
     void Command::_onLog(const String &message)
     {
         Store::logRemoteEnabled = message == "on" ? true : false;
+    }
+
+    void Command::_onCustom(const String &message)
+    {
+        if (onCustom == nullptr)
+        {
+            _logger.warn("no handler registered for custom commands");
+        }
+        else
+        {
+            onCustom(message);
+        }
     }
 }
