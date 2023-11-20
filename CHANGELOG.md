@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.2.0
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.1.2...v1.2.0)
+
+### 🚀 Enhancements
+
+- **Command:** Add onConfig method ([997bb02](https://github.com/esp-admin/sdk/commit/997bb02))
+
+### 💅 Refactors
+
+- **Command:** Create _onCustom method ([a3161be](https://github.com/esp-admin/sdk/commit/a3161be))
+- Add warning on deserializeJson fail ([3d7544f](https://github.com/esp-admin/sdk/commit/3d7544f))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.1.2
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.0.0...v1.1.2)
