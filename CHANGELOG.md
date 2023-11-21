@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.2.1
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.2.0...v1.2.1)
+
+### 🩹 Fixes
+
+- **Store:** Disable remote logging by default ([83b178b](https://github.com/esp-admin/sdk/commit/83b178b))
+
+### 🏡 Chore
+
+- **examples:** Add lvgl example ([2ea8a5e](https://github.com/esp-admin/sdk/commit/2ea8a5e))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.2.0
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.1.2...v1.2.0)
