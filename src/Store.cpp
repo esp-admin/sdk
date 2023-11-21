@@ -8,7 +8,7 @@ namespace ESPAdmin
     const char *Store::_namespace = "esp_admin";
 
     bool Store::mqttConnected = false;
-    bool Store::logRemoteEnabled = true;
+    bool Store::logRemoteEnabled = false;
     bool Store::logSerialEnabled = true;
     bool Store::updateRunning = false;
 
