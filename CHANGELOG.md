@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.2.2
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.2.1...v1.2.2)
+
+### 🩹 Fixes
+
+- **NVS:** Return empty string when nvs_get_str failed ([5bbf722](https://github.com/esp-admin/sdk/commit/5bbf722))
+- **HTTP:** Initialize response buffers ([1a5d5ff](https://github.com/esp-admin/sdk/commit/1a5d5ff))
+
+### 💅 Refactors
+
+- **Command:** Increase _onUpdate document size ([73b23ce](https://github.com/esp-admin/sdk/commit/73b23ce))
+- **HTTP:** Increase response buffer size ([b49ad82](https://github.com/esp-admin/sdk/commit/b49ad82))
+- **MQTT:** Increase stack size ([a616157](https://github.com/esp-admin/sdk/commit/a616157))
+
+### 🏡 Chore
+
+- Sync library.json ([ff44570](https://github.com/esp-admin/sdk/commit/ff44570))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.2.1
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.2.0...v1.2.1)
