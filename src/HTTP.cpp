@@ -6,7 +6,7 @@ namespace ESPAdmin
 
     String HTTP::get(const String &path)
     {
-        char response[HTTP_MAX_RESPONSE_SIZE];
+        char response[HTTP_MAX_RESPONSE_SIZE] = "";
 
         String fullPath = "/api/device/" + String(Store::deviceId) + path;
 
@@ -61,7 +61,7 @@ namespace ESPAdmin
 
     String HTTP::post(const String &path, const String &content, const String &contentType)
     {
-        char response[HTTP_MAX_RESPONSE_SIZE];
+        char response[HTTP_MAX_RESPONSE_SIZE] = "";
 
         String fullPath = "/api/device/" + String(Store::deviceId) + path;
 
