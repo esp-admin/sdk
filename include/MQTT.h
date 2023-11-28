@@ -9,7 +9,7 @@
 #include "Report.h"
 
 #ifndef MQTT_TASK_STACK_SIZE
-#define MQTT_TASK_STACK_SIZE 5872 // StackHighWaterMark = 4848 bytes
+#define MQTT_TASK_STACK_SIZE 6896 // StackHighWaterMark = 4848 bytes
 #endif
 
 #ifndef MQTT_KEEP_ALIVE_SEC
