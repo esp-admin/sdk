@@ -38,7 +38,7 @@ namespace ESPAdmin
 
     void Command::_onUpdate(const String &message)
     {
-        StaticJsonDocument<222> doc; // 192 recommended
+        StaticJsonDocument<300> doc; // 192 recommended
 
         DeserializationError error = deserializeJson(doc, message);
 
