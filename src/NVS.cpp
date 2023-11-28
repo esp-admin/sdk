@@ -34,7 +34,13 @@ namespace ESPAdmin
     String NVS::getString(const char *key) const
     {
         size_t required_size;
-        nvs_get_str(_handler, key, nullptr, &required_size);
+        esp_err_t err = nvs_get_str(_handler, key, nullptr, &required_size);
+
+        if (err != ESP_OK)
+        {
+            return "";
+        }
+
         char value[required_size];
         nvs_get_str(_handler, key, value, &required_size);
 
