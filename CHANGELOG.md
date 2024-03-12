@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.2.3
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.2.2...v1.2.3)
+
+### 💅 Refactors
+
+- **MQTT:** Create a `publish` overload ([2a1b853](https://github.com/esp-admin/sdk/commit/2a1b853))
+
+### 🏡 Chore
+
+- **library.json:** Bump version ([46c308b](https://github.com/esp-admin/sdk/commit/46c308b))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.2.2
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.2.1...v1.2.2)
