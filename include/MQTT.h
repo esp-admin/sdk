@@ -38,6 +38,7 @@ namespace ESPAdmin
         static void connect();
         static void disconnect();
         static void publish(const String &topic, const String &message, unsigned qos, bool retain);
+        static void publish(const String &topic, const char *message, int len, unsigned qos, bool retain);
         static void subscribe(const String &topic, unsigned qos);
         ~MQTT();
 

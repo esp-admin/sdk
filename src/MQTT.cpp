@@ -110,6 +110,15 @@ namespace ESPAdmin
         }
     }
 
+    void MQTT::publish(const String &topic, const char *message, int len, unsigned qos, bool retain)
+    {
+        if (Store::mqttConnected)
+        {
+            String fullTopic = "device/" + String(Store::deviceId) + topic;
+            esp_mqtt_client_publish(_client, fullTopic.c_str(), message, len, qos, retain);
+        }
+    }
+
     void MQTT::subscribe(const String &topic, unsigned qos)
     {
         if (Store::mqttConnected)
