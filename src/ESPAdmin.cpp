@@ -14,7 +14,7 @@ namespace ESPAdmin
     options.mqttNetworkTimeoutMs = DEFAULT_INT(options.mqttNetworkTimeoutMs, 8000);
     options.mqttReconnectTimeoutMs = DEFAULT_INT(options.mqttReconnectTimeoutMs, 10000);
     options.otaTaskPriority = DEFAULT_INT(options.otaTaskPriority, 5);
-    options.otaTaskStackSize = DEFAULT_INT(options.otaTaskStackSize, 4408); // StackHighWaterMark = 3384 bytes
+    options.otaTaskStackSize = DEFAULT_INT(options.otaTaskStackSize, 6896); // StackHighWaterMark = 3384 bytes
 
     Store::begin(options);
 
