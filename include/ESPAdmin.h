@@ -6,10 +6,13 @@
 #include "Store.h"
 #include "Command.h"
 #include "MQTT.h"
+#include "types.h"
+
+#define DEFAULT_INT(x, y) (x == 0 ? y : x)
 
 namespace ESPAdmin
 {
-    void begin(const char *httpHost, const char *deviceId, const char *apiKey, const char *httpCert, const char *mqttCert);
+    void begin(InitOptions options);
 }
 
 #endif

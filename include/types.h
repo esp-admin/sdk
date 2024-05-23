@@ -46,6 +46,26 @@ namespace ESPAdmin
         String body;
     };
 
+    struct InitOptions
+    {
+        const char *httpHost;
+        const char *deviceId;
+        const char *apiKey;
+        const char *httpCert;
+        const char *mqttCert;
+        uint16_t resetDelayMs;
+        uint16_t httpMaxResponseSize;
+        uint16_t httpTimeoutMs;
+        uint16_t logMaxMessageSize;
+        uint8_t mqttTaskPriority;
+        uint16_t mqttTaskStackSize;
+        uint8_t mqttKeepAliveSec;
+        uint16_t mqttNetworkTimeoutMs;
+        uint16_t mqttReconnectTimeoutMs;
+        uint8_t otaTaskPriority;
+        uint16_t otaTaskStackSize;
+    };
+
     using OnCustomCommand = void (*)(String);
     using OnConfigCommand = void (*)(String);
 }

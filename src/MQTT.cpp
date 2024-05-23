@@ -15,7 +15,7 @@ namespace ESPAdmin
 
         const char lwtMessage[] = R"({"status":"disconnected"})";
 
-        String lwtTopic = "device/" + String(Store::deviceId) + "/report/status";
+        String lwtTopic = "device/" + String(Store::options.deviceId) + "/report/status";
 
         String uri = uriTCP.length() > 3 ? uriTCP : uriWS;
 
@@ -23,19 +23,19 @@ namespace ESPAdmin
 
         esp_mqtt_client_config_t config = {
             .uri = uri.c_str(),
-            .client_id = Store::deviceId,
+            .client_id = Store::options.deviceId,
             .username = username.c_str(),
             .password = password.c_str(),
             .lwt_topic = lwtTopic.c_str(),
             .lwt_msg = lwtMessage,
             .lwt_qos = 1,
             .lwt_retain = true,
-            .keepalive = MQTT_KEEP_ALIVE_SEC,
-            .task_prio = MQTT_TASK_PRIORITY,
-            .task_stack = MQTT_TASK_STACK_SIZE,
-            .cert_pem = Store::mqttCert,
-            .reconnect_timeout_ms = MQTT_RECONNECT_TIMEOUT_MS,
-            .network_timeout_ms = MQTT_NETWORK_TIMEOUT_MS,
+            .keepalive = Store::options.mqttKeepAliveSec,
+            .task_prio = Store::options.mqttTaskPriority,
+            .task_stack = Store::options.mqttTaskStackSize,
+            .cert_pem = Store::options.mqttCert,
+            .reconnect_timeout_ms = Store::options.mqttReconnectTimeoutMs,
+            .network_timeout_ms = Store::options.mqttNetworkTimeoutMs,
         };
 
         _client = esp_mqtt_client_init(&config);
@@ -105,7 +105,7 @@ namespace ESPAdmin
     {
         if (Store::mqttConnected)
         {
-            String fullTopic = "device/" + String(Store::deviceId) + topic;
+            String fullTopic = "device/" + String(Store::options.deviceId) + topic;
             esp_mqtt_client_publish(_client, fullTopic.c_str(), message.c_str(), message.length(), qos, retain);
         }
     }
@@ -114,7 +114,7 @@ namespace ESPAdmin
     {
         if (Store::mqttConnected)
         {
-            String fullTopic = "device/" + String(Store::deviceId) + topic;
+            String fullTopic = "device/" + String(Store::options.deviceId) + topic;
             esp_mqtt_client_publish(_client, fullTopic.c_str(), message, len, qos, retain);
         }
     }
@@ -133,7 +133,7 @@ namespace ESPAdmin
 
         _logger.info("connected");
 
-        subscribe("device/" + String(Store::deviceId) + "/command/+", 1);
+        subscribe("device/" + String(Store::options.deviceId) + "/command/+", 1);
 
         Report::sendStatus("connected");
     }

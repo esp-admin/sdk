@@ -11,7 +11,7 @@ namespace ESPAdmin
         va_list args;
         va_start(args, format);
 
-        char buffer[MAX_LOG_MESSAGE_SIZE];
+        char buffer[Store::options.logMaxMessageSize];
         vsnprintf(buffer, sizeof(buffer), format, args);
 
         va_end(args);
@@ -23,7 +23,7 @@ namespace ESPAdmin
         va_list args;
         va_start(args, format);
 
-        char buffer[MAX_LOG_MESSAGE_SIZE];
+        char buffer[Store::options.logMaxMessageSize];
         vsnprintf(buffer, sizeof(buffer), format, args);
 
         va_end(args);
@@ -35,7 +35,7 @@ namespace ESPAdmin
         va_list args;
         va_start(args, format);
 
-        char buffer[MAX_LOG_MESSAGE_SIZE];
+        char buffer[Store::options.logMaxMessageSize];
         vsnprintf(buffer, sizeof(buffer), format, args);
 
         va_end(args);
@@ -47,7 +47,7 @@ namespace ESPAdmin
         va_list args;
         va_start(args, format);
 
-        char buffer[MAX_LOG_MESSAGE_SIZE];
+        char buffer[Store::options.logMaxMessageSize];
         vsnprintf(buffer, sizeof(buffer), format, args);
 
         va_end(args);

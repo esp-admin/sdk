@@ -8,15 +8,15 @@ namespace ESPAdmin
     void OTA::start(const String &downloadURL)
     {
         _downloadURL = downloadURL;
-        xTaskCreatePinnedToCore(task, "ota_start", OTA_TASK_STACK_SIZE, nullptr, OTA_TASK_PRIORITY, nullptr, 1);
+        xTaskCreatePinnedToCore(task, "ota_start", Store::options.otaTaskStackSize, nullptr, Store::options.otaTaskPriority, nullptr, 1);
     }
 
     void OTA::task(void *)
     {
         esp_http_client_config_t config = {
             .url = _downloadURL.c_str(),
-            .cert_pem = Store::httpCert,
-            .timeout_ms = HTTP_TIMEOUT_MS,
+            .cert_pem = Store::options.httpCert,
+            .timeout_ms = Store::options.httpTimeoutMs,
         };
 
         Update::onChange(UPDATE_STARTED);
