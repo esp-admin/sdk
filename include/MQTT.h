@@ -8,26 +8,6 @@
 #include "Command.h"
 #include "Report.h"
 
-#ifndef MQTT_TASK_STACK_SIZE
-#define MQTT_TASK_STACK_SIZE 6896 // StackHighWaterMark = 4848 bytes
-#endif
-
-#ifndef MQTT_KEEP_ALIVE_SEC
-#define MQTT_KEEP_ALIVE_SEC 30
-#endif
-
-#ifndef MQTT_NETWORK_TIMEOUT_MS
-#define MQTT_NETWORK_TIMEOUT_MS 8000
-#endif
-
-#ifndef MQTT_RECONNECT_TIMEOUT_MS
-#define MQTT_RECONNECT_TIMEOUT_MS 10000
-#endif
-
-#ifndef MQTT_TASK_PRIORITY
-#define MQTT_TASK_PRIORITY 5
-#endif
-
 namespace ESPAdmin
 {
     class Logger;

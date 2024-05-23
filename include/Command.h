@@ -6,10 +6,7 @@
 #include "types.h"
 #include "Update.h"
 #include "Report.h"
-
-#ifndef RESET_DELAY_MS
-#define RESET_DELAY_MS 4000
-#endif
+#include "Store.h"
 
 namespace ESPAdmin
 {

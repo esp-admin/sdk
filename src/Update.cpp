@@ -23,7 +23,7 @@ namespace ESPAdmin
         else
         {
             _logger.info("update to version %s", _message.version.c_str());
-            String downloadURL = "https://" + String(Store::httpHost) + message.downloadPath;
+            String downloadURL = "https://" + String(Store::options.httpHost) + message.downloadPath;
             OTA::start(downloadURL);
         }
     }
@@ -57,7 +57,7 @@ namespace ESPAdmin
         Report::sendStatus("disconnected");
 
         // Wait for MQTT publish to finish
-        delay(RESET_DELAY_MS);
+        delay(Store::options.resetDelayMs);
 
         esp_restart();
     }

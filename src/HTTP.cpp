@@ -6,22 +6,22 @@ namespace ESPAdmin
 
     String HTTP::get(const String &path)
     {
-        char response[HTTP_MAX_RESPONSE_SIZE] = "";
+        char response[Store::options.httpMaxResponseSize] = "";
 
-        String fullPath = "/api/device/" + String(Store::deviceId) + path;
+        String fullPath = "/api/device/" + String(Store::options.deviceId) + path;
 
         esp_http_client_config_t config = {
-            .host = Store::httpHost,
+            .host = Store::options.httpHost,
             .path = fullPath.c_str(),
-            .cert_pem = Store::httpCert,
+            .cert_pem = Store::options.httpCert,
             .method = HTTP_METHOD_GET,
-            .timeout_ms = HTTP_TIMEOUT_MS,
+            .timeout_ms = Store::options.httpTimeoutMs,
             .transport_type = HTTP_TRANSPORT_OVER_SSL,
         };
 
         esp_http_client_handle_t client = esp_http_client_init(&config);
 
-        esp_http_client_set_header(client, "Api-Key", Store::apiKey);
+        esp_http_client_set_header(client, "Api-Key", Store::options.apiKey);
 
         esp_err_t err = esp_http_client_open(client, 0);
 
@@ -43,7 +43,7 @@ namespace ESPAdmin
                 }
                 else
                 {
-                    esp_http_client_read_response(client, response, HTTP_MAX_RESPONSE_SIZE);
+                    esp_http_client_read_response(client, response, Store::options.httpMaxResponseSize);
                 }
             }
 
@@ -61,22 +61,22 @@ namespace ESPAdmin
 
     String HTTP::post(const String &path, const String &content, const String &contentType)
     {
-        char response[HTTP_MAX_RESPONSE_SIZE] = "";
+        char response[Store::options.httpMaxResponseSize] = "";
 
-        String fullPath = "/api/device/" + String(Store::deviceId) + path;
+        String fullPath = "/api/device/" + String(Store::options.deviceId) + path;
 
         esp_http_client_config_t config = {
-            .host = Store::httpHost,
+            .host = Store::options.httpHost,
             .path = fullPath.c_str(),
-            .cert_pem = Store::httpCert,
+            .cert_pem = Store::options.httpCert,
             .method = HTTP_METHOD_POST,
-            .timeout_ms = HTTP_TIMEOUT_MS,
+            .timeout_ms = Store::options.httpTimeoutMs,
             .transport_type = HTTP_TRANSPORT_OVER_SSL,
         };
 
         esp_http_client_handle_t client = esp_http_client_init(&config);
 
-        esp_http_client_set_header(client, "Api-Key", Store::apiKey);
+        esp_http_client_set_header(client, "Api-Key", Store::options.apiKey);
 
         esp_http_client_set_header(client, "Content-Type", contentType.c_str());
 
@@ -108,7 +108,7 @@ namespace ESPAdmin
                     }
                     else
                     {
-                        esp_http_client_read_response(client, response, HTTP_MAX_RESPONSE_SIZE);
+                        esp_http_client_read_response(client, response, Store::options.httpMaxResponseSize);
                     }
                 }
             }

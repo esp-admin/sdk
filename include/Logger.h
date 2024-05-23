@@ -5,10 +5,6 @@
 #include "Store.h"
 #include "MQTT.h"
 
-#ifndef MAX_LOG_MESSAGE_SIZE
-#define MAX_LOG_MESSAGE_SIZE 100
-#endif
-
 // ANSI escape codes for text color
 #define ANSI_COLOR_RED "\x1b[41m"
 #define ANSI_COLOR_GREEN "\x1b[42m"

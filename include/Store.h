@@ -6,6 +6,7 @@
 #include <Arduino.h>
 #include "HTTP.h"
 #include "Logger.h"
+#include "Store.h"
 
 namespace ESPAdmin
 {
@@ -14,7 +15,7 @@ namespace ESPAdmin
     class Store
     {
     public:
-        static void begin(const char *httpHost, const char *deviceId, const char *apiKey, const char *httpCert, const char *mqttCert);
+        static void begin(const InitOptions options);
         static void set(StoreKey key, const char *value);
         static String get(StoreKey key);
 
@@ -25,11 +26,7 @@ namespace ESPAdmin
         static bool logRemoteEnabled;
 
         // constants
-        static const char *deviceId;
-        static const char *httpHost;
-        static const char *apiKey;
-        static const char *httpCert;
-        static const char *mqttCert;
+        static InitOptions options;
 
     private:
         static NVS _NVS;

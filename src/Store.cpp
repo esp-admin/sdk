@@ -12,21 +12,13 @@ namespace ESPAdmin
     bool Store::logSerialEnabled = true;
     bool Store::updateRunning = false;
 
-    const char *Store::deviceId;
-    const char *Store::httpHost;
-    const char *Store::apiKey;
-    const char *Store::httpCert;
-    const char *Store::mqttCert;
+    InitOptions Store::options;
 
-    void Store::begin(const char *httpHost, const char *deviceId, const char *apiKey, const char *httpCert, const char *mqttCert)
+    void Store::begin(const InitOptions options)
     {
         _NVS.begin(_namespace);
 
-        Store::httpHost = httpHost;
-        Store::deviceId = deviceId;
-        Store::apiKey = apiKey;
-        Store::httpCert = httpCert;
-        Store::mqttCert = mqttCert;
+        Store::options = options;
 
         _getSettings();
     }
