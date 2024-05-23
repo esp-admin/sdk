@@ -24,7 +24,13 @@ void setup()
 
     logger.success("WiFi connected");
 
-    ESPAdmin::begin(httpHost, deviceId, apiKey, httpCert, mqttCert);
+    ESPAdmin::begin({
+        .httpHost = httpHost,
+        .deviceId = deviceId,
+        .apiKey = apiKey,
+        .httpCert = httpCert,
+        .mqttCert = mqttCert,
+    });
 
     ESPAdmin::Command::onCustom = &onCustomCommand;
 }
