@@ -8,6 +8,8 @@
 #include "Logger.h"
 #include "Store.h"
 
+#define DEFAULT_INT(x, y) (x == 0 ? y : x)
+
 namespace ESPAdmin
 {
     class NVS;

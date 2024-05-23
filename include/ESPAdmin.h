@@ -8,8 +8,6 @@
 #include "MQTT.h"
 #include "types.h"
 
-#define DEFAULT_INT(x, y) (x == 0 ? y : x)
-
 namespace ESPAdmin
 {
     void begin(InitOptions options);
