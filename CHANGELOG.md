@@ -1,5 +1,30 @@
 # Changelog
 
+## v1.3.0
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.2.3...v1.3.0)
+
+### 🚀 Enhancements
+
+- Set internal config options on initialization ([ee708f0](https://github.com/esp-admin/sdk/commit/ee708f0))
+
+### 🩹 Fixes
+
+- **log:** Set default message max size locally ([b34f214](https://github.com/esp-admin/sdk/commit/b34f214))
+
+### 💅 Refactors
+
+- Increase log message max size ([1d9a41a](https://github.com/esp-admin/sdk/commit/1d9a41a))
+
+### 🏡 Chore
+
+- Sync version ([9c8f944](https://github.com/esp-admin/sdk/commit/9c8f944))
+- Update examples ([92b1533](https://github.com/esp-admin/sdk/commit/92b1533))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.2.3
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.2.2...v1.2.3)
