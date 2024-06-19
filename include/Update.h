@@ -17,6 +17,7 @@ namespace ESPAdmin
     public:
         static void checkAndUpdate(const UpdateMessage &message);
         static void onChange(const UpdateStatus &status);
+        static void onProgress(int imageRead);
 
     private:
         static UpdateMessage _message;

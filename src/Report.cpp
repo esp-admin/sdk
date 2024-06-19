@@ -51,7 +51,7 @@ namespace ESPAdmin
         MQTT::publish("/report/status", message, 1, true);
     }
 
-    void Report::sendUpdate(UpdateMessage &updateMessage, const String &status)
+    void Report::sendUpdateStatus(UpdateMessage &updateMessage, const String &status)
     {
         if (status == "started")
         {
@@ -75,7 +75,7 @@ namespace ESPAdmin
 
             serializeJson(mqttDoc, mqttMessage);
 
-            MQTT::publish("/report/update", mqttMessage, 1, false);
+            MQTT::publish("/report/update_status", mqttMessage, 1, false);
         }
         else
         {
@@ -92,8 +92,23 @@ namespace ESPAdmin
             {
                 HTTP::post("/report/update", message, "application/json");
 
-                MQTT::publish("/report/update", message, 1, false);
+                MQTT::publish("/report/update_status", message, 1, false);
             }
         }
+    }
+
+    void Report::sendUpdateProgress(UpdateMessage &updateMessage, int progress)
+    {
+        String mqttMessage;
+
+        StaticJsonDocument<150> mqttDoc;
+
+        mqttDoc["releaseId"] = updateMessage.releaseId;
+        mqttDoc["deploymentId"] = updateMessage.deploymentId;
+        mqttDoc["progress"] = progress;
+
+        serializeJson(mqttDoc, mqttMessage);
+
+        MQTT::publish("/report/update_progress", mqttMessage, 0, false);
     }
 }

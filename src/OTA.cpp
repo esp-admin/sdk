@@ -13,7 +13,6 @@ namespace ESPAdmin
 
     void OTA::task(void *)
     {
-
         esp_http_client_config_t httpConfig = {
             .url = _downloadURL.c_str(),
             .cert_pem = Store::options.httpCert,
@@ -37,15 +36,27 @@ namespace ESPAdmin
             Update::onChange(UPDATE_FAILED);
         }
 
+        int imageReadPrev = 0;
+
         while (Store::updateRunning)
         {
             esp_err_t ret = esp_https_ota_perform(otaHandle);
 
+            int imageReadNow = esp_https_ota_get_image_len_read(otaHandle);
+
             if (ret == ESP_ERR_HTTPS_OTA_IN_PROGRESS)
             {
+                if (imageReadNow - imageReadPrev > 10000) // progress state is updated every 10Kb
+                {
+                    Update::onProgress(imageReadNow);
+                    imageReadPrev = imageReadNow;
+                }
                 continue;
             }
-            else if (ret == ESP_OK)
+
+            Update::onProgress(imageReadNow);
+
+            if (ret == ESP_OK)
             {
                 Store::updateRunning = false;
 

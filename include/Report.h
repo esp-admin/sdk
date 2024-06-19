@@ -16,7 +16,8 @@ namespace ESPAdmin
     public:
         static void send(const ReportMessage &reportMessage);
         static void sendStatus(const String &status);
-        static void sendUpdate(UpdateMessage &updateMessage, const String &status);
+        static void sendUpdateStatus(UpdateMessage &updateMessage, const String &status);
+        static void sendUpdateProgress(UpdateMessage &updateMessage, int progress);
 
     private:
         static Logger _logger;

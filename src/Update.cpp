@@ -49,7 +49,7 @@ namespace ESPAdmin
     [[noreturn]] void Update::_onSuccess()
     {
         _logger.success("succeded");
-        Report::sendUpdate(_message, "succeded");
+        Report::sendUpdateStatus(_message, "succeded");
 
         Store::set(STORE_UPDATE_RELEASE_ID, _message.releaseId.c_str());
         Store::set(STORE_UPDATE_VERSION, _message.version.c_str());
@@ -66,13 +66,19 @@ namespace ESPAdmin
     {
         _logger.error("failed");
 
-        Report::sendUpdate(_message, "failed");
+        Report::sendUpdateStatus(_message, "failed");
     }
 
     void Update::_onStart()
     {
         _logger.info("started");
 
-        Report::sendUpdate(_message, "started");
+        Report::sendUpdateStatus(_message, "started");
+    }
+
+    void Update::onProgress(int imageRead)
+    {
+        int progress = (imageRead * 100) / _message.downloadSize;
+        Report::sendUpdateProgress(_message, progress);
     }
 }

@@ -46,6 +46,7 @@ namespace ESPAdmin
         {
             UpdateMessage updateMessage = {
                 .downloadPath = doc["downloadPath"],
+                .downloadSize = doc["downloadSize"],
                 .releaseId = doc["releaseId"],
                 .version = doc["version"],
             };

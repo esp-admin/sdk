@@ -34,6 +34,7 @@ namespace ESPAdmin
     struct UpdateMessage
     {
         String downloadPath;
+        int downloadSize;
         String releaseId;
         String version;
         String deploymentId;
