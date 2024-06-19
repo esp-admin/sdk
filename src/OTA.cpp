@@ -3,18 +3,12 @@
 namespace ESPAdmin
 {
     Logger OTA::_logger("OTA");
-    String OTA::_downloadURL;
+    esp_https_ota_handle_t OTA::_otaHandle;
 
     void OTA::start(const String &downloadURL)
     {
-        _downloadURL = downloadURL;
-        xTaskCreatePinnedToCore(task, "ota_start", Store::options.otaTaskStackSize, nullptr, Store::options.otaTaskPriority, nullptr, 1);
-    }
-
-    void OTA::task(void *)
-    {
         esp_http_client_config_t httpConfig = {
-            .url = _downloadURL.c_str(),
+            .url = downloadURL.c_str(),
             .cert_pem = Store::options.httpCert,
             .timeout_ms = Store::options.httpTimeoutMs,
         };
@@ -26,23 +20,28 @@ namespace ESPAdmin
         Store::updateRunning = true;
         Update::onChange(UPDATE_STARTED);
 
-        esp_https_ota_handle_t otaHandle;
-
-        esp_err_t ret = esp_https_ota_begin(&otaConfig, &otaHandle);
+        esp_err_t ret = esp_https_ota_begin(&otaConfig, &_otaHandle);
 
         if (ret != ESP_OK)
         {
             Store::updateRunning = false;
             Update::onChange(UPDATE_FAILED);
         }
+        else
+        {
+            xTaskCreatePinnedToCore(task, "ota_start", Store::options.otaTaskStackSize, nullptr, Store::options.otaTaskPriority, nullptr, 1);
+        }
+    }
 
+    void OTA::task(void *)
+    {
         int imageReadPrev = 0;
 
         while (Store::updateRunning)
         {
-            esp_err_t ret = esp_https_ota_perform(otaHandle);
+            esp_err_t ret = esp_https_ota_perform(_otaHandle);
 
-            int imageReadNow = esp_https_ota_get_image_len_read(otaHandle);
+            int imageReadNow = esp_https_ota_get_image_len_read(_otaHandle);
 
             if (ret == ESP_ERR_HTTPS_OTA_IN_PROGRESS)
             {
@@ -60,7 +59,7 @@ namespace ESPAdmin
             {
                 Store::updateRunning = false;
 
-                bool completed = esp_https_ota_is_complete_data_received(otaHandle);
+                bool completed = esp_https_ota_is_complete_data_received(_otaHandle);
 
                 if (completed)
                 {
@@ -78,7 +77,7 @@ namespace ESPAdmin
             }
         }
 
-        esp_https_ota_finish(otaHandle);
+        esp_https_ota_finish(_otaHandle);
         vTaskDelete(nullptr);
     }
 }

@@ -19,7 +19,7 @@ namespace ESPAdmin
 
     private:
         static Logger _logger;
-        static String _downloadURL;
+        static esp_https_ota_handle_t _otaHandle;
         static void task(void *pvParameters);
     };
 }
