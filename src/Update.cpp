@@ -78,7 +78,10 @@ namespace ESPAdmin
 
     void Update::onProgress(int imageRead)
     {
-        int progress = (imageRead * 100) / _message.downloadSize;
-        Report::sendUpdateProgress(_message, progress);
+        if (_message.downloadSize > 0)
+        {
+            int progress = (imageRead * 100) / _message.downloadSize;
+            Report::sendUpdateProgress(_message, progress);
+        }
     }
 }
