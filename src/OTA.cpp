@@ -37,6 +37,8 @@ namespace ESPAdmin
     {
         int imageReadPrev = 0;
 
+        Update::onProgress(0);
+
         while (Store::updateRunning)
         {
             esp_err_t ret = esp_https_ota_perform(_otaHandle);
@@ -45,7 +47,7 @@ namespace ESPAdmin
 
             if (ret == ESP_ERR_HTTPS_OTA_IN_PROGRESS)
             {
-                if (imageReadNow - imageReadPrev > 10000) // progress state is updated every 10Kb
+                if (imageReadNow - imageReadPrev > 30000) // progress state is updated every 30Kb
                 {
                     Update::onProgress(imageReadNow);
                     imageReadPrev = imageReadNow;
