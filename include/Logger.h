@@ -6,11 +6,11 @@
 #include "MQTT.h"
 
 // ANSI escape codes for text color
-#define ANSI_COLOR_RED "\x1b[41m"
-#define ANSI_COLOR_GREEN "\x1b[42m"
-#define ANSI_COLOR_YELLOW "\x1b[43m"
-#define ANSI_COLOR_BLUE "\x1b[44m"
-#define ANSI_COLOR_RESET "\x1b[49m"
+#define ANSI_COLOR_RED "\x1b[1;31m"
+#define ANSI_COLOR_GREEN "\x1b[1;32m"
+#define ANSI_COLOR_YELLOW "\x1b[1;33m"
+#define ANSI_COLOR_BLUE "\x1b[1;34m"
+#define ANSI_COLOR_RESET "\x1b[1;0m"
 
 namespace ESPAdmin
 {
