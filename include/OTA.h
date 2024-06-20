@@ -22,7 +22,7 @@ namespace ESPAdmin
         static Logger _logger;
         static bool _aborted;
         static esp_https_ota_handle_t _otaHandle;
-        static void task(void *pvParameters);
+        static void _task(void *pvParameters);
     };
 }
 

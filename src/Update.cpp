@@ -5,6 +5,13 @@ namespace ESPAdmin
     UpdateMessage Update::_message;
     Logger Update::_logger("Update");
 
+    /**
+     * Checks if an update is available and initiates the update process if necessary.
+     *
+     * @param message the update message containing information about the update
+     *
+     * @throws None
+     */
     void Update::checkAndUpdate(const UpdateMessage &message)
     {
         _message = message;
@@ -28,6 +35,13 @@ namespace ESPAdmin
         }
     }
 
+    /**
+     * Handles the change of the update status.
+     *
+     * @param status the current update status
+     *
+     * @throws None
+     */
     void Update::onChange(const UpdateStatus &status)
     {
         switch (status)
@@ -76,6 +90,15 @@ namespace ESPAdmin
         Report::sendUpdateStatus(_message, "started");
     }
 
+    /**
+     * A method to handle the progress of an update process.
+     *
+     * @param imageRead The number of bytes read for the update.
+     *
+     * @return None
+     *
+     * @throws None
+     */
     void Update::onProgress(int imageRead)
     {
         if (_message.downloadSize > 0)
@@ -85,6 +108,15 @@ namespace ESPAdmin
         }
     }
 
+    /**
+     * Abort Update process.
+     *
+     * @param releaseId The release id of the update.
+     *
+     * @return None.
+     *
+     * @throws None.
+     */
     void Update::abort(const String &releaseId)
     {
         if (_message.releaseId == releaseId)

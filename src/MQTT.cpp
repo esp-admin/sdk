@@ -6,6 +6,11 @@ namespace ESPAdmin
 
     esp_mqtt_client_handle_t MQTT::_client;
 
+    /**
+     * Connects to an MQTT broker using the provided configuration.
+     *
+     * @throws None
+     */
     void MQTT::connect()
     {
         const String uriWS = Store::get(STORE_MQTT_URI_WS);
@@ -96,11 +101,26 @@ namespace ESPAdmin
         }
     }
 
+    /**
+     * Disconnects the MQTT client from the broker.
+     *
+     * @throws None
+     */
     void MQTT::disconnect()
     {
         esp_mqtt_client_disconnect(_client);
     }
 
+    /**
+     * Publishes a message to a specified MQTT topic.
+     *
+     * @param topic The topic to publish the message to.
+     * @param message The message to publish.
+     * @param qos The quality of service level for the message.
+     * @param retain Whether the message should be retained by the broker.
+     *
+     * @throws None
+     */
     void MQTT::publish(const String &topic, const String &message, unsigned qos, bool retain)
     {
         if (Store::mqttConnected)
@@ -110,6 +130,17 @@ namespace ESPAdmin
         }
     }
 
+    /**
+     * Publishes a message to a specified MQTT topic.
+     *
+     * @param topic The topic to publish the message to.
+     * @param message The message to publish.
+     * @param len The length of the message.
+     * @param qos The quality of service level for the message.
+     * @param retain Whether the message should be retained by the broker.
+     *
+     * @throws None
+     */
     void MQTT::publish(const String &topic, const char *message, int len, unsigned qos, bool retain)
     {
         if (Store::mqttConnected)
@@ -119,6 +150,14 @@ namespace ESPAdmin
         }
     }
 
+    /**
+     * Subscribes to a specified MQTT topic with the given quality of service level.
+     *
+     * @param topic The topic to subscribe to.
+     * @param qos The quality of service level for the subscription.
+     *
+     * @throws None
+     */
     void MQTT::subscribe(const String &topic, unsigned qos)
     {
         if (Store::mqttConnected)

@@ -2,6 +2,13 @@
 
 namespace ESPAdmin
 {
+  /**
+   * Initializes the ESPAdmin library with the provided options.
+   *
+   * @param options The initialization options for the ESPAdmin library.
+   *
+   * @throws None
+   */
   void begin(InitOptions options)
   {
     options.resetDelayMs = DEFAULT_INT(options.resetDelayMs, 7000);

@@ -4,6 +4,15 @@ namespace ESPAdmin
 {
     Logger HTTP::_logger("HTTP");
 
+    /**
+     * Retrieves data from the server using an HTTP GET request.
+     *
+     * @param path The path to append to the base URL for the GET request.
+     *
+     * @return The response data obtained from the server.
+     *
+     * @throws ErrorType If there are errors during the HTTP GET request.
+     */
     String HTTP::get(const String &path)
     {
         char response[Store::options.httpMaxResponseSize] = "";
@@ -59,6 +68,17 @@ namespace ESPAdmin
         return String(response);
     }
 
+    /**
+     * Sends an HTTP POST request to the specified path with the given content and content type.
+     *
+     * @param path The path to append to the base URL for the POST request.
+     * @param content The content to send in the request body.
+     * @param contentType The content type of the request body.
+     *
+     * @return The response data obtained from the server.
+     *
+     * @throws ErrorType If there are errors during the HTTP POST request.
+     */
     String HTTP::post(const String &path, const String &content, const String &contentType)
     {
         char response[Store::options.httpMaxResponseSize] = "";

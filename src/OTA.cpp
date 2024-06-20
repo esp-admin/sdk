@@ -6,6 +6,15 @@ namespace ESPAdmin
     bool OTA::_aborted = false;
     esp_https_ota_handle_t OTA::_otaHandle;
 
+    /**
+     * Starts the OTA (Over-The-Air) update process for the device.
+     *
+     * @param downloadURL The URL from which to download the binary file.
+     *
+     * @return None.
+     *
+     * @throws None.
+     */
     void OTA::start(const String &downloadURL)
     {
         esp_http_client_config_t httpConfig = {
@@ -30,16 +39,25 @@ namespace ESPAdmin
         }
         else
         {
-            xTaskCreatePinnedToCore(task, "ota_start", Store::options.otaTaskStackSize, nullptr, Store::options.otaTaskPriority, nullptr, 1);
+            xTaskCreatePinnedToCore(_task, "ota_start", Store::options.otaTaskStackSize, nullptr, Store::options.otaTaskPriority, nullptr, 1);
         }
     }
 
+    /**
+     * Abort OTA process.
+     *
+     * @param None.
+     *
+     * @return None.
+     *
+     * @throws None.
+     */
     void OTA::abort()
     {
         _aborted = true;
     }
 
-    void OTA::task(void *)
+    void OTA::_task(void *)
     {
         int imageReadPrev = 0;
 

@@ -4,6 +4,13 @@ namespace ESPAdmin
 {
     Logger NVS::_logger("NVS");
 
+    /**
+     * Initializes the NVS module and opens a namespace for reading and writing.
+     *
+     * @param _namespace The name of the namespace to open.
+     *
+     * @throws None.
+     */
     void NVS::begin(const char *_namespace)
     {
         esp_err_t err = nvs_flash_init();
@@ -31,6 +38,15 @@ namespace ESPAdmin
         }
     }
 
+    /**
+     * Retrieves a string value from the NVS (Non-Volatile Storage) with the given key.
+     *
+     * @param key The key of the string value to retrieve.
+     *
+     * @return The retrieved string value if it exists, an empty string otherwise.
+     *
+     * @throws None
+     */
     String NVS::getString(const char *key) const
     {
         size_t required_size;
@@ -47,6 +63,14 @@ namespace ESPAdmin
         return String(value);
     }
 
+    /**
+     * Sets a string value in the NVS (Non-Volatile Storage) with the given key.
+     *
+     * @param key The key of the string value to set.
+     * @param value The string value to set. If nullptr, an empty string will be set.
+     *
+     * @throws None.
+     */
     void NVS::setString(const char *key, const char *value) const
     {
         esp_err_t err = nvs_set_str(_handler, key, value == nullptr ? "" : value);
@@ -59,6 +83,11 @@ namespace ESPAdmin
         }
     }
 
+    /**
+     * Clears all the data stored in the NVS (Non-Volatile Storage) by erasing all the keys and committing the changes.
+     *
+     * @throws None
+     */
     void NVS::clear() const
     {
         nvs_erase_all(_handler);
