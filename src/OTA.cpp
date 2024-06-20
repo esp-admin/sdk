@@ -21,9 +21,9 @@ namespace ESPAdmin
         Store::updateRunning = true;
         Update::onChange(UPDATE_STARTED);
 
-        esp_err_t ret = esp_https_ota_begin(&otaConfig, &_otaHandle);
+        esp_err_t err = esp_https_ota_begin(&otaConfig, &_otaHandle);
 
-        if (ret != ESP_OK)
+        if (err != ESP_OK)
         {
             Store::updateRunning = false;
             Update::onChange(UPDATE_FAILED);
@@ -49,9 +49,9 @@ namespace ESPAdmin
         {
             if (_aborted)
             {
-                esp_err_t ret = esp_https_ota_abort(_otaHandle);
+                esp_err_t err = esp_https_ota_abort(_otaHandle);
 
-                if (ret == ESP_OK)
+                if (err == ESP_OK)
                 {
                     Store::updateRunning = false;
                     Update::onChange(UPDATE_FAILED);
@@ -59,23 +59,24 @@ namespace ESPAdmin
                 }
             }
 
-            esp_err_t ret = esp_https_ota_perform(_otaHandle);
+            esp_err_t err = esp_https_ota_perform(_otaHandle);
 
             int imageReadNow = esp_https_ota_get_image_len_read(_otaHandle);
 
-            if (ret == ESP_ERR_HTTPS_OTA_IN_PROGRESS)
+            if (err == ESP_ERR_HTTPS_OTA_IN_PROGRESS)
             {
                 if (imageReadNow - imageReadPrev > 30000) // progress state is updated every 30Kb
                 {
                     Update::onProgress(imageReadNow);
                     imageReadPrev = imageReadNow;
                 }
+
                 continue;
             }
 
             Update::onProgress(imageReadNow);
 
-            if (ret == ESP_OK)
+            if (err == ESP_OK)
             {
                 Store::updateRunning = false;
 

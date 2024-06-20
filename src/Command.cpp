@@ -60,7 +60,7 @@ namespace ESPAdmin
         }
         else
         {
-            _logger.warn("Failed to deserializeJson");
+            _logger.warn("Failed to deserialize Json");
         }
     }
 
@@ -77,7 +77,7 @@ namespace ESPAdmin
         }
         else
         {
-            _logger.warn("Failed to deserializeJson");
+            _logger.warn("Failed to deserialize Json");
         }
     }
 
@@ -87,7 +87,6 @@ namespace ESPAdmin
 
         if (onConfig != nullptr)
         {
-
             onConfig(Store::get(STORE_CONFIG));
         }
     }
