@@ -1,5 +1,40 @@
 # Changelog
 
+## v1.4.0
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.3.0...v1.4.0)
+
+### 🚀 Enhancements
+
+- **OTA:** Publish progress on `device/+/report/update/progress` ([8b86b72](https://github.com/esp-admin/sdk/commit/8b86b72))
+- **Update:** Add abort option ([abfb73c](https://github.com/esp-admin/sdk/commit/abfb73c))
+
+### 🔥 Performance
+
+- **OTA:** Avoid running ota task when connection failed ([832f489](https://github.com/esp-admin/sdk/commit/832f489))
+
+### 🩹 Fixes
+
+- **OTA:** Set initial progress state to `0` ([256cd2f](https://github.com/esp-admin/sdk/commit/256cd2f))
+- **Update:** Avoid progress calculation when image size unknown ([991e0f0](https://github.com/esp-admin/sdk/commit/991e0f0))
+
+### 💅 Refactors
+
+- **OTA:** Use advanced APIs ([7c4763f](https://github.com/esp-admin/sdk/commit/7c4763f))
+- **Logger:** Change style of log message ([0c4f5d3](https://github.com/esp-admin/sdk/commit/0c4f5d3))
+- No significant change ([24f7612](https://github.com/esp-admin/sdk/commit/24f7612))
+
+### 🏡 Chore
+
+- Bump version ([33f8949](https://github.com/esp-admin/sdk/commit/33f8949))
+- Build compilation database ([74388a0](https://github.com/esp-admin/sdk/commit/74388a0))
+- **examples:** Set mqttCert for HiveMQ Cloud ([52b5f77](https://github.com/esp-admin/sdk/commit/52b5f77))
+- Add doc comments for public methods ([73b16e9](https://github.com/esp-admin/sdk/commit/73b16e9))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.3.0
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.2.3...v1.3.0)
