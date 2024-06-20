@@ -84,4 +84,12 @@ namespace ESPAdmin
             Report::sendUpdateProgress(_message, progress);
         }
     }
+
+    void Update::abort(const String &releaseId)
+    {
+        if (_message.releaseId == releaseId)
+        {
+            OTA::abort();
+        }
+    }
 }

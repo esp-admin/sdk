@@ -3,6 +3,7 @@
 namespace ESPAdmin
 {
     Logger OTA::_logger("OTA");
+    bool OTA::_aborted = false;
     esp_https_ota_handle_t OTA::_otaHandle;
 
     void OTA::start(const String &downloadURL)
@@ -33,6 +34,11 @@ namespace ESPAdmin
         }
     }
 
+    void OTA::abort()
+    {
+        _aborted = true;
+    }
+
     void OTA::task(void *)
     {
         int imageReadPrev = 0;
@@ -41,6 +47,18 @@ namespace ESPAdmin
 
         while (Store::updateRunning)
         {
+            if (_aborted)
+            {
+                esp_err_t ret = esp_https_ota_abort(_otaHandle);
+
+                if (ret == ESP_OK)
+                {
+                    Store::updateRunning = false;
+                    Update::onChange(UPDATE_FAILED);
+                    break;
+                }
+            }
+
             esp_err_t ret = esp_https_ota_perform(_otaHandle);
 
             int imageReadNow = esp_https_ota_get_image_len_read(_otaHandle);
@@ -79,7 +97,15 @@ namespace ESPAdmin
             }
         }
 
-        esp_https_ota_finish(_otaHandle);
+        if (_aborted == false)
+        {
+            esp_https_ota_finish(_otaHandle);
+        }
+        else
+        {
+            _aborted = false;
+        }
+
         vTaskDelete(nullptr);
     }
 }

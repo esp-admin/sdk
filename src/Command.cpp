@@ -20,9 +20,14 @@ namespace ESPAdmin
             _onRestart();
         }
 
-        else if (type == "update")
+        else if (type == "update_trigger")
         {
-            _onUpdate(message);
+            _onUpdateTrigger(message);
+        }
+
+        else if (type == "update_abort")
+        {
+            _onUpdateAbort(message);
         }
 
         else if (type == "config")
@@ -36,7 +41,7 @@ namespace ESPAdmin
         }
     }
 
-    void Command::_onUpdate(const String &message)
+    void Command::_onUpdateTrigger(const String &message)
     {
         StaticJsonDocument<300> doc; // 192 recommended
 
@@ -52,6 +57,23 @@ namespace ESPAdmin
             };
 
             Update::checkAndUpdate(updateMessage);
+        }
+        else
+        {
+            _logger.warn("Failed to deserializeJson");
+        }
+    }
+
+    void Command::_onUpdateAbort(const String &message)
+    {
+        StaticJsonDocument<100> doc;
+
+        DeserializationError error = deserializeJson(doc, message);
+
+        if (error == DeserializationError::Ok)
+        {
+            String releaseId = doc["releaseId"];
+            Update::abort(releaseId);
         }
         else
         {

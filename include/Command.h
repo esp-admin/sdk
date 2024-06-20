@@ -21,7 +21,8 @@ namespace ESPAdmin
 
     private:
         static Logger _logger;
-        static void _onUpdate(const String &message);
+        static void _onUpdateTrigger(const String &message);
+        static void _onUpdateAbort(const String &message);
         static void _onConfig(const String &message);
         static void _onRestart();
         static void _onLog(const String &message);

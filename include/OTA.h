@@ -16,9 +16,11 @@ namespace ESPAdmin
     {
     public:
         static void start(const String &downloadURL);
+        static void abort();
 
     private:
         static Logger _logger;
+        static bool _aborted;
         static esp_https_ota_handle_t _otaHandle;
         static void task(void *pvParameters);
     };
