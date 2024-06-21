@@ -31,7 +31,7 @@ namespace ESPAdmin
         esp_http_client_handle_t client = esp_http_client_init(&config);
         if (client == nullptr)
         {
-            _logger.error("failed to init http client");
+            _logger.error(F("failed to init http client"));
             return "";
         }
 
@@ -40,7 +40,7 @@ namespace ESPAdmin
         esp_err_t err = esp_http_client_open(client, 0);
         if (err != ESP_OK)
         {
-            _logger.error("failed to open connection");
+            _logger.error(F("failed to open connection"));
             esp_http_client_cleanup(client);
             return "";
         }
@@ -48,7 +48,7 @@ namespace ESPAdmin
         int contentLength = esp_http_client_fetch_headers(client);
         if (contentLength == -1)
         {
-            _logger.error("failed to read");
+            _logger.error(F("failed to read"));
             esp_http_client_cleanup(client);
             return "";
         }
@@ -98,7 +98,7 @@ namespace ESPAdmin
         esp_http_client_handle_t client = esp_http_client_init(&config);
         if (client == nullptr)
         {
-            _logger.error("failed to init http client");
+            _logger.error(F("failed to init http client"));
             return "";
         }
 
@@ -108,7 +108,7 @@ namespace ESPAdmin
         esp_err_t err = esp_http_client_open(client, content.length());
         if (err != ESP_OK)
         {
-            _logger.error("failed to open connection");
+            _logger.error(F("failed to open connection"));
             esp_http_client_cleanup(client);
             return "";
         }
@@ -116,7 +116,7 @@ namespace ESPAdmin
         int wlen = esp_http_client_write(client, content.c_str(), content.length());
         if (wlen == -1)
         {
-            _logger.error("failed to write");
+            _logger.error(F("failed to write"));
             esp_http_client_close(client);
             esp_http_client_cleanup(client);
             return "";
@@ -125,7 +125,7 @@ namespace ESPAdmin
         int contentLength = esp_http_client_fetch_headers(client);
         if (contentLength == -1)
         {
-            _logger.error("failed to read");
+            _logger.error(F("failed to read"));
             esp_http_client_close(client);
             esp_http_client_cleanup(client);
             return "";

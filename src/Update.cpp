@@ -25,7 +25,7 @@ namespace ESPAdmin
         }
         else if (Store::updateRunning)
         {
-            _logger.warn("already update is running");
+            _logger.warn(F("already update is running"));
         }
         else
         {
@@ -62,7 +62,7 @@ namespace ESPAdmin
 
     [[noreturn]] void Update::_onSuccess()
     {
-        _logger.success("succeded");
+        _logger.success(F("succeded"));
         Report::sendUpdateStatus(_message, "succeded");
 
         Store::set(STORE_UPDATE_RELEASE_ID, _message.releaseId.c_str());
@@ -78,14 +78,14 @@ namespace ESPAdmin
 
     void Update::_onFail()
     {
-        _logger.error("failed");
+        _logger.error(F("failed"));
 
         Report::sendUpdateStatus(_message, "failed");
     }
 
     void Update::_onStart()
     {
-        _logger.info("started");
+        _logger.info(F("started"));
 
         Report::sendUpdateStatus(_message, "started");
     }

@@ -65,7 +65,7 @@ namespace ESPAdmin
 
         if (settings.length() == 0)
         {
-            _logger.warn("could not fetch settings");
+            _logger.warn(F("could not fetch settings"));
             return;
         }
 
@@ -85,11 +85,11 @@ namespace ESPAdmin
             set(STORE_MQTT_URI_TCP, uriTCP);
             set(STORE_MQTT_URI_WS, uriWS);
 
-            _logger.success("settings saved");
+            _logger.success(F("settings saved"));
         }
         else
         {
-            _logger.warn("failed to deserialize Json");
+            _logger.warn(F("failed to deserialize Json"));
         }
     }
 }

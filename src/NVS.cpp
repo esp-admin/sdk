@@ -17,7 +17,7 @@ namespace ESPAdmin
 
         if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND)
         {
-            _logger.info("partition needs to be erased");
+            _logger.info(F("partition needs to be erased"));
 
             ESP_ERROR_CHECK(nvs_flash_erase());
 
@@ -30,11 +30,11 @@ namespace ESPAdmin
 
         if (err != ESP_OK)
         {
-            _logger.error("failed to open namespace");
+            _logger.error(F("failed to open namespace"));
         }
         else
         {
-            _logger.success("ready");
+            _logger.success(F("ready"));
         }
     }
 

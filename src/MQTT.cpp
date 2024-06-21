@@ -20,7 +20,7 @@ namespace ESPAdmin
 
         if (uriWS.length() == 0 || username.length() == 0 || password.length() == 0)
         {
-            _logger.error("invalid MQTT configuration");
+            _logger.error(F("invalid MQTT configuration"));
             return;
         }
 
@@ -53,7 +53,7 @@ namespace ESPAdmin
 
         if (_client == nullptr)
         {
-            _logger.error("unable to create client");
+            _logger.error(F("unable to create client"));
             return;
         }
 
@@ -61,7 +61,7 @@ namespace ESPAdmin
 
         if (err != ESP_OK)
         {
-            _logger.error("unable to register event handler");
+            _logger.error(F("unable to register event handler"));
             return;
         }
 
@@ -69,7 +69,7 @@ namespace ESPAdmin
 
         if (err != ESP_OK)
         {
-            _logger.error("unable to start client");
+            _logger.error(F("unable to start client"));
             return;
         }
     }
@@ -178,7 +178,7 @@ namespace ESPAdmin
     {
         Store::mqttConnected = true;
 
-        _logger.info("connected");
+        _logger.info(F("connected"));
 
         subscribe("device/" + String(Store::options.deviceId) + "/command/+", 1);
 
@@ -189,7 +189,7 @@ namespace ESPAdmin
     {
         Store::mqttConnected = false;
 
-        _logger.info("disconnected");
+        _logger.info(F("disconnected"));
 
         Report::sendStatus("disconnected");
     }
@@ -201,7 +201,7 @@ namespace ESPAdmin
 
     void MQTT::_onSubscribed()
     {
-        _logger.info("subscribed");
+        _logger.info(F("subscribed"));
     }
 
     MQTT::~MQTT()
