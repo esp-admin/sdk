@@ -78,13 +78,6 @@ namespace ESPAdmin
     {
         const esp_mqtt_event_handle_t &event = *((esp_mqtt_event_handle_t *)(&event_data));
 
-        char topic[event->topic_len + 1];
-        char data[event->data_len + 1];
-        strncpy(topic, event->topic, event->topic_len);
-        strncpy(data, event->data, event->data_len);
-        topic[event->topic_len] = '\0';
-        data[event->data_len] = '\0';
-
         switch (event_id)
         {
         case MQTT_EVENT_CONNECTED:
@@ -96,12 +89,21 @@ namespace ESPAdmin
             break;
 
         case MQTT_EVENT_DATA:
+        {
+            char topic[event->topic_len + 1];
+            char data[event->data_len + 1];
+            strncpy(topic, event->topic, event->topic_len);
+            strncpy(data, event->data, event->data_len);
+            topic[event->topic_len] = '\0';
+            data[event->data_len] = '\0';
             _onDataArrived(topic, data);
             break;
+        }
 
         case MQTT_EVENT_SUBSCRIBED:
             _onSubscribed();
             break;
+
         default:
             break;
         }
