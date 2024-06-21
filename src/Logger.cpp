@@ -13,13 +13,13 @@ namespace ESPAdmin
      *
      * @throws None
      */
-    void Logger::info(const char *format, ...) const
+    void Logger::info(const void *format, ...) const
     {
         va_list args;
         va_start(args, format);
 
         char buffer[DEFAULT_INT(Store::options.logMaxMessageSize, 200)];
-        vsnprintf(buffer, sizeof(buffer), format, args);
+        vsnprintf(buffer, sizeof(buffer), (const char *)format, args);
 
         va_end(args);
         _log(ANSI_COLOR_BLUE, "info", buffer);
@@ -33,13 +33,13 @@ namespace ESPAdmin
      *
      * @throws None
      */
-    void Logger::error(const char *format, ...) const
+    void Logger::error(const void *format, ...) const
     {
         va_list args;
         va_start(args, format);
 
         char buffer[DEFAULT_INT(Store::options.logMaxMessageSize, 200)];
-        vsnprintf(buffer, sizeof(buffer), format, args);
+        vsnprintf(buffer, sizeof(buffer), (const char *)format, args);
 
         va_end(args);
         _log(ANSI_COLOR_RED, "error", buffer);
@@ -53,13 +53,13 @@ namespace ESPAdmin
      *
      * @throws None
      */
-    void Logger::warn(const char *format, ...) const
+    void Logger::warn(const void *format, ...) const
     {
         va_list args;
         va_start(args, format);
 
         char buffer[DEFAULT_INT(Store::options.logMaxMessageSize, 200)];
-        vsnprintf(buffer, sizeof(buffer), format, args);
+        vsnprintf(buffer, sizeof(buffer), (const char *)format, args);
 
         va_end(args);
         _log(ANSI_COLOR_YELLOW, "warn", buffer);
@@ -73,13 +73,13 @@ namespace ESPAdmin
      *
      * @throws None
      */
-    void Logger::success(const char *format, ...) const
+    void Logger::success(const void *format, ...) const
     {
         va_list args;
         va_start(args, format);
 
         char buffer[DEFAULT_INT(Store::options.logMaxMessageSize, 200)];
-        vsnprintf(buffer, sizeof(buffer), format, args);
+        vsnprintf(buffer, sizeof(buffer), (const char *)format, args);
 
         va_end(args);
         _log(ANSI_COLOR_GREEN, "success", buffer);

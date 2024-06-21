@@ -18,10 +18,10 @@ namespace ESPAdmin
     {
     public:
         explicit Logger(const char *scope);
-        void info(const char *format, ...) const;
-        void error(const char *format, ...) const;
-        void warn(const char *format, ...) const;
-        void success(const char *format, ...) const;
+        void info(const void *format, ...) const;
+        void error(const void *format, ...) const;
+        void warn(const void *format, ...) const;
+        void success(const void *format, ...) const;
 
     private:
         void _log(const char *color, const char *type, const char *message) const;
