@@ -18,6 +18,12 @@ namespace ESPAdmin
         const String username = Store::get(STORE_MQTT_USERNAME);
         const String password = Store::get(STORE_MQTT_PASSWORD);
 
+        if (uriWS.length() == 0 || username.length() == 0 || password.length() == 0)
+        {
+            _logger.error("invalid MQTT configuration");
+            return;
+        }
+
         const char lwtMessage[] = R"({"status":"disconnected"})";
 
         String lwtTopic = "device/" + String(Store::options.deviceId) + "/report/status";
