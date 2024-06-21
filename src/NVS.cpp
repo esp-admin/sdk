@@ -78,13 +78,19 @@ namespace ESPAdmin
      */
     void NVS::setString(const char *key, const char *value) const
     {
-        esp_err_t err = nvs_set_str(_handler, key, value == nullptr ? "" : value);
+        const char *valueToSet = (value == nullptr) ? "" : value;
 
-        nvs_commit(_handler);
-
+        esp_err_t err = nvs_set_str(_handler, key, valueToSet);
         if (err != ESP_OK)
         {
-            _logger.warn("failed to write string %s", key);
+            _logger.warn("failed to write value of %s", key);
+            return;
+        }
+
+        err = nvs_commit(_handler);
+        if (err != ESP_OK)
+        {
+            _logger.warn("failed to commit value of %s", key);
         }
     }
 
