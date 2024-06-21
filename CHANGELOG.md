@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.4.2
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.4.1...v1.4.2)
+
+### 🩹 Fixes
+
+- **Update:** Avoid sending duplicate progress values ([53232b7](https://github.com/esp-admin/sdk/commit/53232b7))
+
+### 🏡 Chore
+
+- Bump version ([4ea06b6](https://github.com/esp-admin/sdk/commit/4ea06b6))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.4.1
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.4.0...v1.4.1)
