@@ -52,13 +52,18 @@ namespace ESPAdmin
         size_t required_size;
         esp_err_t err = nvs_get_str(_handler, key, nullptr, &required_size);
 
-        if (err != ESP_OK)
+        if (err != ESP_OK || required_size == 0)
         {
             return "";
         }
 
         char value[required_size];
-        nvs_get_str(_handler, key, value, &required_size);
+        err = nvs_get_str(_handler, key, value, &required_size);
+
+        if (err != ESP_OK)
+        {
+            return "";
+        }
 
         return String(value);
     }
