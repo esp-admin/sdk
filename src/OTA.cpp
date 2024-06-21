@@ -83,7 +83,7 @@ namespace ESPAdmin
 
             if (err == ESP_ERR_HTTPS_OTA_IN_PROGRESS)
             {
-                if (imageReadNow - imageReadPrev > 30000) // progress state is updated every 30Kb
+                if (imageReadNow - imageReadPrev > 50000) // progress state is updated every 50Kb
                 {
                     Update::onProgress(imageReadNow);
                     imageReadPrev = imageReadNow;
