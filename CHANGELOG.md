@@ -1,5 +1,33 @@
 # Changelog
 
+## v1.4.1
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.4.0...v1.4.1)
+
+### 🔥 Performance
+
+- Store static log messages in Flash ([8c07d9b](https://github.com/esp-admin/sdk/commit/8c07d9b))
+
+### 💅 Refactors
+
+- **HTTP:** Refactor `get` ([f117373](https://github.com/esp-admin/sdk/commit/f117373))
+- **HTTP:** Refactor `post` ([a55eb1d](https://github.com/esp-admin/sdk/commit/a55eb1d))
+- **MQTT:** Refactor `connect` ([67f8872](https://github.com/esp-admin/sdk/commit/67f8872))
+- **MQTT:** Refactor `_onEvent` ([2dd3998](https://github.com/esp-admin/sdk/commit/2dd3998))
+- **NVS:** Refactor `getString` ([1de636f](https://github.com/esp-admin/sdk/commit/1de636f))
+- **NVS:** Refactor `setString` ([1f789a4](https://github.com/esp-admin/sdk/commit/1f789a4))
+- **OTA:** Refactor `_task` ([69a24ad](https://github.com/esp-admin/sdk/commit/69a24ad))
+- **Logger:** Do not specify data type ([d5fc4d7](https://github.com/esp-admin/sdk/commit/d5fc4d7))
+
+### 🏡 Chore
+
+- Bump version ([b37dc73](https://github.com/esp-admin/sdk/commit/b37dc73))
+- Change OTA and MQTT default stack size ([2c8cffa](https://github.com/esp-admin/sdk/commit/2c8cffa))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.4.0
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.3.0...v1.4.0)
