@@ -29,41 +29,42 @@ namespace ESPAdmin
         };
 
         esp_http_client_handle_t client = esp_http_client_init(&config);
+        if (client == nullptr)
+        {
+            _logger.error("failed to init http client");
+            return "";
+        }
 
         esp_http_client_set_header(client, "Api-Key", Store::options.apiKey);
 
         esp_err_t err = esp_http_client_open(client, 0);
-
-        if (err == ESP_OK)
-        {
-            int contentLength = esp_http_client_fetch_headers(client);
-
-            if (contentLength == -1)
-            {
-                _logger.error("failed to read");
-            }
-            else
-            {
-                int statusCode = esp_http_client_get_status_code(client);
-
-                if (statusCode < 200 || statusCode >= 300)
-                {
-                    _logger.error("failed with %d", statusCode);
-                }
-                else
-                {
-                    esp_http_client_read_response(client, response, Store::options.httpMaxResponseSize);
-                }
-            }
-
-            esp_http_client_close(client);
-
-            esp_http_client_cleanup(client);
-        }
-        else
+        if (err != ESP_OK)
         {
             _logger.error("failed to open connection");
+            esp_http_client_cleanup(client);
+            return "";
         }
+
+        int contentLength = esp_http_client_fetch_headers(client);
+        if (contentLength == -1)
+        {
+            _logger.error("failed to read");
+            esp_http_client_cleanup(client);
+            return "";
+        }
+
+        int statusCode = esp_http_client_get_status_code(client);
+        if (statusCode < 200 || statusCode >= 300)
+        {
+            _logger.error("failed with %d", statusCode);
+            esp_http_client_cleanup(client);
+            return "";
+        }
+
+        esp_http_client_read_response(client, response, Store::options.httpMaxResponseSize);
+
+        esp_http_client_close(client);
+        esp_http_client_cleanup(client);
 
         return String(response);
     }
