@@ -59,8 +59,6 @@ namespace ESPAdmin
 
     void OTA::_task(void *)
     {
-        int imageReadPrev = 0;
-
         Update::onProgress(0);
 
         while (Store::updateRunning)
@@ -79,28 +77,23 @@ namespace ESPAdmin
 
             esp_err_t err = esp_https_ota_perform(_otaHandle);
 
-            int imageReadNow = esp_https_ota_get_image_len_read(_otaHandle);
+            int imageRead = esp_https_ota_get_image_len_read(_otaHandle);
 
             if (err == ESP_ERR_HTTPS_OTA_IN_PROGRESS)
             {
-                if (imageReadNow - imageReadPrev > 50000) // progress state is updated every 50Kb
-                {
-                    Update::onProgress(imageReadNow);
-                    imageReadPrev = imageReadNow;
-                }
-
+                Update::onProgress(imageRead);
                 continue;
             }
 
-            Update::onProgress(imageReadNow);
+            Update::onProgress(imageRead);
 
             if (err == ESP_OK)
             {
                 Store::updateRunning = false;
 
-                bool completed = esp_https_ota_is_complete_data_received(_otaHandle);
+                bool success = esp_https_ota_is_complete_data_received(_otaHandle);
 
-                if (completed)
+                if (success)
                 {
                     Update::onChange(UPDATE_SUCCEDED);
                 }

@@ -127,7 +127,7 @@ namespace ESPAdmin
      *
      * @throws None
      */
-    void Report::sendUpdateProgress(UpdateMessage &updateMessage, int progress)
+    void Report::sendUpdateProgress(UpdateMessage &updateMessage, unsigned int progress)
     {
         String mqttMessage;
 

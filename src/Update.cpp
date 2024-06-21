@@ -3,6 +3,7 @@
 namespace ESPAdmin
 {
     UpdateMessage Update::_message;
+    unsigned int Update::_progress = 0;
     Logger Update::_logger("Update");
 
     /**
@@ -101,10 +102,15 @@ namespace ESPAdmin
      */
     void Update::onProgress(int imageRead)
     {
-        if (_message.downloadSize > 0)
+        if (_message.downloadSize > 0 && imageRead >= 0)
         {
-            int progress = (imageRead * 100) / _message.downloadSize;
-            Report::sendUpdateProgress(_message, progress);
+            int currentProgress = (imageRead * 100) / _message.downloadSize;
+
+            if (currentProgress > _progress)
+            {
+                _progress = currentProgress;
+                Report::sendUpdateProgress(_message, _progress);
+            }
         }
     }
 

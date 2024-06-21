@@ -23,6 +23,7 @@ namespace ESPAdmin
     private:
         static UpdateMessage _message;
         static Logger _logger;
+        static unsigned int _progress;
         static void _onSuccess();
         static void _onFail();
         static void _onStart();
