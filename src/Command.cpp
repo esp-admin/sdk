@@ -60,7 +60,7 @@ namespace ESPAdmin
         }
         else
         {
-            _logger.warn("Failed to deserialize Json");
+            _logger.warn(F("failed to deserialize Json"));
         }
     }
 
@@ -77,7 +77,7 @@ namespace ESPAdmin
         }
         else
         {
-            _logger.warn("Failed to deserialize Json");
+            _logger.warn(F("failed to deserialize Json"));
         }
     }
 
@@ -110,7 +110,7 @@ namespace ESPAdmin
     {
         if (onCustom == nullptr)
         {
-            _logger.warn("no handler registered for custom commands");
+            _logger.warn(F("no handler registered for custom commands"));
         }
         else
         {

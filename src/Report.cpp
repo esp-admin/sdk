@@ -113,7 +113,6 @@ namespace ESPAdmin
             if (size > 0)
             {
                 HTTP::post("/report/update", message, "application/json");
-
                 MQTT::publish("/report/update_status", message, 1, false);
             }
         }
