@@ -1,6 +1,6 @@
 {
   "name": "ESPAdmin",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "The sdk for ESP Admin platform",
   "keywords": "config, ota, esp32, management",
   "repository": {
