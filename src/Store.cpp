@@ -21,7 +21,7 @@ namespace ESPAdmin
      *
      * @throws None
      */
-    void Store::begin(const InitOptions options)
+    void Store::begin(const InitOptions &options)
     {
         _NVS.begin(_namespace);
 

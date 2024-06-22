@@ -17,7 +17,7 @@ namespace ESPAdmin
     class Store
     {
     public:
-        static void begin(const InitOptions options);
+        static void begin(const InitOptions &options);
         static void set(StoreKey key, const char *value);
         static String get(StoreKey key);
 
