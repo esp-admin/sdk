@@ -69,9 +69,10 @@ namespace ESPAdmin
 
                 if (err == ESP_OK)
                 {
-                    Store::updateRunning = false;
+                    _aborted = false;
                     Update::onChange(UPDATE_FAILED);
-                    break;
+                    Store::updateRunning = false;
+                    continue;
                 }
             }
 
@@ -89,33 +90,16 @@ namespace ESPAdmin
 
             if (err == ESP_OK)
             {
-                Store::updateRunning = false;
-
-                bool success = esp_https_ota_is_complete_data_received(_otaHandle);
-
-                if (success)
-                {
-                    Update::onChange(UPDATE_SUCCEDED);
-                }
-                else
-                {
-                    Update::onChange(UPDATE_FAILED);
-                }
+                esp_err_t err = esp_https_ota_finish(_otaHandle);
+                Update::onChange(err == ESP_OK ? UPDATE_SUCCEDED : UPDATE_FAILED);
             }
             else
             {
-                Store::updateRunning = false;
+                esp_https_ota_finish(_otaHandle);
                 Update::onChange(UPDATE_FAILED);
             }
-        }
 
-        if (_aborted == false)
-        {
-            esp_https_ota_finish(_otaHandle);
-        }
-        else
-        {
-            _aborted = false;
+            Store::updateRunning = false;
         }
 
         vTaskDelete(nullptr);
