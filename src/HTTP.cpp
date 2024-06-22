@@ -40,7 +40,7 @@ namespace ESPAdmin
         esp_err_t err = esp_http_client_open(client, 0);
         if (err != ESP_OK)
         {
-            _logger.error(F("failed to open connection"));
+            _logger.error("failed to open connection %s", esp_err_to_name(err));
             esp_http_client_cleanup(client);
             return "";
         }
@@ -108,7 +108,7 @@ namespace ESPAdmin
         esp_err_t err = esp_http_client_open(client, content.length());
         if (err != ESP_OK)
         {
-            _logger.error(F("failed to open connection"));
+            _logger.error("failed to open connection %s", esp_err_to_name(err));
             esp_http_client_cleanup(client);
             return "";
         }
