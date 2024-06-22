@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.4.3
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.4.2...v1.4.3)
+
+### 🔥 Performance
+
+- Store static log messages in Flash ([4822153](https://github.com/esp-admin/sdk/commit/4822153))
+
+### 🩹 Fixes
+
+- **HTTP:** Correctly set response buffer size ([b6c6eb5](https://github.com/esp-admin/sdk/commit/b6c6eb5))
+- **Logger:** Correctly set message buffer size ([757eeac](https://github.com/esp-admin/sdk/commit/757eeac))
+- **OTA:** Close HTTP connection before sending update status ([00a56ed](https://github.com/esp-admin/sdk/commit/00a56ed))
+
+### 🏡 Chore
+
+- Bump version ([f0d0e29](https://github.com/esp-admin/sdk/commit/f0d0e29))
+- **HTTP:** Log reason on open connection fail ([4e7d619](https://github.com/esp-admin/sdk/commit/4e7d619))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.4.2
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.4.1...v1.4.2)
