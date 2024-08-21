@@ -24,6 +24,6 @@ namespace ESPAdmin
     options.otaTaskStackSize = DEFAULT_INT(options.otaTaskStackSize, 6928); // Stack used 3464 bytes
 
     Store::begin(options);
-    // MQTT::connect();
+    MQTT::connect();
   }
 }
