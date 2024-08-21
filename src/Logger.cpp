@@ -1,4 +1,4 @@
-#include "Logger.h"
+#include "Logger.hpp"
 
 namespace ESPAdmin
 {
@@ -87,15 +87,15 @@ namespace ESPAdmin
 
     void Logger::_log(const char *color, const char *type, const char *message) const
     {
-        String fullMessage = "[" + _scope + "] " + String(message);
+        std::string fullMessage = "[" + _scope + "] " + std::string(message);
 
         if (Store::logSerialEnabled)
         {
-            Serial.printf("%s %s %s %s \n", color, type, ANSI_COLOR_RESET, fullMessage.c_str());
+            ESP_LOGI("", "%s %s %s %s \n", color, type, ANSI_COLOR_RESET, fullMessage.c_str());
         }
         if (Store::logRemoteEnabled)
         {
-            MQTT::publish("/logs/" + String(type), fullMessage, 0, false);
+            MQTT::publish("/logs/" + std::string(type), fullMessage, 0, false);
         }
     }
 }

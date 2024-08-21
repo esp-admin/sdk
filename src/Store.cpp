@@ -1,4 +1,4 @@
-#include "Store.h"
+#include "Store.hpp"
 
 namespace ESPAdmin
 {
@@ -39,9 +39,9 @@ namespace ESPAdmin
      *
      * @throws None
      */
-    String Store::get(StoreKey key)
+    std::string Store::get(StoreKey key)
     {
-        return _NVS.getString(String(key).c_str());
+        return _NVS.getString(std::to_string(key).c_str());
     }
 
     /**
@@ -56,16 +56,16 @@ namespace ESPAdmin
      */
     void Store::set(StoreKey key, const char *value)
     {
-        _NVS.setString(String(key).c_str(), value);
+        _NVS.setString(std::to_string(key).c_str(), value);
     }
 
     void Store::_getSettings()
     {
-        String settings = HTTP::get("/settings");
+        std::string settings = HTTP::get("/settings");
 
         if (settings.length() == 0)
         {
-            _logger.warn(F("could not fetch settings"));
+            _logger.warn("could not fetch settings");
             return;
         }
 
@@ -85,11 +85,11 @@ namespace ESPAdmin
             set(STORE_MQTT_URI_TCP, uriTCP);
             set(STORE_MQTT_URI_WS, uriWS);
 
-            _logger.success(F("settings saved"));
+            _logger.success("settings saved");
         }
         else
         {
-            _logger.warn(F("failed to deserialize Json"));
+            _logger.warn("failed to deserialize Json");
         }
     }
 }

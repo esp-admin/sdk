@@ -1,4 +1,4 @@
-#include "NVS.h"
+#include "NVS.hpp"
 
 namespace ESPAdmin
 {
@@ -17,7 +17,7 @@ namespace ESPAdmin
 
         if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND)
         {
-            _logger.info(F("partition needs to be erased"));
+            _logger.info("partition needs to be erased");
 
             ESP_ERROR_CHECK(nvs_flash_erase());
 
@@ -30,11 +30,11 @@ namespace ESPAdmin
 
         if (err != ESP_OK)
         {
-            _logger.error(F("failed to open namespace"));
+            _logger.error("failed to open namespace");
         }
         else
         {
-            _logger.success(F("ready"));
+            _logger.success("ready");
         }
     }
 
@@ -47,7 +47,7 @@ namespace ESPAdmin
      *
      * @throws None
      */
-    String NVS::getString(const char *key) const
+    std::string NVS::getString(const char *key) const
     {
         size_t required_size;
         esp_err_t err = nvs_get_str(_handler, key, nullptr, &required_size);
@@ -65,7 +65,7 @@ namespace ESPAdmin
             return "";
         }
 
-        return String(value);
+        return std::string(value);
     }
 
     /**

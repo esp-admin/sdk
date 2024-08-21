@@ -1,4 +1,4 @@
-#include "HTTP.h"
+#include "HTTP.hpp"
 
 namespace ESPAdmin
 {
@@ -13,11 +13,11 @@ namespace ESPAdmin
      *
      * @throws ErrorType If there are errors during the HTTP GET request.
      */
-    String HTTP::get(const String &path)
+    std::string HTTP::get(const std::string &path)
     {
         char response[Store::options.httpMaxResponseSize + 1] = "";
 
-        String fullPath = "/api/device/" + String(Store::options.deviceId) + path;
+        std::string fullPath = "/api/device/" + std::string(Store::options.deviceId) + path;
 
         esp_http_client_config_t config = {
             .host = Store::options.httpHost,
@@ -31,11 +31,11 @@ namespace ESPAdmin
         esp_http_client_handle_t client = esp_http_client_init(&config);
         if (client == nullptr)
         {
-            _logger.error(F("failed to init http client"));
+            _logger.error("failed to init http client");
             return "";
         }
 
-        esp_http_client_set_header(client, "Api-Key", Store::options.apiKey);
+        ESP_ERROR_CHECK(esp_http_client_set_header(client, "Api-Key", Store::options.apiKey));
 
         esp_err_t err = esp_http_client_open(client, 0);
         if (err != ESP_OK)
@@ -48,7 +48,7 @@ namespace ESPAdmin
         int contentLength = esp_http_client_fetch_headers(client);
         if (contentLength == -1)
         {
-            _logger.error(F("failed to read"));
+            _logger.error("failed to read");
             esp_http_client_cleanup(client);
             return "";
         }
@@ -66,7 +66,7 @@ namespace ESPAdmin
         esp_http_client_close(client);
         esp_http_client_cleanup(client);
 
-        return String(response);
+        return std::string(response);
     }
 
     /**
@@ -80,11 +80,11 @@ namespace ESPAdmin
      *
      * @throws ErrorType If there are errors during the HTTP POST request.
      */
-    String HTTP::post(const String &path, const String &content, const String &contentType)
+    std::string HTTP::post(const std::string &path, const std::string &content, const std::string &contentType)
     {
         char response[Store::options.httpMaxResponseSize + 1] = "";
 
-        String fullPath = "/api/device/" + String(Store::options.deviceId) + path;
+        std::string fullPath = "/api/device/" + std::string(Store::options.deviceId) + path;
 
         esp_http_client_config_t config = {
             .host = Store::options.httpHost,
@@ -98,7 +98,7 @@ namespace ESPAdmin
         esp_http_client_handle_t client = esp_http_client_init(&config);
         if (client == nullptr)
         {
-            _logger.error(F("failed to init http client"));
+            _logger.error("failed to init http client");
             return "";
         }
 
@@ -116,7 +116,7 @@ namespace ESPAdmin
         int wlen = esp_http_client_write(client, content.c_str(), content.length());
         if (wlen == -1)
         {
-            _logger.error(F("failed to write"));
+            _logger.error("failed to write");
             esp_http_client_close(client);
             esp_http_client_cleanup(client);
             return "";
@@ -125,7 +125,7 @@ namespace ESPAdmin
         int contentLength = esp_http_client_fetch_headers(client);
         if (contentLength == -1)
         {
-            _logger.error(F("failed to read"));
+            _logger.error("failed to read");
             esp_http_client_close(client);
             esp_http_client_cleanup(client);
             return "";
@@ -145,6 +145,6 @@ namespace ESPAdmin
         esp_http_client_close(client);
         esp_http_client_cleanup(client);
 
-        return String(response);
+        return std::string(response);
     }
 }

@@ -1,4 +1,4 @@
-#include "Update.h"
+#include "Update.hpp"
 
 namespace ESPAdmin
 {
@@ -17,8 +17,8 @@ namespace ESPAdmin
     {
         _message = message;
 
-        String currentReleaseId = Store::get(STORE_UPDATE_RELEASE_ID);
-        String currentVersion = Store::get(STORE_UPDATE_VERSION);
+        std::string currentReleaseId = Store::get(STORE_UPDATE_RELEASE_ID);
+        std::string currentVersion = Store::get(STORE_UPDATE_VERSION);
 
         if (currentReleaseId == _message.releaseId)
         {
@@ -26,12 +26,12 @@ namespace ESPAdmin
         }
         else if (Store::updateRunning)
         {
-            _logger.warn(F("already update is running"));
+            _logger.warn("already update is running");
         }
         else
         {
             _logger.info("update to version %s", _message.version.c_str());
-            String downloadURL = "https://" + String(Store::options.httpHost) + message.downloadPath;
+            std::string downloadURL = "https://" + std::string(Store::options.httpHost) + message.downloadPath;
             OTA::start(downloadURL);
         }
     }
@@ -61,9 +61,9 @@ namespace ESPAdmin
         }
     }
 
-    [[noreturn]] void Update::_onSuccess()
+    void Update::_onSuccess()
     {
-        _logger.success(F("succeded"));
+        _logger.success("succeded");
         Report::sendUpdateStatus(_message, "succeded");
 
         Store::set(STORE_UPDATE_RELEASE_ID, _message.releaseId.c_str());
@@ -72,21 +72,21 @@ namespace ESPAdmin
         Report::sendStatus("disconnected");
 
         // Wait for MQTT publish to finish
-        delay(Store::options.resetDelayMs);
+        vTaskDelay(Store::options.resetDelayMs / portTICK_PERIOD_MS);
 
         esp_restart();
     }
 
     void Update::_onFail()
     {
-        _logger.error(F("failed"));
+        _logger.error("failed");
 
         Report::sendUpdateStatus(_message, "failed");
     }
 
     void Update::_onStart()
     {
-        _logger.info(F("started"));
+        _logger.info("started");
 
         Report::sendUpdateStatus(_message, "started");
     }
@@ -123,7 +123,7 @@ namespace ESPAdmin
      *
      * @throws None.
      */
-    void Update::abort(const String &releaseId)
+    void Update::abort(const std::string &releaseId)
     {
         if (_message.releaseId == releaseId)
         {
