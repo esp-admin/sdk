@@ -17,13 +17,16 @@ namespace ESPAdmin
      */
     void OTA::start(const std::string &downloadURL)
     {
-        esp_http_client_config_t httpConfig;
-        httpConfig.url = downloadURL.c_str();
-        httpConfig.cert_pem = Store::options.httpCert;
-        httpConfig.timeout_ms = Store::options.httpTimeoutMs;
+        esp_http_client_config_t httpConfig = {
+            .url = downloadURL.c_str(),
+            .cert_pem = Store::options.httpCert,
+            .timeout_ms = Store::options.httpTimeoutMs,
+            .keep_alive_enable = true,
+        };
 
-        esp_https_ota_config_t otaConfig;
-        otaConfig.http_config = &httpConfig;
+        esp_https_ota_config_t otaConfig = {
+            .http_config = &httpConfig,
+        };
 
         Store::updateRunning = true;
         Update::onChange(UPDATE_STARTED);
