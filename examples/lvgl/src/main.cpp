@@ -32,8 +32,6 @@ void onConfig(std::string message);
 
 void setup()
 {
-  Serial.begin(115200);
-
   ui.setup();
 
   WiFi.begin(ssid, password);
