@@ -1,6 +1,10 @@
 #ifndef H_ESP_ADMIN_OTA
 #define H_ESP_ADMIN_OTA
 
+#ifdef ARDUINO
+#include <Arduino.h>
+#endif
+
 #include <esp_http_client.h>
 #include <esp_https_ota.h>
 #include "Store.hpp"

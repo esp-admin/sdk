@@ -1,6 +1,10 @@
 #ifndef H_ESP_ADMIN_LOGGER
 #define H_ESP_ADMIN_LOGGER
 
+#ifdef ARDUINO
+#include <Arduino.h>
+#endif
+
 #include "Store.hpp"
 #include "MQTT.hpp"
 #include <esp_log.h>
