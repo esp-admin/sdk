@@ -102,11 +102,13 @@ namespace ESPAdmin
      */
     void Update::onProgress(int imageRead)
     {
+        const unsigned progressStep = 5;
+
         if (_message.downloadSize > 0 && imageRead >= 0)
         {
             int currentProgress = (imageRead * 100) / _message.downloadSize;
 
-            if (currentProgress > _progress)
+            if ((currentProgress - _progress) >= progressStep)
             {
                 _progress = currentProgress;
                 Report::sendUpdateProgress(_message, _progress);
