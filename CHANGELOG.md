@@ -1,5 +1,26 @@
 # Changelog
 
+## v2.0.0
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v1.4.3...v2.0.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Support `espidf` framework ([#2](https://github.com/esp-admin/sdk/pull/2))
+
+### 🏡 Chore
+
+- Bump version ([3eff33e](https://github.com/esp-admin/sdk/commit/3eff33e))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Support `espidf` framework ([#2](https://github.com/esp-admin/sdk/pull/2))
+
+### ❤️ Contributors
+
+- Becem <becem.gharbi@live.com>
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v1.4.3
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.4.2...v1.4.3)
