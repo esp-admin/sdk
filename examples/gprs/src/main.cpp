@@ -2,6 +2,7 @@
 This example shows how to use ESPAdmin library with a GPRS modem (no WiFi)
 Requirements:
  - `espidf` framework version 4 (platform = espressif32 @ 5.4.0)
+ - `esp-modem` component added https://components.espressif.com/components/espressif/esp_modem
  - `SIM800` modem (RST -> IO5, TX -> IO16, RX -> IO17)
 */
 
