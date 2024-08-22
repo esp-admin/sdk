@@ -1,5 +1,5 @@
-#ifndef H_CONFIG
-#define H_CONFIG
+#ifndef H_CREDENTIALS
+#define H_CREDENTIALS
 
 const char *httpHost = "app.esp-admin.tn"; // Should be secured (over HTTPS)
 const char *deviceId = "";                 // Device identifier (REQUIRED)
@@ -53,4 +53,5 @@ const char *mqttCert = // The MQTT broker CA certificate (for HiveMQ Cloud)
     "mRGunUHBcnWEvgJBQl9nJEiU0Zsnvgc/ubhPgXRR4Xq37Z0j4r7g1SgEEzwxA57d\n"
     "emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=\n"
     "-----END CERTIFICATE-----\n";
+
 #endif

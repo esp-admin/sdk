@@ -1,4 +1,4 @@
-#include "OTA.h"
+#include "OTA.hpp"
 
 namespace ESPAdmin
 {
@@ -15,12 +15,13 @@ namespace ESPAdmin
      *
      * @throws None.
      */
-    void OTA::start(const String &downloadURL)
+    void OTA::start(const std::string &downloadURL)
     {
         esp_http_client_config_t httpConfig = {
             .url = downloadURL.c_str(),
             .cert_pem = Store::options.httpCert,
             .timeout_ms = Store::options.httpTimeoutMs,
+            .keep_alive_enable = true,
         };
 
         esp_https_ota_config_t otaConfig = {

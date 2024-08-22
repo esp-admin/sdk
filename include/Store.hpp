@@ -1,12 +1,11 @@
 #ifndef H_ESP_ADMIN_STORE
 #define H_ESP_ADMIN_STORE
 
-#include "types.h"
-#include "NVS.h"
-#include <Arduino.h>
-#include "HTTP.h"
-#include "Logger.h"
-#include "Store.h"
+#include "types.hpp"
+#include "NVS.hpp"
+#include "HTTP.hpp"
+#include "Logger.hpp"
+#include "Store.hpp"
 
 #define DEFAULT_INT(x, y) (x == 0 ? y : x)
 
@@ -19,7 +18,7 @@ namespace ESPAdmin
     public:
         static void begin(const InitOptions &options);
         static void set(StoreKey key, const char *value);
-        static String get(StoreKey key);
+        static std::string get(StoreKey key);
 
         // States
         static bool mqttConnected;

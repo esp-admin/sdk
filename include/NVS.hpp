@@ -1,8 +1,7 @@
 #ifndef H_ESP_ADMIN_NVS
 #define H_ESP_ADMIN_NVS
 
-#include "Logger.h"
-#include <Arduino.h>
+#include "Logger.hpp"
 #include <nvs_flash.h>
 #include <nvs.h>
 
@@ -14,7 +13,7 @@ namespace ESPAdmin
     {
     public:
         void begin(const char *_namespace);
-        String getString(const char *key) const;
+        std::string getString(const char *key) const;
         void setString(const char *key, const char *value) const;
         void clear() const;
 

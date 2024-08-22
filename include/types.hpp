@@ -1,7 +1,7 @@
 #ifndef H_ESP_ADMIN_TYPES
 #define H_ESP_ADMIN_TYPES
 
-#include <Arduino.h>
+#include <string>
 
 namespace ESPAdmin
 {
@@ -33,18 +33,18 @@ namespace ESPAdmin
 
     struct UpdateMessage
     {
-        String downloadPath;
+        std::string downloadPath;
         int downloadSize;
-        String releaseId;
-        String version;
-        String deploymentId;
+        std::string releaseId;
+        std::string version;
+        std::string deploymentId;
     };
 
     struct ReportMessage
     {
         ReportType type;
-        String subject;
-        String body;
+        std::string subject;
+        std::string body;
     };
 
     struct InitOptions
@@ -67,8 +67,8 @@ namespace ESPAdmin
         uint16_t otaTaskStackSize;
     };
 
-    using OnCustomCommand = void (*)(String);
-    using OnConfigCommand = void (*)(String);
+    using OnCustomCommand = void (*)(std::string);
+    using OnConfigCommand = void (*)(std::string);
 }
 
 #endif

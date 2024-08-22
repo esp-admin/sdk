@@ -27,13 +27,11 @@ struct
   int step = 1;
 } counter;
 
-void onCommand(String message);
-void onConfig(String message);
+void onCommand(std::string message);
+void onConfig(std::string message);
 
 void setup()
 {
-  Serial.begin(115200);
-
   ui.setup();
 
   WiFi.begin(ssid, password);
@@ -81,7 +79,7 @@ void loop()
   delay(500);
 }
 
-void onCommand(String msg)
+void onCommand(std::string msg)
 {
   StaticJsonDocument<100> doc;
 
@@ -108,7 +106,7 @@ void onCommand(String msg)
   logger.info("counter %d", counter);
 }
 
-void onConfig(String msg)
+void onConfig(std::string msg)
 {
   StaticJsonDocument<100> doc;
 

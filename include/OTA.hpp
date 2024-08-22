@@ -1,12 +1,15 @@
 #ifndef H_ESP_ADMIN_OTA
 #define H_ESP_ADMIN_OTA
 
+#ifdef ARDUINO
 #include <Arduino.h>
+#endif
+
 #include <esp_http_client.h>
 #include <esp_https_ota.h>
-#include "Store.h"
-#include "Logger.h"
-#include "Update.h"
+#include "Store.hpp"
+#include "Logger.hpp"
+#include "Update.hpp"
 
 namespace ESPAdmin
 {
@@ -15,7 +18,7 @@ namespace ESPAdmin
     class OTA
     {
     public:
-        static void start(const String &downloadURL);
+        static void start(const std::string &downloadURL);
         static void abort();
 
     private:

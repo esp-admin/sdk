@@ -1,4 +1,4 @@
-#include "Command.h"
+#include "Command.hpp"
 
 namespace ESPAdmin
 {
@@ -6,9 +6,9 @@ namespace ESPAdmin
     OnCustomCommand Command::onCustom = nullptr;
     OnConfigCommand Command::onConfig = nullptr;
 
-    void Command::onMessage(const String &message, const String &topic)
+    void Command::onMessage(const std::string &message, const std::string &topic)
     {
-        String type = topic.substring(topic.lastIndexOf("/") + 1);
+        std::string type = topic.substr(topic.find_last_of("/") + 1);
 
         if (type == "log")
         {
@@ -41,7 +41,7 @@ namespace ESPAdmin
         }
     }
 
-    void Command::_onUpdateTrigger(const String &message)
+    void Command::_onUpdateTrigger(const std::string &message)
     {
         StaticJsonDocument<300> doc; // 192 recommended
 
@@ -60,11 +60,11 @@ namespace ESPAdmin
         }
         else
         {
-            _logger.warn(F("failed to deserialize Json"));
+            _logger.warn("failed to deserialize Json");
         }
     }
 
-    void Command::_onUpdateAbort(const String &message)
+    void Command::_onUpdateAbort(const std::string &message)
     {
         StaticJsonDocument<100> doc;
 
@@ -72,16 +72,16 @@ namespace ESPAdmin
 
         if (error == DeserializationError::Ok)
         {
-            String releaseId = doc["releaseId"];
+            std::string releaseId = doc["releaseId"];
             Update::abort(releaseId);
         }
         else
         {
-            _logger.warn(F("failed to deserialize Json"));
+            _logger.warn("failed to deserialize Json");
         }
     }
 
-    void Command::_onConfig(const String &message)
+    void Command::_onConfig(const std::string &message)
     {
         Store::set(STORE_CONFIG, message.c_str());
 
@@ -91,26 +91,26 @@ namespace ESPAdmin
         }
     }
 
-    [[noreturn]] void Command::_onRestart()
+    void Command::_onRestart()
     {
         Report::sendStatus("disconnected");
 
         // Wait for MQTT publish to finish
-        delay(Store::options.resetDelayMs);
+        vTaskDelay(pdMS_TO_TICKS(Store::options.resetDelayMs));
 
         esp_restart();
     }
 
-    void Command::_onLog(const String &message)
+    void Command::_onLog(const std::string &message)
     {
         Store::logRemoteEnabled = message == "on" ? true : false;
     }
 
-    void Command::_onCustom(const String &message)
+    void Command::_onCustom(const std::string &message)
     {
         if (onCustom == nullptr)
         {
-            _logger.warn(F("no handler registered for custom commands"));
+            _logger.warn("no handler registered for custom commands");
         }
         else
         {

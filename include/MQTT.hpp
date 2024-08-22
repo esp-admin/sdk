@@ -1,12 +1,12 @@
 #ifndef H_ESP_ADMIN_MQTT
 #define H_ESP_ADMIN_MQTT
 
-#include <Arduino.h>
-#include "Logger.h"
-#include "Store.h"
+#include "Logger.hpp"
+#include "Store.hpp"
 #include <mqtt_client.h>
-#include "Command.h"
-#include "Report.h"
+#include "Command.hpp"
+#include "Report.hpp"
+#include <esp_idf_version.h>
 
 namespace ESPAdmin
 {
@@ -17,9 +17,9 @@ namespace ESPAdmin
     public:
         static void connect();
         static void disconnect();
-        static void publish(const String &topic, const String &message, unsigned qos, bool retain);
-        static void publish(const String &topic, const char *message, int len, unsigned qos, bool retain);
-        static void subscribe(const String &topic, unsigned qos);
+        static void publish(const std::string &topic, const std::string &message, unsigned qos, bool retain);
+        static void publish(const std::string &topic, const char *message, int len, unsigned qos, bool retain);
+        static void subscribe(const std::string &topic, unsigned qos);
         ~MQTT();
 
     private:
@@ -29,7 +29,7 @@ namespace ESPAdmin
         static void _onConnected();
         static void _onDisconnected();
         static void _onSubscribed();
-        static void _onDataArrived(const String &topic, const String &message);
+        static void _onDataArrived(const std::string &topic, const std::string &message);
     };
 }
 

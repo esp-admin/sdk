@@ -1,4 +1,4 @@
-#include "Report.h"
+#include "Report.hpp"
 
 namespace ESPAdmin
 {
@@ -13,7 +13,7 @@ namespace ESPAdmin
      */
     void Report::send(const ReportMessage &reportMessage)
     {
-        String message;
+        std::string message;
 
         StaticJsonDocument<256> doc;
 
@@ -52,9 +52,9 @@ namespace ESPAdmin
      *
      * @throws None
      */
-    void Report::sendStatus(const String &status)
+    void Report::sendStatus(const std::string &status)
     {
-        String message;
+        std::string message;
 
         StaticJsonDocument<48> doc;
 
@@ -73,11 +73,11 @@ namespace ESPAdmin
      *
      * @throws None
      */
-    void Report::sendUpdateStatus(UpdateMessage &updateMessage, const String &status)
+    void Report::sendUpdateStatus(UpdateMessage &updateMessage, const std::string &status)
     {
         if (status == "started")
         {
-            String message;
+            std::string message;
 
             StaticJsonDocument<126> doc; // 96 recommended
 
@@ -88,7 +88,7 @@ namespace ESPAdmin
 
             updateMessage.deploymentId = HTTP::post("/report/update", message, "application/json");
 
-            String mqttMessage;
+            std::string mqttMessage;
 
             StaticJsonDocument<126> mqttDoc; // 96 recommended
 
@@ -106,7 +106,7 @@ namespace ESPAdmin
             doc["status"] = status;
             doc["deploymentId"] = updateMessage.deploymentId;
 
-            String message;
+            std::string message;
 
             const size_t size = serializeJson(doc, message);
 
@@ -128,7 +128,7 @@ namespace ESPAdmin
      */
     void Report::sendUpdateProgress(UpdateMessage &updateMessage, unsigned int progress)
     {
-        String mqttMessage;
+        std::string mqttMessage;
 
         StaticJsonDocument<150> mqttDoc;
 

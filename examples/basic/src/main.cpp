@@ -1,18 +1,14 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include <ESPAdmin.h>
-#include <ArduinoJson.h>
-#include "credentials.h"
+#include <credentials.h>
 
 ESPAdmin::Logger logger("app");
 
-void onCustomCommand(String message);
+void onCustomCommand(std::string message);
 
 void setup()
 {
-    Serial.begin(115200);
-    Serial.printf("\n");
-
     WiFi.begin(ssid, password);
 
     logger.info("WiFi wait");
@@ -35,9 +31,9 @@ void setup()
     ESPAdmin::Command::onCustom = &onCustomCommand;
 }
 
-void onCustomCommand(String message)
+void onCustomCommand(std::string message)
 {
-    logger.info("Handling command " + message);
+    logger.info("Handling command %s", message.c_str());
 }
 
 void loop()

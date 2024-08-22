@@ -1,12 +1,11 @@
 #ifndef H_ESP_ADMIN_UPDATE
 #define H_ESP_ADMIN_UPDATE
 
-#include <Arduino.h>
-#include "types.h"
-#include "Store.h"
-#include "OTA.h"
-#include "Logger.h"
-#include "Report.h"
+#include "types.hpp"
+#include "Store.hpp"
+#include "OTA.hpp"
+#include "Logger.hpp"
+#include "Report.hpp"
 
 namespace ESPAdmin
 {
@@ -18,7 +17,7 @@ namespace ESPAdmin
         static void checkAndUpdate(const UpdateMessage &message);
         static void onChange(const UpdateStatus &status);
         static void onProgress(int imageRead);
-        static void abort(const String &releaseId);
+        static void abort(const std::string &releaseId);
 
     private:
         static UpdateMessage _message;

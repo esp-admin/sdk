@@ -13,7 +13,7 @@ namespace ESPAdmin
   {
     options.resetDelayMs = DEFAULT_INT(options.resetDelayMs, 7000);
     options.httpMaxResponseSize = DEFAULT_INT(options.httpMaxResponseSize, 300);
-    options.httpTimeoutMs = DEFAULT_INT(options.httpTimeoutMs, 8000);
+    options.httpTimeoutMs = DEFAULT_INT(options.httpTimeoutMs, 15000);
     options.logMaxMessageSize = DEFAULT_INT(options.logMaxMessageSize, 200);
     options.mqttTaskPriority = DEFAULT_INT(options.mqttTaskPriority, 5);
     options.mqttTaskStackSize = DEFAULT_INT(options.mqttTaskStackSize, 9640); // Stack used 4820 bytes

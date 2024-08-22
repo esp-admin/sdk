@@ -1,9 +1,13 @@
 #ifndef H_ESP_ADMIN_LOGGER
 #define H_ESP_ADMIN_LOGGER
 
+#ifdef ARDUINO
 #include <Arduino.h>
-#include "Store.h"
-#include "MQTT.h"
+#endif
+
+#include "Store.hpp"
+#include "MQTT.hpp"
+#include <esp_log.h>
 
 // ANSI escape codes for text color
 #define ANSI_COLOR_RED "\x1b[1;31m"
@@ -25,7 +29,7 @@ namespace ESPAdmin
 
     private:
         void _log(const char *color, const char *type, const char *message) const;
-        const String _scope;
+        const std::string _scope;
     };
 }
 

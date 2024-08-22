@@ -1,12 +1,12 @@
 #ifndef H_ESP_ADMIN
 #define H_ESP_ADMIN
 
-#include "Logger.h"
-#include "Report.h"
-#include "Store.h"
-#include "Command.h"
-#include "MQTT.h"
-#include "types.h"
+#include "Logger.hpp"
+#include "Report.hpp"
+#include "Store.hpp"
+#include "Command.hpp"
+#include "MQTT.hpp"
+#include "types.hpp"
 
 namespace ESPAdmin
 {

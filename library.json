@@ -1,8 +1,8 @@
 {
   "name": "ESPAdmin",
-  "version": "1.4.3",
+  "version": "2.0.0",
   "description": "The sdk for ESP Admin platform",
-  "keywords": "config, ota, esp32, management",
+  "keywords": "config, ota, esp32, management, arduino, espidf",
   "repository": {
     "type": "git",
     "url": "https://github.com/esp-admin/sdk"
@@ -18,7 +18,10 @@
   "dependencies": {
     "bblanchon/ArduinoJson": "~6.21.2"
   },
-  "frameworks": "arduino",
+  "frameworks": [
+    "arduino",
+    "espidf"
+  ],
   "platforms": [
     "espressif32"
   ],
@@ -28,7 +31,16 @@
       "./include/credentials.h",
       "./node_modules",
       "./package.json",
-      "./package-lock.json"
+      "./package-lock.json",
+      "./components",
+      "./tests",
+      "./dependencies.lock",
+      "./sdkconfig.defaults",
+      "./sdkconfig.esp32dev",
+      "./platformio.ini",
+      "./CMakeLists.txt",
+      "./src/CMakeLists.txt",
+      "./compile_commands.json"
     ]
   }
 }
