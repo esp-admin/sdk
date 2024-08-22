@@ -15,7 +15,7 @@ namespace ESPAdmin
      */
     std::string HTTP::get(const std::string &path)
     {
-        char response[Store::options.httpMaxResponseSize + 1] = "";
+        char response[Store::options.httpMaxResponseSize + 1] = {0};
 
         std::string fullPath = "/api/device/" + std::string(Store::options.deviceId) + path;
 
@@ -82,7 +82,7 @@ namespace ESPAdmin
      */
     std::string HTTP::post(const std::string &path, const std::string &content, const std::string &contentType)
     {
-        char response[Store::options.httpMaxResponseSize + 1] = "";
+        char response[Store::options.httpMaxResponseSize + 1] = {0};
 
         std::string fullPath = "/api/device/" + std::string(Store::options.deviceId) + path;
 

@@ -96,7 +96,7 @@ namespace ESPAdmin
         Report::sendStatus("disconnected");
 
         // Wait for MQTT publish to finish
-        vTaskDelay(Store::options.resetDelayMs / portTICK_PERIOD_MS);
+        vTaskDelay(pdMS_TO_TICKS(Store::options.resetDelayMs));
 
         esp_restart();
     }
