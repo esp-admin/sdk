@@ -89,7 +89,7 @@ namespace ESPAdmin
     {
         if (Store::logSerialEnabled)
         {
-            ESP_LOGI(_scope.c_str(), "%s %s %s %s \n", color, type, ANSI_COLOR_RESET, std::string(message).c_str());
+            ESP_LOGI(_scope.c_str(), "%s %s %s %s", color, type, ANSI_COLOR_RESET, std::string(message).c_str());
         }
         if (Store::logRemoteEnabled)
         {
