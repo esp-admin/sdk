@@ -1,6 +1,6 @@
 {
   "name": "ESPAdmin",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "The sdk for ESP Admin platform",
   "keywords": "config, ota, esp32, management, arduino, espidf",
   "repository": {
@@ -16,7 +16,7 @@
   "license": "MIT",
   "homepage": "https://esp-admin.tn",
   "dependencies": {
-    "bblanchon/ArduinoJson": "~6.21.2"
+    "bblanchon/ArduinoJson": "^7.2.0"
   },
   "frameworks": [
     "arduino",
