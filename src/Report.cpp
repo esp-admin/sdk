@@ -15,7 +15,7 @@ namespace ESPAdmin
     {
         std::string message;
 
-        StaticJsonDocument<256> doc;
+        JsonDocument doc;
 
         doc["subject"] = reportMessage.subject;
         doc["body"] = reportMessage.body;
@@ -56,7 +56,7 @@ namespace ESPAdmin
     {
         std::string message;
 
-        StaticJsonDocument<48> doc;
+        JsonDocument doc;
 
         doc["status"] = status;
 
@@ -79,7 +79,7 @@ namespace ESPAdmin
         {
             std::string message;
 
-            StaticJsonDocument<126> doc; // 96 recommended
+            JsonDocument doc;
 
             doc["releaseId"] = updateMessage.releaseId;
             doc["status"] = status;
@@ -90,7 +90,7 @@ namespace ESPAdmin
 
             std::string mqttMessage;
 
-            StaticJsonDocument<126> mqttDoc; // 96 recommended
+            JsonDocument mqttDoc;
 
             mqttDoc["status"] = status;
             mqttDoc["deploymentId"] = updateMessage.deploymentId;
@@ -101,7 +101,7 @@ namespace ESPAdmin
         }
         else
         {
-            StaticJsonDocument<126> doc; // 96 recommended
+            JsonDocument doc;
 
             doc["status"] = status;
             doc["deploymentId"] = updateMessage.deploymentId;
@@ -130,7 +130,7 @@ namespace ESPAdmin
     {
         std::string mqttMessage;
 
-        StaticJsonDocument<150> mqttDoc;
+        JsonDocument mqttDoc;
 
         mqttDoc["releaseId"] = updateMessage.releaseId;
         mqttDoc["deploymentId"] = updateMessage.deploymentId;

@@ -69,7 +69,7 @@ namespace ESPAdmin
             return;
         }
 
-        StaticJsonDocument<384> doc;
+        JsonDocument doc;
 
         DeserializationError error = deserializeJson(doc, settings);
 

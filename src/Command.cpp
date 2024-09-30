@@ -43,7 +43,7 @@ namespace ESPAdmin
 
     void Command::_onUpdateTrigger(const std::string &message)
     {
-        StaticJsonDocument<300> doc; // 192 recommended
+        JsonDocument doc;
 
         DeserializationError error = deserializeJson(doc, message);
 
@@ -66,7 +66,7 @@ namespace ESPAdmin
 
     void Command::_onUpdateAbort(const std::string &message)
     {
-        StaticJsonDocument<100> doc;
+        JsonDocument doc;
 
         DeserializationError error = deserializeJson(doc, message);
 
