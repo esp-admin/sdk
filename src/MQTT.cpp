@@ -230,8 +230,6 @@ namespace ESPAdmin
         Store::mqttConnected = false;
 
         _logger.info("disconnected");
-
-        Report::sendStatus("disconnected");
     }
 
     void MQTT::_onDataArrived(const std::string &topic, const std::string &message)
