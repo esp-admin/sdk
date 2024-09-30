@@ -213,6 +213,9 @@ namespace ESPAdmin
 
     void MQTT::_onConnected()
     {
+        // Delay between disconnected (LWT) and connected (status report) events
+        vTaskDelay(pdMS_TO_TICKS(4000));
+
         Store::mqttConnected = true;
 
         _logger.info("connected");
