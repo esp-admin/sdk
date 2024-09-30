@@ -1,5 +1,29 @@
 # Changelog
 
+## v2.0.1
+
+[compare changes](https://github.com/esp-admin/sdk/compare/v2.0.0...v2.0.1)
+
+### 🔥 Performance
+
+- Migrate to `ArduinoJson` v7 ([236a636](https://github.com/esp-admin/sdk/commit/236a636))
+
+### 🩹 Fixes
+
+- **mqtt:** Fix MQTT connection status after disconnect ([a5cb082](https://github.com/esp-admin/sdk/commit/a5cb082))
+- **mqtt:** Remove extra disconnection report (LWT sufficient) ([414b53b](https://github.com/esp-admin/sdk/commit/414b53b))
+
+### 🏡 Chore
+
+- **examples:** Update main.cpp on gprs ([fa806b6](https://github.com/esp-admin/sdk/commit/fa806b6))
+- Develop with arduino framework ([4f12d8a](https://github.com/esp-admin/sdk/commit/4f12d8a))
+- Update release script ([ef8fad0](https://github.com/esp-admin/sdk/commit/ef8fad0))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+- Becem <becem.gharbi@live.com>
+
 ## v2.0.0
 
 [compare changes](https://github.com/esp-admin/sdk/compare/v1.4.3...v2.0.0)
