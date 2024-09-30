@@ -3,7 +3,11 @@
   "version": "2.0.0",
   "description": "The sdk for [ESP Admin](https://github.com/becem-gharbi/esp-admin) platform",
   "scripts": {
-    "release": "npx changelogen"
+    "release": "npx changelogen --release && git push --follow-tags"
   },
-  "author": "Becem Gharbi"
+  "author": "Becem Gharbi",
+  "keywords": [
+    "esp-admin",
+    "sdk"
+  ]
 }
